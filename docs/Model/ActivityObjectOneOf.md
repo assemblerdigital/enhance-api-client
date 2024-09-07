@@ -1,0 +1,11 @@
+# # ActivityObjectOneOf
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**type** | **string** |  |
+**from** | [**\OpenAPI\Client\Model\ActivityObjectEntity**](ActivityObjectEntity.md) |  |
+**to** | [**\OpenAPI\Client\Model\ActivityObjectEntity**](ActivityObjectEntity.md) |  |
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
