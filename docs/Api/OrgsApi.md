@@ -20,7 +20,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**deleteOwner()**](OrgsApi.md#deleteOwner) | **DELETE** /orgs/{org_id}/owner | Delete organization owner |
 | [**deletePlan()**](OrgsApi.md#deletePlan) | **DELETE** /orgs/{org_id}/plans/{plan_id} | Delete plan |
 | [**deletePlanAllowance()**](OrgsApi.md#deletePlanAllowance) | **DELETE** /orgs/{org_id}/plans/{plan_id}/allowances/{name} | Delete plan allowance |
-| [**deleteWebsiteMySQLUserAccessHosts()**](OrgsApi.md#deleteWebsiteMySQLUserAccessHosts) | **DELETE** /orgs/{org_id}/websites/{website_id}/mysql-users/{user_id}/access-hosts | Delete website MySQL database user access hosts |
+| [**deleteWebsiteMySQLUserAccessHosts()**](OrgsApi.md#deleteWebsiteMySQLUserAccessHosts) | **DELETE** /orgs/{org_id}/websites/{website_id}/mysql-users/{username}/access-hosts | Delete website MySQL database user access hosts |
 | [**getCloudFlareKeyAffectedDomains()**](OrgsApi.md#getCloudFlareKeyAffectedDomains) | **GET** /orgs/{org_id}/cloudflare/{cloudflare_key} | Get affected domains for a CloudFlare key |
 | [**getCloudflareApiKeys()**](OrgsApi.md#getCloudflareApiKeys) | **GET** /orgs/{org_id}/cloudflare | Get CloudFlare API keys, org level |
 | [**getCustomersAdded()**](OrgsApi.md#getCustomersAdded) | **GET** /orgs/{org_id}/stats/customers/added | Get customers added over a given time period |
@@ -1074,7 +1074,7 @@ No authorization required
 ## `deleteWebsiteMySQLUserAccessHosts()`
 
 ```php
-deleteWebsiteMySQLUserAccessHosts($org_id, $website_id, $db_id, $user_id, $my_sql_user_access_hosts)
+deleteWebsiteMySQLUserAccessHosts($org_id, $website_id, $username, $my_sql_user_access_hosts)
 ```
 
 Delete website MySQL database user access hosts
@@ -1096,12 +1096,11 @@ $apiInstance = new OpenAPI\Client\Api\OrgsApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$db_id = 'db_id_example'; // string | The id of the database.
-$user_id = 'user_id_example'; // string | The id of the database user.
+$username = 'username_example'; // string | The user of the database user.
 $my_sql_user_access_hosts = new \OpenAPI\Client\Model\MySQLUserAccessHosts(); // \OpenAPI\Client\Model\MySQLUserAccessHosts | User access hosts.
 
 try {
-    $apiInstance->deleteWebsiteMySQLUserAccessHosts($org_id, $website_id, $db_id, $user_id, $my_sql_user_access_hosts);
+    $apiInstance->deleteWebsiteMySQLUserAccessHosts($org_id, $website_id, $username, $my_sql_user_access_hosts);
 } catch (Exception $e) {
     echo 'Exception when calling OrgsApi->deleteWebsiteMySQLUserAccessHosts: ', $e->getMessage(), PHP_EOL;
 }
@@ -1113,8 +1112,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **db_id** | **string**| The id of the database. | |
-| **user_id** | **string**| The id of the database user. | |
+| **username** | **string**| The user of the database user. | |
 | **my_sql_user_access_hosts** | [**\OpenAPI\Client\Model\MySQLUserAccessHosts**](../Model/MySQLUserAccessHosts.md)| User access hosts. | |
 
 ### Return type
@@ -1494,7 +1492,7 @@ try {
 ## `getMembers()`
 
 ```php
-getMembers($org_id, $offset, $limit, $sort_by, $sort_order, $search, $role, $site_access): \OpenAPI\Client\Model\MembersListing
+getMembers($org_id, $offset, $limit, $sort_by, $sort_order, $role, $site_access): \OpenAPI\Client\Model\MembersListing
 ```
 
 Get organization members
@@ -1528,12 +1526,11 @@ $offset = 56; // int | The offset from which to return items.
 $limit = 56; // int | The maximum number of items to return.
 $sort_by = 'sort_by_example'; // string | The field by which to sort.
 $sort_order = 'sort_order_example'; // string | The direction in which to sort. Possible values are 'asc' and 'desc', defaulting to 'asc'.
-$search = 'search_example'; // string | Limit the result set to the resources whose names, partially and case insensitively, match the specified search term. E.g. for websites, this is their domain or tag, for databases the database name, for emails the email address or mailbox name, etc. A website will also be returned if the search term exactly matches the website's uuid.
 $role = new \OpenAPI\Client\Model\Role(); // Role | Return only members with this role.
 $site_access = 'site_access_example'; // string | Return only collaborator members that have access to this website. Note that super admins and owners are not returned because they implicitly have access.
 
 try {
-    $result = $apiInstance->getMembers($org_id, $offset, $limit, $sort_by, $sort_order, $search, $role, $site_access);
+    $result = $apiInstance->getMembers($org_id, $offset, $limit, $sort_by, $sort_order, $role, $site_access);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrgsApi->getMembers: ', $e->getMessage(), PHP_EOL;
@@ -1549,7 +1546,6 @@ try {
 | **limit** | **int**| The maximum number of items to return. | [optional] |
 | **sort_by** | **string**| The field by which to sort. | [optional] |
 | **sort_order** | **string**| The direction in which to sort. Possible values are &#39;asc&#39; and &#39;desc&#39;, defaulting to &#39;asc&#39;. | [optional] |
-| **search** | **string**| Limit the result set to the resources whose names, partially and case insensitively, match the specified search term. E.g. for websites, this is their domain or tag, for databases the database name, for emails the email address or mailbox name, etc. A website will also be returned if the search term exactly matches the website&#39;s uuid. | [optional] |
 | **role** | [**Role**](../Model/.md)| Return only members with this role. | [optional] |
 | **site_access** | **string**| Return only collaborator members that have access to this website. Note that super admins and owners are not returned because they implicitly have access. | [optional] |
 

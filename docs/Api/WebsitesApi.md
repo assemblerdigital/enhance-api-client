@@ -18,7 +18,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**createWebsiteMySQLDB()**](WebsitesApi.md#createWebsiteMySQLDB) | **POST** /orgs/{org_id}/websites/{website_id}/mysql-dbs | Create a MySQL database for website |
 | [**deleteDomainNginxFastCgiExcludedPath()**](WebsitesApi.md#deleteDomainNginxFastCgiExcludedPath) | **DELETE** /v2/domains/{domain_id}/nginx_fastcgi_excluded_paths | Delete Nginx FastCGI excluded path |
 | [**deleteDomainWebserverRewrite()**](WebsitesApi.md#deleteDomainWebserverRewrite) | **DELETE** /v2/domains/{domain_id}/webserver_rewrites | Delete web server rewrite |
-| [**deleteFtpUser()**](WebsitesApi.md#deleteFtpUser) | **DELETE** /orgs/{org_id}/websites/{website_id}/ftp/users/{user_id} | Deletes given FTP user |
+| [**deleteFtpUser()**](WebsitesApi.md#deleteFtpUser) | **DELETE** /orgs/{org_id}/websites/{website_id}/ftp/users/{username} | Deletes given FTP user |
 | [**deleteUserCrontab()**](WebsitesApi.md#deleteUserCrontab) | **DELETE** /orgs/{org_id}/websites/{website_id}/crontab | Delete user&#39;s crontab |
 | [**deleteWebsite()**](WebsitesApi.md#deleteWebsite) | **DELETE** /orgs/{org_id}/websites/{website_id} | Delete website |
 | [**deleteWebsiteDomainMapping()**](WebsitesApi.md#deleteWebsiteDomainMapping) | **DELETE** /orgs/{org_id}/websites/{website_id}/domains/{domain_id} | Delete website domain mapping |
@@ -77,7 +77,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**setWebsiteSetting()**](WebsitesApi.md#setWebsiteSetting) | **PUT** /orgs/{org_id}/websites/{website_id}/settings/{setting_kind}/{setting_key} | Set a single override setting |
 | [**takeScreenshot()**](WebsitesApi.md#takeScreenshot) | **POST** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/screenshot/take | Take website screenshot immediately |
 | [**unauthorizeWebsiteSshKey()**](WebsitesApi.md#unauthorizeWebsiteSshKey) | **DELETE** /orgs/{org_id}/websites/{website_id}/ssh/keys/{key_id} | Unauthorize the public SSH key with the given ID. |
-| [**updateFtpUser()**](WebsitesApi.md#updateFtpUser) | **PATCH** /orgs/{org_id}/websites/{website_id}/ftp/users/{user_id} | Update given FTP user |
+| [**updateFtpUser()**](WebsitesApi.md#updateFtpUser) | **PATCH** /orgs/{org_id}/websites/{website_id}/ftp/users/{username} | Update given FTP user |
 | [**updateUserCrontab()**](WebsitesApi.md#updateUserCrontab) | **PATCH** /orgs/{org_id}/websites/{website_id}/crontab | Update user&#39;s crontab |
 | [**updateWebsite()**](WebsitesApi.md#updateWebsite) | **PATCH** /orgs/{org_id}/websites/{website_id} | Update website |
 | [**updateWebsiteDomainMapping()**](WebsitesApi.md#updateWebsiteDomainMapping) | **PATCH** /orgs/{org_id}/websites/{website_id}/domains/{domain_id} | Update website domain mapping |
@@ -439,11 +439,20 @@ Endpoint for creating a new FTP user. NOTE: user.account well get appended with 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new OpenAPI\Client\Api\WebsitesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
@@ -473,7 +482,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -802,7 +811,7 @@ try {
 ## `createWebsiteMySQLDB()`
 
 ```php
-createWebsiteMySQLDB($org_id, $website_id, $new_my_sqldb): \OpenAPI\Client\Model\NewResourceUuid
+createWebsiteMySQLDB($org_id, $website_id, $new_my_sqldb)
 ```
 
 Create a MySQL database for website
@@ -827,8 +836,7 @@ $website_id = 'website_id_example'; // string | The id of the website.
 $new_my_sqldb = new \OpenAPI\Client\Model\NewMySQLDB(); // \OpenAPI\Client\Model\NewMySQLDB | New database details.
 
 try {
-    $result = $apiInstance->createWebsiteMySQLDB($org_id, $website_id, $new_my_sqldb);
-    print_r($result);
+    $apiInstance->createWebsiteMySQLDB($org_id, $website_id, $new_my_sqldb);
 } catch (Exception $e) {
     echo 'Exception when calling WebsitesApi->createWebsiteMySQLDB: ', $e->getMessage(), PHP_EOL;
 }
@@ -844,7 +852,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NewResourceUuid**](../Model/NewResourceUuid.md)
+void (empty response body)
 
 ### Authorization
 
@@ -853,7 +861,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -990,7 +998,7 @@ void (empty response body)
 ## `deleteFtpUser()`
 
 ```php
-deleteFtpUser($org_id, $website_id, $user_id, $delete_home)
+deleteFtpUser($org_id, $website_id, $username, $delete_home)
 ```
 
 Deletes given FTP user
@@ -1004,19 +1012,28 @@ Endpoint for deleting FTP user for a given website. User homeDir can only be del
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new OpenAPI\Client\Api\WebsitesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$user_id = 'user_id_example'; // string | The id of an FTP user.
+$username = 'username_example'; // string
 $delete_home = True; // bool | If set to true we will try to delete the homeDir for the user. User homeDir can only be deleted if it is a subdir for the website home.
 
 try {
-    $apiInstance->deleteFtpUser($org_id, $website_id, $user_id, $delete_home);
+    $apiInstance->deleteFtpUser($org_id, $website_id, $username, $delete_home);
 } catch (Exception $e) {
     echo 'Exception when calling WebsitesApi->deleteFtpUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -1028,7 +1045,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **user_id** | **string**| The id of an FTP user. | |
+| **username** | **string**|  | |
 | **delete_home** | **bool**| If set to true we will try to delete the homeDir for the user. User homeDir can only be deleted if it is a subdir for the website home. | [optional] |
 
 ### Return type
@@ -1037,7 +1054,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1340,7 +1357,7 @@ $apiInstance = new OpenAPI\Client\Api\WebsitesApi(
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
 $setting_kind = new \OpenAPI\Client\Model\SettingKind(); // SettingKind | The type of setting being applied
-$setting_key = 'setting_key_example'; // string | A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup
+$setting_key = 'setting_key_example'; // string | A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl
 
 try {
     $apiInstance->deleteWebsiteSetting($org_id, $website_id, $setting_kind, $setting_key);
@@ -1356,7 +1373,7 @@ try {
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
 | **setting_kind** | [**SettingKind**](../Model/.md)| The type of setting being applied | |
-| **setting_key** | **string**| A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup | |
+| **setting_key** | **string**| A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl | |
 
 ### Return type
 
@@ -1766,11 +1783,20 @@ Endpoint for retreaving ftp users for a given website Session holder must be at 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new OpenAPI\Client\Api\WebsitesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
@@ -1796,7 +1822,7 @@ try {
 
 ### Authorization
 
-No authorization required
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -4614,7 +4640,7 @@ $apiInstance = new OpenAPI\Client\Api\WebsitesApi(
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
 $setting_kind = new \OpenAPI\Client\Model\SettingKind(); // SettingKind | The type of setting being applied
-$setting_key = 'setting_key_example'; // string | A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup
+$setting_key = 'setting_key_example'; // string | A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl
 $service_setting_value = new \OpenAPI\Client\Model\ServiceSettingValue(); // \OpenAPI\Client\Model\ServiceSettingValue
 
 try {
@@ -4631,7 +4657,7 @@ try {
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
 | **setting_kind** | [**SettingKind**](../Model/.md)| The type of setting being applied | |
-| **setting_key** | **string**| A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup | |
+| **setting_key** | **string**| A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl | |
 | **service_setting_value** | [**\OpenAPI\Client\Model\ServiceSettingValue**](../Model/ServiceSettingValue.md)|  | |
 
 ### Return type
@@ -4781,7 +4807,7 @@ No authorization required
 ## `updateFtpUser()`
 
 ```php
-updateFtpUser($org_id, $website_id, $user_id, $ftp_user_update)
+updateFtpUser($org_id, $website_id, $username, $ftp_user_update)
 ```
 
 Update given FTP user
@@ -4795,19 +4821,28 @@ Endpoint for updating FTP user for a given website We only allow user's homeDir 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new OpenAPI\Client\Api\WebsitesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$user_id = 'user_id_example'; // string | The id of an FTP user.
+$username = 'username_example'; // string
 $ftp_user_update = new \OpenAPI\Client\Model\FtpUserUpdate(); // \OpenAPI\Client\Model\FtpUserUpdate | FTP User
 
 try {
-    $apiInstance->updateFtpUser($org_id, $website_id, $user_id, $ftp_user_update);
+    $apiInstance->updateFtpUser($org_id, $website_id, $username, $ftp_user_update);
 } catch (Exception $e) {
     echo 'Exception when calling WebsitesApi->updateFtpUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -4819,7 +4854,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **user_id** | **string**| The id of an FTP user. | |
+| **username** | **string**|  | |
 | **ftp_user_update** | [**\OpenAPI\Client\Model\FtpUserUpdate**](../Model/FtpUserUpdate.md)| FTP User | |
 
 ### Return type
@@ -4828,7 +4863,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 

@@ -125,7 +125,6 @@ Class | Method | HTTP request | Description
 *DnsApi* | [**updateWebsiteDomainDnsZone**](docs/Api/DnsApi.md#updatewebsitedomaindnszone) | **PATCH** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/dns-zone | Updates a dns zone SOA for website domain
 *DnsApi* | [**updateWebsiteDomainDnsZoneRecord**](docs/Api/DnsApi.md#updatewebsitedomaindnszonerecord) | **PATCH** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/dns-zone/records/{record_id} | Updates a dns record for given domain
 *DomainsApi* | [**checkDomain**](docs/Api/DomainsApi.md#checkdomain) | **POST** /orgs/{org_id}/domains/check | Check if a domain can be created
-*DomainsApi* | [**createDomain**](docs/Api/DomainsApi.md#createdomain) | **POST** /orgs/{org_id}/domains | Create domain
 *DomainsApi* | [**createWebsiteDomainLetsencryptCerts**](docs/Api/DomainsApi.md#createwebsitedomainletsencryptcerts) | **POST** /v2/domains/{domain_id}/letsencrypt | Generate and setup letsencrypt ssl certificates for website&#39;s domain
 *DomainsApi* | [**createWebsiteMailDomainLetsencryptCerts**](docs/Api/DomainsApi.md#createwebsitemaildomainletsencryptcerts) | **POST** /v2/domains/{domain_id}/letsencrypt_mail | Generate and setup letsencrypt ssl certificates for website&#39;s domain with mail. prefix.
 *DomainsApi* | [**createWebsiteMappedDomain**](docs/Api/DomainsApi.md#createwebsitemappeddomain) | **POST** /orgs/{org_id}/websites/{website_id}/domains | Create website mapped domain
@@ -175,9 +174,9 @@ Class | Method | HTTP request | Description
 *EmailsApi* | [**updateWebsiteEmail**](docs/Api/EmailsApi.md#updatewebsiteemail) | **PATCH** /orgs/{org_id}/websites/{website_id}/emails/{email_id} | Update website email
 *EmailsApi* | [**validateDomainEmailAuth**](docs/Api/EmailsApi.md#validatedomainemailauth) | **GET** /orgs/{org_id}/domains/{domain_id}/email-auth/validate | Validate email authentication DNS records
 *FtpApi* | [**createFtpUser**](docs/Api/FtpApi.md#createftpuser) | **POST** /orgs/{org_id}/websites/{website_id}/ftp/users | Creates a new FTP user for a given website
-*FtpApi* | [**deleteFtpUser**](docs/Api/FtpApi.md#deleteftpuser) | **DELETE** /orgs/{org_id}/websites/{website_id}/ftp/users/{user_id} | Deletes given FTP user
+*FtpApi* | [**deleteFtpUser**](docs/Api/FtpApi.md#deleteftpuser) | **DELETE** /orgs/{org_id}/websites/{website_id}/ftp/users/{username} | Deletes given FTP user
 *FtpApi* | [**getFtpUsers**](docs/Api/FtpApi.md#getftpusers) | **GET** /orgs/{org_id}/websites/{website_id}/ftp/users | Returns all ftp users data for a given website
-*FtpApi* | [**updateFtpUser**](docs/Api/FtpApi.md#updateftpuser) | **PATCH** /orgs/{org_id}/websites/{website_id}/ftp/users/{user_id} | Update given FTP user
+*FtpApi* | [**updateFtpUser**](docs/Api/FtpApi.md#updateftpuser) | **PATCH** /orgs/{org_id}/websites/{website_id}/ftp/users/{username} | Update given FTP user
 *ImportersApi* | [**analyzeImportMigration**](docs/Api/ImportersApi.md#analyzeimportmigration) | **POST** /v2/orgs/{org_id}/import/{import_migration_id}/analyze | Analyze imported migration
 *ImportersApi* | [**checkImportMigrationResources**](docs/Api/ImportersApi.md#checkimportmigrationresources) | **POST** /v2/orgs/{org_id}/import/{import_migration_id}/resource | Check if all resources from the imported migration could be created.
 *ImportersApi* | [**createImportMigration**](docs/Api/ImportersApi.md#createimportmigration) | **POST** /v2/orgs/{org_id}/import/{import_migration_id} | Create a new import migration.
@@ -194,15 +193,11 @@ Class | Method | HTTP request | Description
 *ImportersApi* | [**listImportServerSettings**](docs/Api/ImportersApi.md#listimportserversettings) | **GET** /orgs/{org_id}/import/server/settings | List all server import settings
 *ImportersApi* | [**scanImportMigrations**](docs/Api/ImportersApi.md#scanimportmigrations) | **GET** /v2/import/scan | Scan for manually uploaded cPanel backups.
 *ImportersApi* | [**transferCPanelUserAccount**](docs/Api/ImportersApi.md#transfercpaneluseraccount) | **POST** /orgs/{org_id}/import/server/{server_id}/account/{user_id} | Transfer user account from remote cPanel server
+*ImportersApi* | [**transferPleskDomain**](docs/Api/ImportersApi.md#transferpleskdomain) | **POST** /orgs/{org_id}/import/plesk-server/{server_id}/domain | Transfer user account from remote cPanel server
 *ImportersApi* | [**updateImportServerSettings**](docs/Api/ImportersApi.md#updateimportserversettings) | **PATCH** /orgs/{org_id}/import/server/{server_id}/settings | Update settings for the server import
 *ImportersApi* | [**uploadImportMigration**](docs/Api/ImportersApi.md#uploadimportmigration) | **POST** /v2/orgs/{org_id}/import/upload/{import_migration_kind} | Upload file for analyzing and processing.
-*InstallApi* | [**controldVersion**](docs/Api/InstallApi.md#controldversion) | **GET** /install/compatible_versions/controld | Get the compatible controld version
-*InstallApi* | [**getServiceKindLatestVersion**](docs/Api/InstallApi.md#getservicekindlatestversion) | **GET** /install/latest_available_version/{service_kind} | Get the latest available version of a given service kind
-*InstallApi* | [**install**](docs/Api/InstallApi.md#install) | **POST** /install | Create the master organization owner
 *InstallApi* | [**orchdStatus**](docs/Api/InstallApi.md#orchdstatus) | **GET** /status | Get the readiness status of the orchd service
 *InstallApi* | [**orchdVersion**](docs/Api/InstallApi.md#orchdversion) | **GET** /version | Get the SemVer of the API service
-*InstallApi* | [**updateEnhance**](docs/Api/InstallApi.md#updateenhance) | **POST** /install/update | Updates all services in the cluster.
-*InstallApi* | [**validateInstallation**](docs/Api/InstallApi.md#validateinstallation) | **POST** /install/validate | Used to validate that the control panel has been initialized.
 *InvitesApi* | [**acceptInvite**](docs/Api/InvitesApi.md#acceptinvite) | **POST** /invites/{invite_id} | Accept invite
 *InvitesApi* | [**createInvite**](docs/Api/InvitesApi.md#createinvite) | **POST** /orgs/{org_id}/invites | Create invite
 *InvitesApi* | [**validateInvite**](docs/Api/InvitesApi.md#validateinvite) | **POST** /invites/{invite_id}/validate | Validate invite
@@ -255,18 +250,17 @@ Class | Method | HTTP request | Description
 *MigrationsApi* | [**getMigrations**](docs/Api/MigrationsApi.md#getmigrations) | **GET** /migrations | Get website role migrations
 *MysqlApi* | [**createWebsiteMySQLDB**](docs/Api/MysqlApi.md#createwebsitemysqldb) | **POST** /orgs/{org_id}/websites/{website_id}/mysql-dbs | Create a MySQL database for website
 *MysqlApi* | [**createWebsiteMySQLUser**](docs/Api/MysqlApi.md#createwebsitemysqluser) | **POST** /orgs/{org_id}/websites/{website_id}/mysql-users | Create website MySQL database user
-*MysqlApi* | [**createWebsiteMySQLUserAccessHosts**](docs/Api/MysqlApi.md#createwebsitemysqluseraccesshosts) | **POST** /orgs/{org_id}/websites/{website_id}/mysql-users/{user_id}/access-hosts | Create website MySQL database user access hosts
-*MysqlApi* | [**deleteWebsiteMySQLDB**](docs/Api/MysqlApi.md#deletewebsitemysqldb) | **DELETE** /orgs/{org_id}/websites/{website_id}/mysql-dbs/{db_id} | Delete website MySQL database
-*MysqlApi* | [**deleteWebsiteMySQLUser**](docs/Api/MysqlApi.md#deletewebsitemysqluser) | **DELETE** /orgs/{org_id}/websites/{website_id}/mysql-users/{user_id} | Delete website MySQL database user
-*MysqlApi* | [**deleteWebsiteMySQLUserAccessHosts**](docs/Api/MysqlApi.md#deletewebsitemysqluseraccesshosts) | **DELETE** /orgs/{org_id}/websites/{website_id}/mysql-users/{user_id}/access-hosts | Delete website MySQL database user access hosts
-*MysqlApi* | [**downloadSql**](docs/Api/MysqlApi.md#downloadsql) | **GET** /orgs/{org_id}/websites/{website_id}/mysql-dbs/{db_id}/sql | Takes a backup of given database and returns it gziped
-*MysqlApi* | [**getOrgMySQLDBs**](docs/Api/MysqlApi.md#getorgmysqldbs) | **GET** /orgs/{org_id}/mysql-dbs | Get org&#39;s MySQL databases
-*MysqlApi* | [**getPhpMyAdminSSOUrl**](docs/Api/MysqlApi.md#getphpmyadminssourl) | **GET** /orgs/{org_id}/websites/{website_id}/mysql-dbs/{db_id}/sso | Get phpMyAdmin SSO URL
+*MysqlApi* | [**createWebsiteMySQLUserAccessHosts**](docs/Api/MysqlApi.md#createwebsitemysqluseraccesshosts) | **POST** /orgs/{org_id}/websites/{website_id}/mysql-users/{username}/access-hosts | Create website MySQL database user access hosts
+*MysqlApi* | [**deleteWebsiteMySQLDB**](docs/Api/MysqlApi.md#deletewebsitemysqldb) | **DELETE** /orgs/{org_id}/websites/{website_id}/mysql-dbs/{db_name} | Delete website MySQL database
+*MysqlApi* | [**deleteWebsiteMySQLUser**](docs/Api/MysqlApi.md#deletewebsitemysqluser) | **DELETE** /orgs/{org_id}/websites/{website_id}/mysql-users/{username} | Delete website MySQL database user
+*MysqlApi* | [**deleteWebsiteMySQLUserAccessHosts**](docs/Api/MysqlApi.md#deletewebsitemysqluseraccesshosts) | **DELETE** /orgs/{org_id}/websites/{website_id}/mysql-users/{username}/access-hosts | Delete website MySQL database user access hosts
+*MysqlApi* | [**downloadSql**](docs/Api/MysqlApi.md#downloadsql) | **GET** /orgs/{org_id}/websites/{website_id}/mysql-dbs/{db_name}/sql | Takes a backup of given database and returns it gziped
+*MysqlApi* | [**getPhpMyAdminSSOUrl**](docs/Api/MysqlApi.md#getphpmyadminssourl) | **GET** /orgs/{org_id}/websites/{website_id}/mysql-dbs/{db_name}/sso | Get phpMyAdmin SSO URL
 *MysqlApi* | [**getWebsiteMySQLDBs**](docs/Api/MysqlApi.md#getwebsitemysqldbs) | **GET** /orgs/{org_id}/websites/{website_id}/mysql-dbs | Get website MySQL databases
 *MysqlApi* | [**getWebsiteMySQLUsers**](docs/Api/MysqlApi.md#getwebsitemysqlusers) | **GET** /orgs/{org_id}/websites/{website_id}/mysql-users | Get website MySQL database users
-*MysqlApi* | [**setWebsiteMySQLUserPrivileges**](docs/Api/MysqlApi.md#setwebsitemysqluserprivileges) | **PUT** /orgs/{org_id}/websites/{website_id}/mysql-users/{user_id}/privileges | Create website MySQL database user privileges
-*MysqlApi* | [**updateWebsiteMySQLUser**](docs/Api/MysqlApi.md#updatewebsitemysqluser) | **PUT** /orgs/{org_id}/websites/{website_id}/mysql-users/{user_id} | Update website MySQL database user
-*MysqlApi* | [**uploadSql**](docs/Api/MysqlApi.md#uploadsql) | **POST** /v2/mysql/{db_id}/sql | Uploads sql file and executes it against db
+*MysqlApi* | [**setWebsiteMySQLUserPrivileges**](docs/Api/MysqlApi.md#setwebsitemysqluserprivileges) | **PUT** /orgs/{org_id}/websites/{website_id}/mysql-users/{username}/privileges | Create website MySQL database user privileges
+*MysqlApi* | [**updateWebsiteMySQLUser**](docs/Api/MysqlApi.md#updatewebsitemysqluser) | **PUT** /orgs/{org_id}/websites/{website_id}/mysql-users/{username} | Update website MySQL database user
+*MysqlApi* | [**uploadSql**](docs/Api/MysqlApi.md#uploadsql) | **POST** /v2/websites/{websiteId}/mysql/{db_id}/sql | Uploads sql file and executes it against db
 *OrgsApi* | [**createAccessToken**](docs/Api/OrgsApi.md#createaccesstoken) | **POST** /orgs/{org_id}/access_tokens | Create organisation access token
 *OrgsApi* | [**createCloudflareApiKey**](docs/Api/OrgsApi.md#createcloudflareapikey) | **POST** /orgs/{org_id}/cloudflare | Set CloudFlare API key, org level
 *OrgsApi* | [**createCustomer**](docs/Api/OrgsApi.md#createcustomer) | **POST** /orgs/{org_id}/customers | Create a customer organization
@@ -283,7 +277,7 @@ Class | Method | HTTP request | Description
 *OrgsApi* | [**deleteOwner**](docs/Api/OrgsApi.md#deleteowner) | **DELETE** /orgs/{org_id}/owner | Delete organization owner
 *OrgsApi* | [**deletePlan**](docs/Api/OrgsApi.md#deleteplan) | **DELETE** /orgs/{org_id}/plans/{plan_id} | Delete plan
 *OrgsApi* | [**deletePlanAllowance**](docs/Api/OrgsApi.md#deleteplanallowance) | **DELETE** /orgs/{org_id}/plans/{plan_id}/allowances/{name} | Delete plan allowance
-*OrgsApi* | [**deleteWebsiteMySQLUserAccessHosts**](docs/Api/OrgsApi.md#deletewebsitemysqluseraccesshosts) | **DELETE** /orgs/{org_id}/websites/{website_id}/mysql-users/{user_id}/access-hosts | Delete website MySQL database user access hosts
+*OrgsApi* | [**deleteWebsiteMySQLUserAccessHosts**](docs/Api/OrgsApi.md#deletewebsitemysqluseraccesshosts) | **DELETE** /orgs/{org_id}/websites/{website_id}/mysql-users/{username}/access-hosts | Delete website MySQL database user access hosts
 *OrgsApi* | [**getCloudFlareKeyAffectedDomains**](docs/Api/OrgsApi.md#getcloudflarekeyaffecteddomains) | **GET** /orgs/{org_id}/cloudflare/{cloudflare_key} | Get affected domains for a CloudFlare key
 *OrgsApi* | [**getCloudflareApiKeys**](docs/Api/OrgsApi.md#getcloudflareapikeys) | **GET** /orgs/{org_id}/cloudflare | Get CloudFlare API keys, org level
 *OrgsApi* | [**getCustomersAdded**](docs/Api/OrgsApi.md#getcustomersadded) | **GET** /orgs/{org_id}/stats/customers/added | Get customers added over a given time period
@@ -345,7 +339,6 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**getAppcdScreenshotConfig**](docs/Api/ServersApi.md#getappcdscreenshotconfig) | **GET** /servers/{server_id}/appcd/screenshot/config | Get the screenshot config of the running appcd
 *ServersApi* | [**getAppcdVersion**](docs/Api/ServersApi.md#getappcdversion) | **GET** /servers/{server_id}/appcd/version | Get the version of the running appcd
 *ServersApi* | [**getClientIp**](docs/Api/ServersApi.md#getclientip) | **GET** /client_ip | Reflect back the IP of the API consumer
-*ServersApi* | [**getControlPanelRoleInfo**](docs/Api/ServersApi.md#getcontrolpanelroleinfo) | **GET** /servers/master/roles/control | Get master server control panel role info
 *ServersApi* | [**getDatabaseRoleMysqlKind**](docs/Api/ServersApi.md#getdatabaserolemysqlkind) | **GET** /v2/servers/{server_id}/database-role | Gets the MySQL kind for a given server.
 *ServersApi* | [**getDnsPoolIps**](docs/Api/ServersApi.md#getdnspoolips) | **GET** /v2/servers/dns_pool | Get DNS pool IPs
 *ServersApi* | [**getEmailServerHostnameOverride**](docs/Api/ServersApi.md#getemailserverhostnameoverride) | **GET** /servers/{server_id}/email/hostname_override | Get the hostname override for the email server (postfix) if set
@@ -381,7 +374,6 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**getWebserverKind**](docs/Api/ServersApi.md#getwebserverkind) | **GET** /servers/{server_id}/webserver | Get web server
 *ServersApi* | [**getWebsiteFpmSettings**](docs/Api/ServersApi.md#getwebsitefpmsettings) | **GET** /servers/{server_id}/php/fpm/{website_id} | Get php-fpm config for the specified website
 *ServersApi* | [**getWebsiteGeneratedRateLimitHourly**](docs/Api/ServersApi.md#getwebsitegeneratedratelimithourly) | **GET** /servers/{server_id}/spam/website_generated_rate_limit_hourly | Get the hourly website generated email rate limit
-*ServersApi* | [**initAllServers**](docs/Api/ServersApi.md#initallservers) | **POST** /servers/init | Attempts to initialize all roles
 *ServersApi* | [**installDatabaseRole**](docs/Api/ServersApi.md#installdatabaserole) | **PUT** /v2/servers/{server_id}/database-role | Enables the database role on a given ServerUuid
 *ServersApi* | [**installServerRole**](docs/Api/ServersApi.md#installserverrole) | **PUT** /servers/{server_id}/roles/{role} | Install server role
 *ServersApi* | [**resetServerModSecurityConfig**](docs/Api/ServersApi.md#resetservermodsecurityconfig) | **DELETE** /v2/servers/{server_id}/modsec_conf | Delete custom mod_security config and reset to default
@@ -396,7 +388,6 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**setServerModSecurityStatus**](docs/Api/ServersApi.md#setservermodsecuritystatus) | **PUT** /v2/servers/{server_id}/modsec_status | Set mod security status for a server
 *ServersApi* | [**setServerStatus**](docs/Api/ServersApi.md#setserverstatus) | **POST** /servers/{server_id}/status | Set the status of one server.
 *ServersApi* | [**setServiceSetting**](docs/Api/ServersApi.md#setservicesetting) | **PUT** /servers/{server_id}/settings/{setting_kind}/{setting_key} | Set a single service setting
-*ServersApi* | [**setServiceStatus**](docs/Api/ServersApi.md#setservicestatus) | **POST** /servers/{server_id}/services/{service_id}/status | Set the status of one service installed in the server specified.
 *ServersApi* | [**setSmtpRateLimitHourly**](docs/Api/ServersApi.md#setsmtpratelimithourly) | **PUT** /servers/{server_id}/spam/smtp_rate_limit_hourly | Set the hourly SMTP rate limit
 *ServersApi* | [**setWebserverKind**](docs/Api/ServersApi.md#setwebserverkind) | **PUT** /servers/{server_id}/webserver | Set the web server kind for one server.
 *ServersApi* | [**setWebsiteGeneratedRateLimitHourly**](docs/Api/ServersApi.md#setwebsitegeneratedratelimithourly) | **PUT** /servers/{server_id}/spam/website_generated_rate_limit_hourly | Set the hourly SMTP rate limit
@@ -407,7 +398,6 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**updateServerPrimaryIp**](docs/Api/ServersApi.md#updateserverprimaryip) | **PUT** /servers/{server_id}/primary-ip | Updates the primary IP of the server in the database and in-memory metadata. This operation will not affect the IP used for service communication until the next restart of orchd. The new IP will be used for creation of new resources such as websites on this server but existing websites will not have their IP changed.
 *ServersApi* | [**updateServerPrimaryIpv6**](docs/Api/ServersApi.md#updateserverprimaryipv6) | **PUT** /v2/servers/{server_id}/primary-ipv6 | Updates or sets the primary ipv6 address of the server.  This endpoint will not change existing websites&#39; DNS but the new record will be applied to all future zones.
 *ServersApi* | [**updateServerRole**](docs/Api/ServersApi.md#updateserverrole) | **PATCH** /servers/{server_id}/roles/{role} | Update server role
-*ServersApi* | [**updateService**](docs/Api/ServersApi.md#updateservice) | **PUT** /servers/{server_id}/services/{service_id}/update | Special endpoint to update a particular stopped service to its latest version.
 *ServersApi* | [**updateSystemPackage**](docs/Api/ServersApi.md#updatesystempackage) | **PUT** /servers/{server_id}/packages/update | Updates a system package to its latest version.
 *ServersApi* | [**validateRegistrationKey**](docs/Api/ServersApi.md#validateregistrationkey) | **POST** /servers/registration-key/validate | Validate slave registration key
 *SettingsApi* | [**addOrchdLoginPolicyEmailBlacklist**](docs/Api/SettingsApi.md#addorchdloginpolicyemailblacklist) | **PUT** /settings/orchd/login-policy/email-blacklist | Set the orchd login policy email blacklist as a whole
@@ -426,7 +416,6 @@ Class | Method | HTTP request | Description
 *SettingsApi* | [**deleteSetting**](docs/Api/SettingsApi.md#deletesetting) | **DELETE** /settings/{name} | Remove the specified setting
 *SettingsApi* | [**getBackupRemoteStorageS3**](docs/Api/SettingsApi.md#getbackupremotestorages3) | **GET** /v2/settings/backup/remote_storage/s3 | Get S3 object storage settings at platform level.
 *SettingsApi* | [**getDemoMode**](docs/Api/SettingsApi.md#getdemomode) | **GET** /v2/settings/demo_mode | Get the demo mode status of the orchd service
-*SettingsApi* | [**getDockerRegistry**](docs/Api/SettingsApi.md#getdockerregistry) | **GET** /settings/registry | Gets the Docker registry credentials.
 *SettingsApi* | [**getGlobalServiceSetting**](docs/Api/SettingsApi.md#getglobalservicesetting) | **GET** /settings/service/{setting_kind} | Get the value for a particular global service setting
 *SettingsApi* | [**getOrchdLogSettings**](docs/Api/SettingsApi.md#getorchdlogsettings) | **GET** /settings/orchd/logs | Get the orchd log settings
 *SettingsApi* | [**getOrchdLoginPolicyEmailBlacklist**](docs/Api/SettingsApi.md#getorchdloginpolicyemailblacklist) | **GET** /settings/orchd/login-policy/email-blacklist | Get the orchd login policy email blacklist
@@ -437,7 +426,6 @@ Class | Method | HTTP request | Description
 *SettingsApi* | [**getProhibitedDomains**](docs/Api/SettingsApi.md#getprohibiteddomains) | **GET** /settings/orchd/prohibited_domains | Get the platform level prohibited domains as a newline separated list
 *SettingsApi* | [**getSetting**](docs/Api/SettingsApi.md#getsetting) | **GET** /settings/{name} | Get the specified setting
 *SettingsApi* | [**getSettings**](docs/Api/SettingsApi.md#getsettings) | **GET** /settings | Get all current settings
-*SettingsApi* | [**setDockerRegistry**](docs/Api/SettingsApi.md#setdockerregistry) | **PUT** /settings/registry | Updates the Docker registry credentials.
 *SettingsApi* | [**setGlobalServiceSetting**](docs/Api/SettingsApi.md#setglobalservicesetting) | **PUT** /settings/service/{setting_kind}/{setting_key} | Set a single global service setting
 *SettingsApi* | [**setOrchdLogSettings**](docs/Api/SettingsApi.md#setorchdlogsettings) | **PUT** /settings/orchd/logs | Set the orchd log settings
 *SettingsApi* | [**setProhibitedDomains**](docs/Api/SettingsApi.md#setprohibiteddomains) | **PUT** /settings/orchd/prohibited_domains | Set the platform level prohibited domains
@@ -472,7 +460,7 @@ Class | Method | HTTP request | Description
 *WebsitesApi* | [**createWebsiteMySQLDB**](docs/Api/WebsitesApi.md#createwebsitemysqldb) | **POST** /orgs/{org_id}/websites/{website_id}/mysql-dbs | Create a MySQL database for website
 *WebsitesApi* | [**deleteDomainNginxFastCgiExcludedPath**](docs/Api/WebsitesApi.md#deletedomainnginxfastcgiexcludedpath) | **DELETE** /v2/domains/{domain_id}/nginx_fastcgi_excluded_paths | Delete Nginx FastCGI excluded path
 *WebsitesApi* | [**deleteDomainWebserverRewrite**](docs/Api/WebsitesApi.md#deletedomainwebserverrewrite) | **DELETE** /v2/domains/{domain_id}/webserver_rewrites | Delete web server rewrite
-*WebsitesApi* | [**deleteFtpUser**](docs/Api/WebsitesApi.md#deleteftpuser) | **DELETE** /orgs/{org_id}/websites/{website_id}/ftp/users/{user_id} | Deletes given FTP user
+*WebsitesApi* | [**deleteFtpUser**](docs/Api/WebsitesApi.md#deleteftpuser) | **DELETE** /orgs/{org_id}/websites/{website_id}/ftp/users/{username} | Deletes given FTP user
 *WebsitesApi* | [**deleteUserCrontab**](docs/Api/WebsitesApi.md#deleteusercrontab) | **DELETE** /orgs/{org_id}/websites/{website_id}/crontab | Delete user&#39;s crontab
 *WebsitesApi* | [**deleteWebsite**](docs/Api/WebsitesApi.md#deletewebsite) | **DELETE** /orgs/{org_id}/websites/{website_id} | Delete website
 *WebsitesApi* | [**deleteWebsiteDomainMapping**](docs/Api/WebsitesApi.md#deletewebsitedomainmapping) | **DELETE** /orgs/{org_id}/websites/{website_id}/domains/{domain_id} | Delete website domain mapping
@@ -531,7 +519,7 @@ Class | Method | HTTP request | Description
 *WebsitesApi* | [**setWebsiteSetting**](docs/Api/WebsitesApi.md#setwebsitesetting) | **PUT** /orgs/{org_id}/websites/{website_id}/settings/{setting_kind}/{setting_key} | Set a single override setting
 *WebsitesApi* | [**takeScreenshot**](docs/Api/WebsitesApi.md#takescreenshot) | **POST** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/screenshot/take | Take website screenshot immediately
 *WebsitesApi* | [**unauthorizeWebsiteSshKey**](docs/Api/WebsitesApi.md#unauthorizewebsitesshkey) | **DELETE** /orgs/{org_id}/websites/{website_id}/ssh/keys/{key_id} | Unauthorize the public SSH key with the given ID.
-*WebsitesApi* | [**updateFtpUser**](docs/Api/WebsitesApi.md#updateftpuser) | **PATCH** /orgs/{org_id}/websites/{website_id}/ftp/users/{user_id} | Update given FTP user
+*WebsitesApi* | [**updateFtpUser**](docs/Api/WebsitesApi.md#updateftpuser) | **PATCH** /orgs/{org_id}/websites/{website_id}/ftp/users/{username} | Update given FTP user
 *WebsitesApi* | [**updateUserCrontab**](docs/Api/WebsitesApi.md#updateusercrontab) | **PATCH** /orgs/{org_id}/websites/{website_id}/crontab | Update user&#39;s crontab
 *WebsitesApi* | [**updateWebsite**](docs/Api/WebsitesApi.md#updatewebsite) | **PATCH** /orgs/{org_id}/websites/{website_id} | Update website
 *WebsitesApi* | [**updateWebsiteDomainMapping**](docs/Api/WebsitesApi.md#updatewebsitedomainmapping) | **PATCH** /orgs/{org_id}/websites/{website_id}/domains/{domain_id} | Update website domain mapping
@@ -926,6 +914,7 @@ Class | Method | HTTP request | Description
 - [Tag](docs/Model/Tag.md)
 - [TagsFullListing](docs/Model/TagsFullListing.md)
 - [TldNs](docs/Model/TldNs.md)
+- [TransferPleskDomainReqBody](docs/Model/TransferPleskDomainReqBody.md)
 - [TransferUserAccountReqBody](docs/Model/TransferUserAccountReqBody.md)
 - [UiPreferences](docs/Model/UiPreferences.md)
 - [UiPreferencesViewKind](docs/Model/UiPreferencesViewKind.md)
@@ -1050,6 +1039,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `11.0.0`
+- API version: `12.0.0`
     - Generator version: `7.9.0-SNAPSHOT`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

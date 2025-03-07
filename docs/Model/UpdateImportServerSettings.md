@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **ssh_user** | **string** |  | [optional]
 **ssh_public_key** | **string** |  | [optional]
 **ssh_private_key** | **string** |  | [optional]
-**import_type** | [**\OpenAPI\Client\Model\ImportKind**](ImportKind.md) |  | [optional]
 **auth_kind** | [**\OpenAPI\Client\Model\ServerMigrationSettingsAuthType**](ServerMigrationSettingsAuthType.md) |  | [optional]
 **auth_user** | **string** |  | [optional]
 **ssh_port** | **float** |  | [optional]

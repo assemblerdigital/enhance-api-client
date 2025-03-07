@@ -20,6 +20,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**listImportServerSettings()**](ImportersApi.md#listImportServerSettings) | **GET** /orgs/{org_id}/import/server/settings | List all server import settings |
 | [**scanImportMigrations()**](ImportersApi.md#scanImportMigrations) | **GET** /v2/import/scan | Scan for manually uploaded cPanel backups. |
 | [**transferCPanelUserAccount()**](ImportersApi.md#transferCPanelUserAccount) | **POST** /orgs/{org_id}/import/server/{server_id}/account/{user_id} | Transfer user account from remote cPanel server |
+| [**transferPleskDomain()**](ImportersApi.md#transferPleskDomain) | **POST** /orgs/{org_id}/import/plesk-server/{server_id}/domain | Transfer user account from remote cPanel server |
 | [**updateImportServerSettings()**](ImportersApi.md#updateImportServerSettings) | **PATCH** /orgs/{org_id}/import/server/{server_id}/settings | Update settings for the server import |
 | [**uploadImportMigration()**](ImportersApi.md#uploadImportMigration) | **POST** /v2/orgs/{org_id}/import/upload/{import_migration_kind} | Upload file for analyzing and processing. |
 
@@ -1077,6 +1078,75 @@ try {
 | **server_id** | **string**| The UUID of the server | |
 | **user_id** | **string**| The ID of the remote cPanel user | |
 | **transfer_user_account_req_body** | [**\OpenAPI\Client\Model\TransferUserAccountReqBody**](../Model/TransferUserAccountReqBody.md)|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\NewResourceUuid**](../Model/NewResourceUuid.md)
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `transferPleskDomain()`
+
+```php
+transferPleskDomain($org_id, $server_id, $transfer_plesk_domain_req_body): \OpenAPI\Client\Model\NewResourceUuid
+```
+
+Transfer user account from remote cPanel server
+
+Transfer user account from remote Plesk server to Enhance server. It's an async endpoint. To get transfer result, you have to call getImportMigration.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ImportersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$org_id = 'org_id_example'; // string | The id of the organization.
+$server_id = 'server_id_example'; // string | The UUID of the server
+$transfer_plesk_domain_req_body = new \OpenAPI\Client\Model\TransferPleskDomainReqBody(); // \OpenAPI\Client\Model\TransferPleskDomainReqBody
+
+try {
+    $result = $apiInstance->transferPleskDomain($org_id, $server_id, $transfer_plesk_domain_req_body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ImportersApi->transferPleskDomain: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **org_id** | **string**| The id of the organization. | |
+| **server_id** | **string**| The UUID of the server | |
+| **transfer_plesk_domain_req_body** | [**\OpenAPI\Client\Model\TransferPleskDomainReqBody**](../Model/TransferPleskDomainReqBody.md)|  | [optional] |
 
 ### Return type
 

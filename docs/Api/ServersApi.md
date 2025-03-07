@@ -22,7 +22,6 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getAppcdScreenshotConfig()**](ServersApi.md#getAppcdScreenshotConfig) | **GET** /servers/{server_id}/appcd/screenshot/config | Get the screenshot config of the running appcd |
 | [**getAppcdVersion()**](ServersApi.md#getAppcdVersion) | **GET** /servers/{server_id}/appcd/version | Get the version of the running appcd |
 | [**getClientIp()**](ServersApi.md#getClientIp) | **GET** /client_ip | Reflect back the IP of the API consumer |
-| [**getControlPanelRoleInfo()**](ServersApi.md#getControlPanelRoleInfo) | **GET** /servers/master/roles/control | Get master server control panel role info |
 | [**getDatabaseRoleMysqlKind()**](ServersApi.md#getDatabaseRoleMysqlKind) | **GET** /v2/servers/{server_id}/database-role | Gets the MySQL kind for a given server. |
 | [**getDnsPoolIps()**](ServersApi.md#getDnsPoolIps) | **GET** /v2/servers/dns_pool | Get DNS pool IPs |
 | [**getEmailServerHostnameOverride()**](ServersApi.md#getEmailServerHostnameOverride) | **GET** /servers/{server_id}/email/hostname_override | Get the hostname override for the email server (postfix) if set |
@@ -58,7 +57,6 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getWebserverKind()**](ServersApi.md#getWebserverKind) | **GET** /servers/{server_id}/webserver | Get web server |
 | [**getWebsiteFpmSettings()**](ServersApi.md#getWebsiteFpmSettings) | **GET** /servers/{server_id}/php/fpm/{website_id} | Get php-fpm config for the specified website |
 | [**getWebsiteGeneratedRateLimitHourly()**](ServersApi.md#getWebsiteGeneratedRateLimitHourly) | **GET** /servers/{server_id}/spam/website_generated_rate_limit_hourly | Get the hourly website generated email rate limit |
-| [**initAllServers()**](ServersApi.md#initAllServers) | **POST** /servers/init | Attempts to initialize all roles |
 | [**installDatabaseRole()**](ServersApi.md#installDatabaseRole) | **PUT** /v2/servers/{server_id}/database-role | Enables the database role on a given ServerUuid |
 | [**installServerRole()**](ServersApi.md#installServerRole) | **PUT** /servers/{server_id}/roles/{role} | Install server role |
 | [**resetServerModSecurityConfig()**](ServersApi.md#resetServerModSecurityConfig) | **DELETE** /v2/servers/{server_id}/modsec_conf | Delete custom mod_security config and reset to default |
@@ -73,7 +71,6 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**setServerModSecurityStatus()**](ServersApi.md#setServerModSecurityStatus) | **PUT** /v2/servers/{server_id}/modsec_status | Set mod security status for a server |
 | [**setServerStatus()**](ServersApi.md#setServerStatus) | **POST** /servers/{server_id}/status | Set the status of one server. |
 | [**setServiceSetting()**](ServersApi.md#setServiceSetting) | **PUT** /servers/{server_id}/settings/{setting_kind}/{setting_key} | Set a single service setting |
-| [**setServiceStatus()**](ServersApi.md#setServiceStatus) | **POST** /servers/{server_id}/services/{service_id}/status | Set the status of one service installed in the server specified. |
 | [**setSmtpRateLimitHourly()**](ServersApi.md#setSmtpRateLimitHourly) | **PUT** /servers/{server_id}/spam/smtp_rate_limit_hourly | Set the hourly SMTP rate limit |
 | [**setWebserverKind()**](ServersApi.md#setWebserverKind) | **PUT** /servers/{server_id}/webserver | Set the web server kind for one server. |
 | [**setWebsiteGeneratedRateLimitHourly()**](ServersApi.md#setWebsiteGeneratedRateLimitHourly) | **PUT** /servers/{server_id}/spam/website_generated_rate_limit_hourly | Set the hourly SMTP rate limit |
@@ -84,7 +81,6 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**updateServerPrimaryIp()**](ServersApi.md#updateServerPrimaryIp) | **PUT** /servers/{server_id}/primary-ip | Updates the primary IP of the server in the database and in-memory metadata. This operation will not affect the IP used for service communication until the next restart of orchd. The new IP will be used for creation of new resources such as websites on this server but existing websites will not have their IP changed. |
 | [**updateServerPrimaryIpv6()**](ServersApi.md#updateServerPrimaryIpv6) | **PUT** /v2/servers/{server_id}/primary-ipv6 | Updates or sets the primary ipv6 address of the server.  This endpoint will not change existing websites&#39; DNS but the new record will be applied to all future zones. |
 | [**updateServerRole()**](ServersApi.md#updateServerRole) | **PATCH** /servers/{server_id}/roles/{role} | Update server role |
-| [**updateService()**](ServersApi.md#updateService) | **PUT** /servers/{server_id}/services/{service_id}/update | Special endpoint to update a particular stopped service to its latest version. |
 | [**updateSystemPackage()**](ServersApi.md#updateSystemPackage) | **PUT** /servers/{server_id}/packages/update | Updates a system package to its latest version. |
 | [**validateRegistrationKey()**](ServersApi.md#validateRegistrationKey) | **POST** /servers/registration-key/validate | Validate slave registration key |
 
@@ -889,7 +885,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
 $setting_kind = new \OpenAPI\Client\Model\SettingKind(); // SettingKind | The type of setting being applied
-$setting_key = 'setting_key_example'; // string | A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup
+$setting_key = 'setting_key_example'; // string | A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl
 
 try {
     $result = $apiInstance->deleteServiceSetting($server_id, $setting_kind, $setting_key);
@@ -905,7 +901,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
 | **setting_kind** | [**SettingKind**](../Model/.md)| The type of setting being applied | |
-| **setting_key** | **string**| A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup | |
+| **setting_key** | **string**| A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl | |
 
 ### Return type
 
@@ -1221,68 +1217,6 @@ This endpoint does not need any parameter.
 ### Authorization
 
 No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getControlPanelRoleInfo()`
-
-```php
-getControlPanelRoleInfo(): \OpenAPI\Client\Model\ControlRoleInfo
-```
-
-Get master server control panel role info
-
-Returns information about the control panel role. This includes generic information about the role as well as each control panel service (such as authd). Session holder must be an `Owner`, `SuperAdmin`, or `Sysadmin` in the MO.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: sessionCookie
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
-
-// Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\ServersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $result = $apiInstance->getControlPanelRoleInfo();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ServersApi->getControlPanelRoleInfo: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\OpenAPI\Client\Model\ControlRoleInfo**](../Model/ControlRoleInfo.md)
-
-### Authorization
-
-[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -3493,67 +3427,6 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `initAllServers()`
-
-```php
-initAllServers()
-```
-
-Attempts to initialize all roles
-
-Attempts to initialize roles and other resources on all servers. Manual initialization (via this endpoint) shouldn't be necessary as usually even if some slave server is unavailable to `orchd` in the beginning, `orchd` periodically retries the role initialization. However, if something needs a manual intervention, then calling this endpoint is helpful to identify further issue and hasten up the full availability of `orchd`. This endpoint can be called multiple times and it will initialize resources at most once. Once this endpoint returns 200, there is no point in calling it again. Session holder must be an `Owner`, `SuperAdmin`, or `Sysadmin` in the MO.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: sessionCookie
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
-
-// Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\ServersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $apiInstance->initAllServers();
-} catch (Exception $e) {
-    echo 'Exception when calling ServersApi->initAllServers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `installDatabaseRole()`
 
 ```php
@@ -4403,7 +4276,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
 $setting_kind = new \OpenAPI\Client\Model\SettingKind(); // SettingKind | The type of setting being applied
-$setting_key = 'setting_key_example'; // string | A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup
+$setting_key = 'setting_key_example'; // string | A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl
 $service_setting_value = new \OpenAPI\Client\Model\ServiceSettingValue(); // \OpenAPI\Client\Model\ServiceSettingValue
 
 try {
@@ -4420,7 +4293,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
 | **setting_kind** | [**SettingKind**](../Model/.md)| The type of setting being applied | |
-| **setting_key** | **string**| A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup | |
+| **setting_key** | **string**| A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl | |
 | **service_setting_value** | [**\OpenAPI\Client\Model\ServiceSettingValue**](../Model/ServiceSettingValue.md)|  | |
 
 ### Return type
@@ -4435,74 +4308,6 @@ try {
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `setServiceStatus()`
-
-```php
-setServiceStatus($server_id, $service_id, $set_service_status)
-```
-
-Set the status of one service installed in the server specified.
-
-Set the status of one service by restarting it for example.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: sessionCookie
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
-
-// Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\ServersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$server_id = 'server_id_example'; // string | The UUID of the server
-$service_id = 'service_id_example'; // string | The UUID of the service
-$set_service_status = new \OpenAPI\Client\Model\SetServiceStatus(); // \OpenAPI\Client\Model\SetServiceStatus | The action to be taken for a specific service.
-
-try {
-    $apiInstance->setServiceStatus($server_id, $service_id, $set_service_status);
-} catch (Exception $e) {
-    echo 'Exception when calling ServersApi->setServiceStatus: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **string**| The UUID of the server | |
-| **service_id** | **string**| The UUID of the service | |
-| **set_service_status** | [**\OpenAPI\Client\Model\SetServiceStatus**](../Model/SetServiceStatus.md)| The action to be taken for a specific service. | |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -5136,72 +4941,6 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `updateService()`
-
-```php
-updateService($server_id, $service_id)
-```
-
-Special endpoint to update a particular stopped service to its latest version.
-
-This endpoint should not be used to for updates in general. Useful to update/recover from a broken/stopped service from previous update. NOTE: if service is already running, no changes are made.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: sessionCookie
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
-
-// Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\ServersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$server_id = 'server_id_example'; // string | The UUID of the server
-$service_id = 'service_id_example'; // string | The UUID of the service
-
-try {
-    $apiInstance->updateService($server_id, $service_id);
-} catch (Exception $e) {
-    echo 'Exception when calling ServersApi->updateService: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **server_id** | **string**| The UUID of the server | |
-| **service_id** | **string**| The UUID of the service | |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

@@ -11,8 +11,6 @@ Name | Type | Description | Notes
 **friendly_name** | **string** |  |
 **hostname** | **string** |  |
 **ips** | [**\OpenAPI\Client\Model\ServerIp[]**](ServerIp.md) |  |
-**disks** | [**\OpenAPI\Client\Model\Disk[]**](Disk.md) |  | [optional]
-**os_usage** | **int** |  | [optional]
 **status** | [**\OpenAPI\Client\Model\NetworkStatus**](NetworkStatus.md) |  | [optional]
 **roles** | [**\OpenAPI\Client\Model\RolesSummary**](RolesSummary.md) |  |
 **created_at** | **string** |  |
@@ -20,5 +18,6 @@ Name | Type | Description | Notes
 **dedicated_subscription** | [**\OpenAPI\Client\Model\DedicatedSubscriptionInfo**](DedicatedSubscriptionInfo.md) |  | [optional]
 **is_decommissioned** | **bool** |  |
 **ipv6_addr** | **string** |  | [optional]
+**disks** | [**\OpenAPI\Client\Model\Disk[]**](Disk.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

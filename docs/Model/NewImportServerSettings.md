@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ssh_private_key** | **string** |  | [optional]
+**ssh_public_key** | **string** |  | [optional]
 **allow_partial_sync** | **bool** |  | [optional]
 **as_user_root** | **bool** |  | [optional]
 **hostname** | **string** |  |

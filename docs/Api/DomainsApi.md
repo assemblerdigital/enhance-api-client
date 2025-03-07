@@ -5,7 +5,6 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**checkDomain()**](DomainsApi.md#checkDomain) | **POST** /orgs/{org_id}/domains/check | Check if a domain can be created |
-| [**createDomain()**](DomainsApi.md#createDomain) | **POST** /orgs/{org_id}/domains | Create domain |
 | [**createWebsiteDomainLetsencryptCerts()**](DomainsApi.md#createWebsiteDomainLetsencryptCerts) | **POST** /v2/domains/{domain_id}/letsencrypt | Generate and setup letsencrypt ssl certificates for website&#39;s domain |
 | [**createWebsiteMailDomainLetsencryptCerts()**](DomainsApi.md#createWebsiteMailDomainLetsencryptCerts) | **POST** /v2/domains/{domain_id}/letsencrypt_mail | Generate and setup letsencrypt ssl certificates for website&#39;s domain with mail. prefix. |
 | [**createWebsiteMappedDomain()**](DomainsApi.md#createWebsiteMappedDomain) | **POST** /orgs/{org_id}/websites/{website_id}/domains | Create website mapped domain |
@@ -84,73 +83,6 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\DomainInUseStatus**](../Model/DomainInUseStatus.md)
-
-### Authorization
-
-[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `createDomain()`
-
-```php
-createDomain($org_id, $new_domain): \OpenAPI\Client\Model\NewResourceUuid
-```
-
-Create domain
-
-The MO may create domains without a subscription but all other customers need to pass with this request an id of one of their subscriptions to a plan that allows creating domain names.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: sessionCookie
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
-
-// Configure Bearer authorization: bearerAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\DomainsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$org_id = 'org_id_example'; // string | The id of the organization.
-$new_domain = new \OpenAPI\Client\Model\NewDomain(); // \OpenAPI\Client\Model\NewDomain | Domain details.
-
-try {
-    $result = $apiInstance->createDomain($org_id, $new_domain);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DomainsApi->createDomain: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **org_id** | **string**| The id of the organization. | |
-| **new_domain** | [**\OpenAPI\Client\Model\NewDomain**](../Model/NewDomain.md)| Domain details. | |
-
-### Return type
-
-[**\OpenAPI\Client\Model\NewResourceUuid**](../Model/NewResourceUuid.md)
 
 ### Authorization
 
