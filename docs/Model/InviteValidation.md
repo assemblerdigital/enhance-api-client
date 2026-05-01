@@ -1,4 +1,4 @@
-# # InviteValidation
+# InviteValidation
 
 ## Properties
 

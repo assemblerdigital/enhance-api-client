@@ -1,4 +1,4 @@
-# # DeleteWebsiteDomainVhostRequest
+# DeleteWebsiteDomainVhostRequest
 
 ## Properties
 

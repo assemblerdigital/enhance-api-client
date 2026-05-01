@@ -1,4 +1,4 @@
-# # NewMappedDomain
+# NewMappedDomain
 
 ## Properties
 

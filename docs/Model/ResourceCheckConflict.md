@@ -1,4 +1,4 @@
-# # ResourceCheckConflict
+# ResourceCheckConflict
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # OperationStatus
+# OperationStatus
 
 ## Properties
 

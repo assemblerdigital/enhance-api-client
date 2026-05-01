@@ -1,4 +1,4 @@
-# # LogKind
+# LogKind
 
 ## Properties
 

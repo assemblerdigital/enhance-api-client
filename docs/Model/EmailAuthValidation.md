@@ -1,4 +1,4 @@
-# # EmailAuthValidation
+# EmailAuthValidation
 
 ## Properties
 

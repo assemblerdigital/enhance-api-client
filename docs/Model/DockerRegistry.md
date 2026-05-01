@@ -1,4 +1,4 @@
-# # DockerRegistry
+# DockerRegistry
 
 ## Properties
 

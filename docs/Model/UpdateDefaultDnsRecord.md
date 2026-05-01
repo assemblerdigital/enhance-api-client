@@ -1,4 +1,4 @@
-# # UpdateDefaultDnsRecord
+# UpdateDefaultDnsRecord
 
 ## Properties
 

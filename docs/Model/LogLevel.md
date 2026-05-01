@@ -1,4 +1,4 @@
-# # LogLevel
+# LogLevel
 
 ## Properties
 

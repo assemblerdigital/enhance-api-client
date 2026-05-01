@@ -1,4 +1,4 @@
-# # OutboundSpamScanningSettings
+# OutboundSpamScanningSettings
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # WpDebug
+# WpDebug
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ChangeSubscriptionParams
+# ChangeSubscriptionParams
 
 ## Properties
 

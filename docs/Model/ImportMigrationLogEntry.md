@@ -1,4 +1,4 @@
-# # ImportMigrationLogEntry
+# ImportMigrationLogEntry
 
 ## Properties
 

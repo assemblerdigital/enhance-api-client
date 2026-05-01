@@ -1,4 +1,4 @@
-# # SessionResult
+# SessionResult
 
 ## Properties
 

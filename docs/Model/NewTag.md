@@ -1,4 +1,4 @@
-# # NewTag
+# NewTag
 
 ## Properties
 

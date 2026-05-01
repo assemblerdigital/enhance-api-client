@@ -1,4 +1,4 @@
-# # WPPluginAutoUpdateStatus
+# WPPluginAutoUpdateStatus
 
 ## Properties
 

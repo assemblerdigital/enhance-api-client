@@ -1,4 +1,4 @@
-# # OrchdLogSettings
+# OrchdLogSettings
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # WebsiteDomain
+# WebsiteDomain
 
 ## Properties
 

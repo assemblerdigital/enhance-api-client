@@ -1,4 +1,4 @@
-# # RewriteChainRule
+# RewriteChainRule
 
 ## Properties
 

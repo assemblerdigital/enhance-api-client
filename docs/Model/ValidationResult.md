@@ -1,4 +1,4 @@
-# # ValidationResult
+# ValidationResult
 
 ## Properties
 

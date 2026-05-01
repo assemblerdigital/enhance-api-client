@@ -1,4 +1,4 @@
-# # ActivityServerEntityContentDetail
+# ActivityServerEntityContentDetail
 
 ## Properties
 

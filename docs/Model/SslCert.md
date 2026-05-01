@@ -1,4 +1,4 @@
-# # SslCert
+# SslCert
 
 ## Properties
 

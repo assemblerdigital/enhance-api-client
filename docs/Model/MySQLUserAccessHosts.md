@@ -1,4 +1,4 @@
-# # MySQLUserAccessHosts
+# MySQLUserAccessHosts
 
 ## Properties
 

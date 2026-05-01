@@ -1,4 +1,4 @@
-# # DomainMapping
+# DomainMapping
 
 ## Properties
 

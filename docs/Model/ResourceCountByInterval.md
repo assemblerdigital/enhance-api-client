@@ -1,4 +1,4 @@
-# # ResourceCountByInterval
+# ResourceCountByInterval
 
 ## Properties
 

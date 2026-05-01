@@ -1,4 +1,4 @@
-# # RestoreDetailed
+# RestoreDetailed
 
 ## Properties
 

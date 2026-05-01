@@ -1,4 +1,4 @@
-# # ActivityLoginEntityContentDetail
+# ActivityLoginEntityContentDetail
 
 ## Properties
 

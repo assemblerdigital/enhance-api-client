@@ -1,4 +1,4 @@
-# # LetsEncryptPreflightResult
+# LetsEncryptPreflightResult
 
 ## Properties
 

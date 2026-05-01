@@ -1,4 +1,4 @@
-# # WpPluginsFullListing
+# WpPluginsFullListing
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # MySQLUser
+# MySQLUser
 
 ## Properties
 

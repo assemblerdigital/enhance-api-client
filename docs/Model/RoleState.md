@@ -1,4 +1,4 @@
-# # RoleState
+# RoleState
 
 ## Properties
 

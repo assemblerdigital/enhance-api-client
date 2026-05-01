@@ -1,4 +1,4 @@
-# # ServerStatusAction
+# ServerStatusAction
 
 ## Properties
 

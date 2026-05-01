@@ -1,5 +1,7 @@
 # OpenAPI\Client\PlansApi
 
+Endpoints related to plans offered by an organization
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

@@ -1,4 +1,4 @@
-# # MigrationCreationOutcome
+# MigrationCreationOutcome
 
 ## Properties
 

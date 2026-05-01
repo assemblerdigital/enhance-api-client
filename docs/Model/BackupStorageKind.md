@@ -1,4 +1,4 @@
-# # BackupStorageKind
+# BackupStorageKind
 
 ## Properties
 

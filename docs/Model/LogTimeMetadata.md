@@ -1,4 +1,4 @@
-# # LogTimeMetadata
+# LogTimeMetadata
 
 ## Properties
 

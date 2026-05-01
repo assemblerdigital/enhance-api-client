@@ -1,4 +1,4 @@
-# # ServerIp
+# ServerIp
 
 ## Properties
 

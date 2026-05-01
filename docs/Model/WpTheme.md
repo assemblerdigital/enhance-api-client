@@ -1,4 +1,4 @@
-# # WpTheme
+# WpTheme
 
 ## Properties
 

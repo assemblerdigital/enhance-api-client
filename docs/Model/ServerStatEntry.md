@@ -1,4 +1,4 @@
-# # ServerStatEntry
+# ServerStatEntry
 
 ## Properties
 

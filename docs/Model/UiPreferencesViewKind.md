@@ -1,4 +1,4 @@
-# # UiPreferencesViewKind
+# UiPreferencesViewKind
 
 ## Properties
 

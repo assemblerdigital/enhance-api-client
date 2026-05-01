@@ -1,4 +1,4 @@
-# # SubscriptionDedicatedServersInfo
+# SubscriptionDedicatedServersInfo
 
 ## Properties
 

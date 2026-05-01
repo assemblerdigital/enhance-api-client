@@ -1,4 +1,4 @@
-# # ActivityContext
+# ActivityContext
 
 ## Properties
 

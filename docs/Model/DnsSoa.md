@@ -1,4 +1,4 @@
-# # DnsSoa
+# DnsSoa
 
 ## Properties
 

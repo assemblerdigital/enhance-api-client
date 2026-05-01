@@ -1,4 +1,4 @@
-# # RequireIpsRuleKind
+# RequireIpsRuleKind
 
 ## Properties
 

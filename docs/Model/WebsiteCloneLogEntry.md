@@ -1,4 +1,4 @@
-# # WebsiteCloneLogEntry
+# WebsiteCloneLogEntry
 
 ## Properties
 

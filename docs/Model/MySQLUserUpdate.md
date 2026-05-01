@@ -1,4 +1,4 @@
-# # MySQLUserUpdate
+# MySQLUserUpdate
 
 ## Properties
 

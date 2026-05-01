@@ -1,4 +1,4 @@
-# # WebServerRewrite
+# WebServerRewrite
 
 ## Properties
 

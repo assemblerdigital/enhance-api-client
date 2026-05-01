@@ -1,4 +1,4 @@
-# # ServerSniMapping
+# ServerSniMapping
 
 ## Properties
 

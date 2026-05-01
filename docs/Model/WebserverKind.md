@@ -1,4 +1,4 @@
-# # WebserverKind
+# WebserverKind
 
 ## Properties
 

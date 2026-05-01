@@ -1,4 +1,4 @@
-# # DnsRecordKind
+# DnsRecordKind
 
 ## Properties
 

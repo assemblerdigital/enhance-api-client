@@ -1,5 +1,4 @@
 {
-    "name": "assemblerdigital/enhance-api-client",
     "description": "orchd API docs",
     "keywords": [
         "openapitools",
@@ -19,7 +18,7 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.1",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",

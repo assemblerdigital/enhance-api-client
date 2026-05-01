@@ -1,4 +1,4 @@
-# # ActivityKind
+# ActivityKind
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EmailAuth
+# EmailAuth
 
 ## Properties
 

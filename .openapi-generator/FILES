@@ -7,6 +7,7 @@ docs/Api/AppsApi.md
 docs/Api/BackupsApi.md
 docs/Api/BrandingApi.md
 docs/Api/CustomersApi.md
+docs/Api/DefaultApi.md
 docs/Api/DnsApi.md
 docs/Api/DomainsApi.md
 docs/Api/EmailClientApi.md
@@ -15,6 +16,7 @@ docs/Api/FtpApi.md
 docs/Api/ImportersApi.md
 docs/Api/InstallApi.md
 docs/Api/InvitesApi.md
+docs/Api/JoomlaApi.md
 docs/Api/LetsencryptApi.md
 docs/Api/LicenceApi.md
 docs/Api/LoginsApi.md
@@ -65,6 +67,7 @@ docs/Model/ActivityWebsiteEntity.md
 docs/Model/ActivityWebsiteEntityContent.md
 docs/Model/ActivityWebsiteEntityContentDetail.md
 docs/Model/ActivityWebsiteEntityDetail.md
+docs/Model/AdminCredentials.md
 docs/Model/Allowance.md
 docs/Model/ApplicationRoleInfo.md
 docs/Model/AuthNs.md
@@ -74,6 +77,7 @@ docs/Model/Autoresponder.md
 docs/Model/Backup.md
 docs/Model/BackupAction.md
 docs/Model/BackupDetailed.md
+docs/Model/BackupDownloadKind.md
 docs/Model/BackupKind.md
 docs/Model/BackupOptions.md
 docs/Model/BackupRemoteStorageS3.md
@@ -103,6 +107,7 @@ docs/Model/CrontabValueCmd.md
 docs/Model/CrontabValueCmdCronCmd.md
 docs/Model/CrontabValueVariable.md
 docs/Model/CrontabValueVariableVariable.md
+docs/Model/Customer.md
 docs/Model/CustomersListing.md
 docs/Model/DaemonKind.md
 docs/Model/DatabaseRoleInfo.md
@@ -111,6 +116,7 @@ docs/Model/DefaultDnsRecord.md
 docs/Model/DeleteWebsiteDomainVhostRequest.md
 docs/Model/DemoMode.md
 docs/Model/DeviceKind.md
+docs/Model/DirectoryTreeNode.md
 docs/Model/Disk.md
 docs/Model/DnsQueryOutcome.md
 docs/Model/DnsRecord.md
@@ -154,6 +160,7 @@ docs/Model/FtpUserUpdate.md
 docs/Model/FtpUsersFullListing.md
 docs/Model/GetServerRole200Response.md
 docs/Model/GetWordpressAppVersion200Response.md
+docs/Model/GlobalWebsiteBackup.md
 docs/Model/HttpError.md
 docs/Model/HttpdStatus.md
 docs/Model/ImportKind.md
@@ -183,10 +190,14 @@ docs/Model/InstallableWebsiteApp.md
 docs/Model/InstallableWebsiteAppsFullListing.md
 docs/Model/InterfaceIp.md
 docs/Model/InviteValidation.md
+docs/Model/JoomlaInfo.md
+docs/Model/JoomlaUser.md
+docs/Model/JoomlaUsersFullListing.md
 docs/Model/LetsEncryptPreflightResult.md
 docs/Model/LicenceInfo.md
 docs/Model/LicenceKey.md
 docs/Model/LicenceStatus.md
+docs/Model/ListedPersistentApp.md
 docs/Model/LocalRemote.md
 docs/Model/LocalRemoteBody.md
 docs/Model/LogAction.md
@@ -204,6 +215,7 @@ docs/Model/LoginInfo.md
 docs/Model/LoginMembership.md
 docs/Model/LoginMemberships.md
 docs/Model/LoginsListing.md
+docs/Model/LsphpSettings.md
 docs/Model/MaintenanceMode.md
 docs/Model/MaintenanceModeStatus.md
 docs/Model/Member.md
@@ -247,6 +259,7 @@ docs/Model/NewEmail.md
 docs/Model/NewFtpUser.md
 docs/Model/NewImportServerSettings.md
 docs/Model/NewInvite.md
+docs/Model/NewJoomlaUser.md
 docs/Model/NewMappedDomain.md
 docs/Model/NewMember.md
 docs/Model/NewMigrationDetails.md
@@ -268,6 +281,7 @@ docs/Model/NewUiPreferences.md
 docs/Model/NewWebsite.md
 docs/Model/NewWebsiteApp.md
 docs/Model/NewWpUser.md
+docs/Model/NodeVersion.md
 docs/Model/OperationStatus.md
 docs/Model/OrchdLogSettings.md
 docs/Model/OrchdLoginPolicyEmailList.md
@@ -281,6 +295,9 @@ docs/Model/OrgUpdateSlackNotificationWebhookUrl.md
 docs/Model/OutboundSpamScanningSettings.md
 docs/Model/Outcome.md
 docs/Model/OwaspVersion.md
+docs/Model/PersistentApp.md
+docs/Model/PersistentAppProxyDetails.md
+docs/Model/PersistentAppStartMode.md
 docs/Model/PhpIni.md
 docs/Model/PhpVersion.md
 docs/Model/Plan.md
@@ -302,6 +319,7 @@ docs/Model/ResourceCheckManagerErrorKind.md
 docs/Model/ResourceCountByInterval.md
 docs/Model/ResourceName.md
 docs/Model/RestoreDetailed.md
+docs/Model/RestoreUploadedBackupRequest.md
 docs/Model/RewriteChain.md
 docs/Model/RewriteChainCondsInner.md
 docs/Model/RewriteChainFullListing.md
@@ -335,6 +353,7 @@ docs/Model/ServerRole.md
 docs/Model/ServerRoleState.md
 docs/Model/ServerSniMapping.md
 docs/Model/ServerSniMappingBody.md
+docs/Model/ServerSpecs.md
 docs/Model/ServerStatEntry.md
 docs/Model/ServerStatsFullListing.md
 docs/Model/ServerStatus.md
@@ -389,6 +408,7 @@ docs/Model/TransferUserAccountReqBody.md
 docs/Model/UiPreferences.md
 docs/Model/UiPreferencesViewKind.md
 docs/Model/UnixTimestamp.md
+docs/Model/UpdateAccessToken.md
 docs/Model/UpdateApplicationRole.md
 docs/Model/UpdateAutoresponder.md
 docs/Model/UpdateBackupRemoteStorageS3.md
@@ -411,8 +431,12 @@ docs/Model/UpdateImportServerSettings.md
 docs/Model/UpdateLogin.md
 docs/Model/UpdateLoginResult.md
 docs/Model/UpdateMember.md
+docs/Model/UpdatePersistentApp.md
+docs/Model/UpdatePersistentAppNodeVersion.md
+docs/Model/UpdatePersistentAppProxyDetails.md
 docs/Model/UpdatePlan.md
 docs/Model/UpdatePlanDefaultServerGroupId.md
+docs/Model/UpdatePlanPreinstallWordpressTheme.md
 docs/Model/UpdateRewriteChain.md
 docs/Model/UpdateRewriteChainFullListing.md
 docs/Model/UpdateServerRoleRequest.md
@@ -464,6 +488,7 @@ docs/Model/WebsitePhpSettings.md
 docs/Model/WebsiteServerDomains.md
 docs/Model/WebsiteStatus.md
 docs/Model/WebsitesListing.md
+docs/Model/WordPressInfo.md
 docs/Model/WordpressConfig.md
 docs/Model/WpDebug.md
 docs/Model/WpDebugDisplay.md
@@ -482,6 +507,7 @@ lib/Api/AppsApi.php
 lib/Api/BackupsApi.php
 lib/Api/BrandingApi.php
 lib/Api/CustomersApi.php
+lib/Api/DefaultApi.php
 lib/Api/DnsApi.php
 lib/Api/DomainsApi.php
 lib/Api/EmailClientApi.php
@@ -490,6 +516,7 @@ lib/Api/FtpApi.php
 lib/Api/ImportersApi.php
 lib/Api/InstallApi.php
 lib/Api/InvitesApi.php
+lib/Api/JoomlaApi.php
 lib/Api/LetsencryptApi.php
 lib/Api/LicenceApi.php
 lib/Api/LoginsApi.php
@@ -510,6 +537,7 @@ lib/Api/WebsitesApi.php
 lib/Api/WordpressApi.php
 lib/ApiException.php
 lib/Configuration.php
+lib/FormDataProcessor.php
 lib/HeaderSelector.php
 lib/Model/AcceptInviteBody.php
 lib/Model/ActivitiesListing.php
@@ -543,6 +571,7 @@ lib/Model/ActivityWebsiteEntity.php
 lib/Model/ActivityWebsiteEntityContent.php
 lib/Model/ActivityWebsiteEntityContentDetail.php
 lib/Model/ActivityWebsiteEntityDetail.php
+lib/Model/AdminCredentials.php
 lib/Model/Allowance.php
 lib/Model/ApplicationRoleInfo.php
 lib/Model/AuthNs.php
@@ -552,6 +581,7 @@ lib/Model/Autoresponder.php
 lib/Model/Backup.php
 lib/Model/BackupAction.php
 lib/Model/BackupDetailed.php
+lib/Model/BackupDownloadKind.php
 lib/Model/BackupKind.php
 lib/Model/BackupOptions.php
 lib/Model/BackupRemoteStorageS3.php
@@ -581,6 +611,7 @@ lib/Model/CrontabValueCmd.php
 lib/Model/CrontabValueCmdCronCmd.php
 lib/Model/CrontabValueVariable.php
 lib/Model/CrontabValueVariableVariable.php
+lib/Model/Customer.php
 lib/Model/CustomersListing.php
 lib/Model/DaemonKind.php
 lib/Model/DatabaseRoleInfo.php
@@ -589,6 +620,7 @@ lib/Model/DefaultDnsRecord.php
 lib/Model/DeleteWebsiteDomainVhostRequest.php
 lib/Model/DemoMode.php
 lib/Model/DeviceKind.php
+lib/Model/DirectoryTreeNode.php
 lib/Model/Disk.php
 lib/Model/DnsQueryOutcome.php
 lib/Model/DnsRecord.php
@@ -632,6 +664,7 @@ lib/Model/FtpUserUpdate.php
 lib/Model/FtpUsersFullListing.php
 lib/Model/GetServerRole200Response.php
 lib/Model/GetWordpressAppVersion200Response.php
+lib/Model/GlobalWebsiteBackup.php
 lib/Model/HttpError.php
 lib/Model/HttpdStatus.php
 lib/Model/ImportKind.php
@@ -661,10 +694,14 @@ lib/Model/InstallableWebsiteApp.php
 lib/Model/InstallableWebsiteAppsFullListing.php
 lib/Model/InterfaceIp.php
 lib/Model/InviteValidation.php
+lib/Model/JoomlaInfo.php
+lib/Model/JoomlaUser.php
+lib/Model/JoomlaUsersFullListing.php
 lib/Model/LetsEncryptPreflightResult.php
 lib/Model/LicenceInfo.php
 lib/Model/LicenceKey.php
 lib/Model/LicenceStatus.php
+lib/Model/ListedPersistentApp.php
 lib/Model/LocalRemote.php
 lib/Model/LocalRemoteBody.php
 lib/Model/LogAction.php
@@ -682,6 +719,7 @@ lib/Model/LoginInfo.php
 lib/Model/LoginMembership.php
 lib/Model/LoginMemberships.php
 lib/Model/LoginsListing.php
+lib/Model/LsphpSettings.php
 lib/Model/MaintenanceMode.php
 lib/Model/MaintenanceModeStatus.php
 lib/Model/Member.php
@@ -726,6 +764,7 @@ lib/Model/NewEmail.php
 lib/Model/NewFtpUser.php
 lib/Model/NewImportServerSettings.php
 lib/Model/NewInvite.php
+lib/Model/NewJoomlaUser.php
 lib/Model/NewMappedDomain.php
 lib/Model/NewMember.php
 lib/Model/NewMigrationDetails.php
@@ -747,6 +786,7 @@ lib/Model/NewUiPreferences.php
 lib/Model/NewWebsite.php
 lib/Model/NewWebsiteApp.php
 lib/Model/NewWpUser.php
+lib/Model/NodeVersion.php
 lib/Model/OperationStatus.php
 lib/Model/OrchdLogSettings.php
 lib/Model/OrchdLoginPolicyEmailList.php
@@ -760,6 +800,9 @@ lib/Model/OrgUpdateSlackNotificationWebhookUrl.php
 lib/Model/OutboundSpamScanningSettings.php
 lib/Model/Outcome.php
 lib/Model/OwaspVersion.php
+lib/Model/PersistentApp.php
+lib/Model/PersistentAppProxyDetails.php
+lib/Model/PersistentAppStartMode.php
 lib/Model/PhpIni.php
 lib/Model/PhpVersion.php
 lib/Model/Plan.php
@@ -781,6 +824,7 @@ lib/Model/ResourceCheckManagerErrorKind.php
 lib/Model/ResourceCountByInterval.php
 lib/Model/ResourceName.php
 lib/Model/RestoreDetailed.php
+lib/Model/RestoreUploadedBackupRequest.php
 lib/Model/RewriteChain.php
 lib/Model/RewriteChainCondsInner.php
 lib/Model/RewriteChainFullListing.php
@@ -814,6 +858,7 @@ lib/Model/ServerRole.php
 lib/Model/ServerRoleState.php
 lib/Model/ServerSniMapping.php
 lib/Model/ServerSniMappingBody.php
+lib/Model/ServerSpecs.php
 lib/Model/ServerStatEntry.php
 lib/Model/ServerStatsFullListing.php
 lib/Model/ServerStatus.php
@@ -868,6 +913,7 @@ lib/Model/TransferUserAccountReqBody.php
 lib/Model/UiPreferences.php
 lib/Model/UiPreferencesViewKind.php
 lib/Model/UnixTimestamp.php
+lib/Model/UpdateAccessToken.php
 lib/Model/UpdateApplicationRole.php
 lib/Model/UpdateAutoresponder.php
 lib/Model/UpdateBackupRemoteStorageS3.php
@@ -890,8 +936,12 @@ lib/Model/UpdateImportServerSettings.php
 lib/Model/UpdateLogin.php
 lib/Model/UpdateLoginResult.php
 lib/Model/UpdateMember.php
+lib/Model/UpdatePersistentApp.php
+lib/Model/UpdatePersistentAppNodeVersion.php
+lib/Model/UpdatePersistentAppProxyDetails.php
 lib/Model/UpdatePlan.php
 lib/Model/UpdatePlanDefaultServerGroupId.php
+lib/Model/UpdatePlanPreinstallWordpressTheme.php
 lib/Model/UpdateRewriteChain.php
 lib/Model/UpdateRewriteChainFullListing.php
 lib/Model/UpdateServerRoleRequest.php
@@ -943,6 +993,7 @@ lib/Model/WebsitePhpSettings.php
 lib/Model/WebsiteServerDomains.php
 lib/Model/WebsiteStatus.php
 lib/Model/WebsitesListing.php
+lib/Model/WordPressInfo.php
 lib/Model/WordpressConfig.php
 lib/Model/WpDebug.php
 lib/Model/WpDebugDisplay.php
@@ -958,3 +1009,28 @@ lib/Model/WpUser.php
 lib/Model/WpUsersFullListing.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/DefaultApiTest.php
+test/Api/JoomlaApiTest.php
+test/Model/AdminCredentialsTest.php
+test/Model/BackupDownloadKindTest.php
+test/Model/CustomerTest.php
+test/Model/DirectoryTreeNodeTest.php
+test/Model/GlobalWebsiteBackupTest.php
+test/Model/JoomlaInfoTest.php
+test/Model/JoomlaUserTest.php
+test/Model/JoomlaUsersFullListingTest.php
+test/Model/ListedPersistentAppTest.php
+test/Model/LsphpSettingsTest.php
+test/Model/NewJoomlaUserTest.php
+test/Model/NodeVersionTest.php
+test/Model/PersistentAppProxyDetailsTest.php
+test/Model/PersistentAppStartModeTest.php
+test/Model/PersistentAppTest.php
+test/Model/RestoreUploadedBackupRequestTest.php
+test/Model/ServerSpecsTest.php
+test/Model/UpdateAccessTokenTest.php
+test/Model/UpdatePersistentAppNodeVersionTest.php
+test/Model/UpdatePersistentAppProxyDetailsTest.php
+test/Model/UpdatePersistentAppTest.php
+test/Model/UpdatePlanPreinstallWordpressThemeTest.php
+test/Model/WordPressInfoTest.php

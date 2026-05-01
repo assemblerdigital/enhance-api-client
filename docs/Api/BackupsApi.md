@@ -1,14 +1,22 @@
 # OpenAPI\Client\BackupsApi
 
+Endpoints for managing website backups
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**backupWebsite()**](BackupsApi.md#backupWebsite) | **POST** /orgs/{org_id}/websites/{website_id}/backups | Create a website backup |
+| [**deleteAllWebsiteBackups()**](BackupsApi.md#deleteAllWebsiteBackups) | **DELETE** /backups/{server_id}/{website_id} | Delete all backups for a website |
 | [**deleteWebsiteBackup()**](BackupsApi.md#deleteWebsiteBackup) | **DELETE** /orgs/{org_id}/websites/{website_id}/backups/{backup_id} | Delete a backup |
+| [**downloadWebsiteBackup()**](BackupsApi.md#downloadWebsiteBackup) | **GET** /websites/{website_id}/backup/download | Download website backup |
 | [**getWebsiteBackup()**](BackupsApi.md#getWebsiteBackup) | **GET** /orgs/{org_id}/websites/{website_id}/backups/{backup_id} | Get detailed metadata of the website backup |
+| [**getWebsiteBackupDirectoryTree()**](BackupsApi.md#getWebsiteBackupDirectoryTree) | **GET** /orgs/{org_id}/websites/{website_id}/backups/{backup_id}/directory_tree | Get the directory tree for the home dir |
 | [**getWebsiteBackups()**](BackupsApi.md#getWebsiteBackups) | **GET** /orgs/{org_id}/websites/{website_id}/backups | Get all website backups metadata |
+| [**getWebsiteRestoreLog()**](BackupsApi.md#getWebsiteRestoreLog) | **GET** /backups/{website_id}/restore/log | Get the log for an ongoing restore, will return 404 if the restore is already complete |
 | [**getWebsiteRestoreStatus()**](BackupsApi.md#getWebsiteRestoreStatus) | **GET** /orgs/{org_id}/websites/{website_id}/backups/{backup_id}/restore_status | Get the last detailed metadata of the restored website backup. |
+| [**listGlobalBackups()**](BackupsApi.md#listGlobalBackups) | **GET** /backups | List global website backups across all backup servers, by backup server ID |
+| [**restoreHardDeletedBackup()**](BackupsApi.md#restoreHardDeletedBackup) | **PUT** /backups/{server_id}/{website_id} | Restore a backup of a hard deleted website |
 | [**restoreWebsite()**](BackupsApi.md#restoreWebsite) | **PUT** /orgs/{org_id}/websites/{website_id}/backups/{backup_id} | Restore website from a backup |
 
 
@@ -83,6 +91,70 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteAllWebsiteBackups()`
+
+```php
+deleteAllWebsiteBackups($server_id, $website_id)
+```
+
+Delete all backups for a website
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\BackupsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$server_id = 'server_id_example'; // string | The UUID of the server
+$website_id = 'website_id_example'; // string | The id of the website.
+
+try {
+    $apiInstance->deleteAllWebsiteBackups($server_id, $website_id);
+} catch (Exception $e) {
+    echo 'Exception when calling BackupsApi->deleteAllWebsiteBackups: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **server_id** | **string**| The UUID of the server | |
+| **website_id** | **string**| The id of the website. | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `deleteWebsiteBackup()`
 
 ```php
@@ -118,7 +190,7 @@ $apiInstance = new OpenAPI\Client\Api\BackupsApi(
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
 $backup_id = 56; // int | The id of the backup.
-$storage_kind = new \OpenAPI\Client\Model\BackupStorageKind(); // BackupStorageKind | The storage kind of the requested backup.
+$storage_kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\BackupStorageKind(); // \OpenAPI\Client\Model\BackupStorageKind | The storage kind of the requested backup.
 
 try {
     $apiInstance->deleteWebsiteBackup($org_id, $website_id, $backup_id, $storage_kind);
@@ -134,7 +206,7 @@ try {
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
 | **backup_id** | **int**| The id of the backup. | |
-| **storage_kind** | [**BackupStorageKind**](../Model/.md)| The storage kind of the requested backup. | [optional] |
+| **storage_kind** | [**\OpenAPI\Client\Model\BackupStorageKind**](../Model/.md)| The storage kind of the requested backup. | [optional] |
 
 ### Return type
 
@@ -148,6 +220,73 @@ void (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `downloadWebsiteBackup()`
+
+```php
+downloadWebsiteBackup($website_id, $backup_download_kind): \SplFileObject
+```
+
+Download website backup
+
+Streams a download of the current website and metadata to the browser.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\BackupsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$website_id = 'website_id_example'; // string | The id of the website.
+$backup_download_kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\BackupDownloadKind(); // \OpenAPI\Client\Model\BackupDownloadKind
+
+try {
+    $result = $apiInstance->downloadWebsiteBackup($website_id, $backup_download_kind);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BackupsApi->downloadWebsiteBackup: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **website_id** | **string**| The id of the website. | |
+| **backup_download_kind** | [**\OpenAPI\Client\Model\BackupDownloadKind**](../Model/.md)|  | [optional] |
+
+### Return type
+
+**\SplFileObject**
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/gzip`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -188,7 +327,7 @@ $apiInstance = new OpenAPI\Client\Api\BackupsApi(
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
 $backup_id = 56; // int | The id of the backup.
-$storage_kind = new \OpenAPI\Client\Model\BackupStorageKind(); // BackupStorageKind | The storage kind of the requested backup.
+$storage_kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\BackupStorageKind(); // \OpenAPI\Client\Model\BackupStorageKind | The storage kind of the requested backup.
 
 try {
     $result = $apiInstance->getWebsiteBackup($org_id, $website_id, $backup_id, $storage_kind);
@@ -205,7 +344,7 @@ try {
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
 | **backup_id** | **int**| The id of the backup. | |
-| **storage_kind** | [**BackupStorageKind**](../Model/.md)| The storage kind of the requested backup. | [optional] |
+| **storage_kind** | [**\OpenAPI\Client\Model\BackupStorageKind**](../Model/.md)| The storage kind of the requested backup. | [optional] |
 
 ### Return type
 
@@ -214,6 +353,68 @@ try {
 ### Authorization
 
 [sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getWebsiteBackupDirectoryTree()`
+
+```php
+getWebsiteBackupDirectoryTree($org_id, $website_id, $backup_id, $offset): \OpenAPI\Client\Model\DirectoryTreeNode[]
+```
+
+Get the directory tree for the home dir
+
+Will return the directory tree for the home directory of the website at the time of the snapshot.  Only works with Enhance backups, not S3.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\BackupsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$org_id = 'org_id_example'; // string | The id of the organization.
+$website_id = 'website_id_example'; // string | The id of the website.
+$backup_id = 56; // int | The id of the backup.
+$offset = 'offset_example'; // string
+
+try {
+    $result = $apiInstance->getWebsiteBackupDirectoryTree($org_id, $website_id, $backup_id, $offset);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BackupsApi->getWebsiteBackupDirectoryTree: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **org_id** | **string**| The id of the organization. | |
+| **website_id** | **string**| The id of the website. | |
+| **backup_id** | **int**| The id of the backup. | |
+| **offset** | **string**|  | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\DirectoryTreeNode[]**](../Model/DirectoryTreeNode.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -291,6 +492,69 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getWebsiteRestoreLog()`
+
+```php
+getWebsiteRestoreLog($website_id): string[]
+```
+
+Get the log for an ongoing restore, will return 404 if the restore is already complete
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\BackupsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$website_id = 'website_id_example'; // string | The id of the website.
+
+try {
+    $result = $apiInstance->getWebsiteRestoreLog($website_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BackupsApi->getWebsiteRestoreLog: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **website_id** | **string**| The id of the website. | |
+
+### Return type
+
+**string[]**
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getWebsiteRestoreStatus()`
 
 ```php
@@ -351,6 +615,134 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listGlobalBackups()`
+
+```php
+listGlobalBackups($show_existing): array<string,\OpenAPI\Client\Model\GlobalWebsiteBackup[]>
+```
+
+List global website backups across all backup servers, by backup server ID
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\BackupsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$show_existing = True; // bool | Show global backups belonging to websites that already exist on the cluster
+
+try {
+    $result = $apiInstance->listGlobalBackups($show_existing);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BackupsApi->listGlobalBackups: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **show_existing** | **bool**| Show global backups belonging to websites that already exist on the cluster | [optional] |
+
+### Return type
+
+**array<string,\OpenAPI\Client\Model\GlobalWebsiteBackup[]>**
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `restoreHardDeletedBackup()`
+
+```php
+restoreHardDeletedBackup($server_id, $website_id): string
+```
+
+Restore a backup of a hard deleted website
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\BackupsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$server_id = 'server_id_example'; // string | The UUID of the server
+$website_id = 'website_id_example'; // string | The id of the website.
+
+try {
+    $result = $apiInstance->restoreHardDeletedBackup($server_id, $website_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BackupsApi->restoreHardDeletedBackup: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **server_id** | **string**| The UUID of the server | |
+| **website_id** | **string**| The id of the website. | |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `restoreWebsite()`
 
 ```php
@@ -386,7 +778,7 @@ $apiInstance = new OpenAPI\Client\Api\BackupsApi(
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
 $backup_id = 56; // int | The id of the backup.
-$storage_kind = new \OpenAPI\Client\Model\BackupStorageKind(); // BackupStorageKind | The storage kind of the requested backup.
+$storage_kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\BackupStorageKind(); // \OpenAPI\Client\Model\BackupStorageKind | The storage kind of the requested backup.
 $backup_restore_options = new \OpenAPI\Client\Model\BackupRestoreOptions(); // \OpenAPI\Client\Model\BackupRestoreOptions | The options used to define what will be restored from the backup snapshot.
 
 try {
@@ -403,7 +795,7 @@ try {
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
 | **backup_id** | **int**| The id of the backup. | |
-| **storage_kind** | [**BackupStorageKind**](../Model/.md)| The storage kind of the requested backup. | [optional] |
+| **storage_kind** | [**\OpenAPI\Client\Model\BackupStorageKind**](../Model/.md)| The storage kind of the requested backup. | [optional] |
 | **backup_restore_options** | [**\OpenAPI\Client\Model\BackupRestoreOptions**](../Model/BackupRestoreOptions.md)| The options used to define what will be restored from the backup snapshot. | [optional] |
 
 ### Return type

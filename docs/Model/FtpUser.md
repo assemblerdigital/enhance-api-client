@@ -1,4 +1,4 @@
-# # FtpUser
+# FtpUser
 
 ## Properties
 

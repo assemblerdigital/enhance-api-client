@@ -1,4 +1,4 @@
-# # UpdateWpSettings
+# UpdateWpSettings
 
 ## Properties
 

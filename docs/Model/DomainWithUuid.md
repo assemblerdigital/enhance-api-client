@@ -1,4 +1,4 @@
-# # DomainWithUuid
+# DomainWithUuid
 
 ## Properties
 

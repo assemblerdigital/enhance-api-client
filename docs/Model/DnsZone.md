@@ -1,4 +1,4 @@
-# # DnsZone
+# DnsZone
 
 ## Properties
 

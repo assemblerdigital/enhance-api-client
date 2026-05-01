@@ -1,4 +1,4 @@
-# # TransferPleskDomainReqBody
+# TransferPleskDomainReqBody
 
 ## Properties
 

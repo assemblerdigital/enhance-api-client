@@ -1,4 +1,4 @@
-# # Outcome
+# Outcome
 
 ## Properties
 

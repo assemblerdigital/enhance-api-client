@@ -1,4 +1,4 @@
-# # BackupDetailed
+# BackupDetailed
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # WPThemeAutoUpdateStatus
+# WPThemeAutoUpdateStatus
 
 ## Properties
 

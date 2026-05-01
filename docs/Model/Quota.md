@@ -1,4 +1,4 @@
-# # Quota
+# Quota
 
 ## Properties
 

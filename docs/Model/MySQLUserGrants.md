@@ -1,4 +1,4 @@
-# # MySQLUserGrants
+# MySQLUserGrants
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # NewFtpUser
+# NewFtpUser
 
 ## Properties
 

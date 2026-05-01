@@ -1,4 +1,4 @@
-# # WebsitesListing
+# WebsitesListing
 
 ## Properties
 

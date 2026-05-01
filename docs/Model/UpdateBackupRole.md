@@ -1,4 +1,4 @@
-# # UpdateBackupRole
+# UpdateBackupRole
 
 ## Properties
 

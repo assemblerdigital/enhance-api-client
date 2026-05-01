@@ -1,4 +1,4 @@
-# # ActivityObjectOneOf
+# ActivityObjectOneOf
 
 ## Properties
 

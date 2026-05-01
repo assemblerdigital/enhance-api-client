@@ -1,4 +1,4 @@
-# # MaintenanceMode
+# MaintenanceMode
 
 ## Properties
 

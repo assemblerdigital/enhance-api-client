@@ -1,4 +1,4 @@
-# # ServerRole
+# ServerRole
 
 ## Properties
 

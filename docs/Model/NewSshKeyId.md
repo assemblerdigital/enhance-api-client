@@ -1,4 +1,4 @@
-# # NewSshKeyId
+# NewSshKeyId
 
 ## Properties
 

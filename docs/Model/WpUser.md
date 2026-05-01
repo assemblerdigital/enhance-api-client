@@ -1,4 +1,4 @@
-# # WpUser
+# WpUser
 
 ## Properties
 

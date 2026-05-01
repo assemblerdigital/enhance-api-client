@@ -1,4 +1,4 @@
-# # UpdateSettingRequest
+# UpdateSettingRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # RemoteStoragePurpose
+# RemoteStoragePurpose
 
 ## Properties
 

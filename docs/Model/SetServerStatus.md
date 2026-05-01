@@ -1,4 +1,4 @@
-# # SetServerStatus
+# SetServerStatus
 
 ## Properties
 

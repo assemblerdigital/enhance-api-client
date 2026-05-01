@@ -1,4 +1,4 @@
-# # OwaspVersion
+# OwaspVersion
 
 ## Properties
 

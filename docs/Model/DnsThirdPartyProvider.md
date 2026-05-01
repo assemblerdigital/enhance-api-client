@@ -1,4 +1,4 @@
-# # DnsThirdPartyProvider
+# DnsThirdPartyProvider
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # UpdateRewriteChain
+# UpdateRewriteChain
 
 ## Properties
 

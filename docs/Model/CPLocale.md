@@ -1,4 +1,4 @@
-# # CPLocale
+# CPLocale
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ValidatedPasswordRecovery
+# ValidatedPasswordRecovery
 
 ## Properties
 

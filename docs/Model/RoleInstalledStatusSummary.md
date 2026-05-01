@@ -1,4 +1,4 @@
-# # RoleInstalledStatusSummary
+# RoleInstalledStatusSummary
 
 ## Properties
 

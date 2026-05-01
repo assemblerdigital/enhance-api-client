@@ -1,4 +1,4 @@
-# # ResourceCheckError
+# ResourceCheckError
 
 ## Properties
 

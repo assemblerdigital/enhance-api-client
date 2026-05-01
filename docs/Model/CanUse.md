@@ -1,4 +1,4 @@
-# # CanUse
+# CanUse
 
 ## Properties
 
@@ -11,5 +11,7 @@ Name | Type | Description | Notes
 **mod_sec** | **bool** |  |
 **backup** | **bool** |  |
 **mysql_kind** | [**\OpenAPI\Client\Model\MysqlKind**](MysqlKind.md) |  | [optional]
+**persistent_apps** | **bool** |  |
+**roundcube_sso** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

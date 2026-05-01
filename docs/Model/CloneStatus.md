@@ -1,4 +1,4 @@
-# # CloneStatus
+# CloneStatus
 
 ## Properties
 

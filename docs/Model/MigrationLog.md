@@ -1,4 +1,4 @@
-# # MigrationLog
+# MigrationLog
 
 ## Properties
 

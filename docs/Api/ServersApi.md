@@ -1,5 +1,7 @@
 # OpenAPI\Client\ServersApi
 
+Configuration for servers in the Enhance cluster
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -32,6 +34,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getOutboundSpamScanningSettings()**](ServersApi.md#getOutboundSpamScanningSettings) | **GET** /servers/{server_id}/email/spam/outbound_scanning | Get the status of outbound spam scanning |
 | [**getOwaspRulesVersion()**](ServersApi.md#getOwaspRulesVersion) | **GET** /v2/servers/{server_id}/owasp | Get the current and available version of the OWASP rules |
 | [**getRegistrationKey()**](ServersApi.md#getRegistrationKey) | **GET** /servers/registration-key | Get slave registration key |
+| [**getRoundcubeSsoEnabled()**](ServersApi.md#getRoundcubeSsoEnabled) | **GET** /servers/{server_id}/roundcube_sso_enabled | Check if Roundcube SSO is enabled on this server |
 | [**getServerDiskUsage()**](ServersApi.md#getServerDiskUsage) | **GET** /servers/{server_id}/disk-usage | Get server disk usage |
 | [**getServerFpmSettings()**](ServersApi.md#getServerFpmSettings) | **GET** /servers/{server_id}/php/fpm | Get php-fpm config for all the websites on a server |
 | [**getServerGroups()**](ServersApi.md#getServerGroups) | **GET** /servers/groups | Returns all server groups |
@@ -46,6 +49,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getServerNetworkStats()**](ServersApi.md#getServerNetworkStats) | **GET** /servers/{server_id}/network-stats | Get server network stats |
 | [**getServerRole()**](ServersApi.md#getServerRole) | **GET** /servers/{server_id}/roles/{role} | Get server role info |
 | [**getServerRoles()**](ServersApi.md#getServerRoles) | **GET** /servers/{server_id}/roles | Get server roles info |
+| [**getServerSpecs()**](ServersApi.md#getServerSpecs) | **GET** /servers/{server_id}/specs | Get server specs |
 | [**getServerStats()**](ServersApi.md#getServerStats) | **GET** /servers/{server_id}/historic-stats | Get Server stats |
 | [**getServerStatus()**](ServersApi.md#getServerStatus) | **GET** /servers/{server_id}/status | Get server status |
 | [**getServerUptime()**](ServersApi.md#getServerUptime) | **GET** /servers/{server_id}/uptime | Get server uptime in seconds |
@@ -66,6 +70,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**setEmailServerHostnameOverride()**](ServersApi.md#setEmailServerHostnameOverride) | **PUT** /servers/{server_id}/email/hostname_override | Set the hostname override for the email server (postfix) |
 | [**setLiteSpeedAdminPassword()**](ServersApi.md#setLiteSpeedAdminPassword) | **POST** /servers/{server_id}/webserver/litespeed/password | Set a new LiteSpeed admin password. |
 | [**setOutboundSpamScanningSettings()**](ServersApi.md#setOutboundSpamScanningSettings) | **PUT** /servers/{server_id}/email/spam/outbound_scanning | Set the settings for outbound spam scanning |
+| [**setRoundcubeSsoEnabled()**](ServersApi.md#setRoundcubeSsoEnabled) | **PUT** /servers/{server_id}/roundcube_sso_enabled | Set Roundcube SSO enabled state |
 | [**setServerDecommissioned()**](ServersApi.md#setServerDecommissioned) | **PUT** /servers/{server_id}/decommissioned | Set server to decommissioned |
 | [**setServerModSecurityConfig()**](ServersApi.md#setServerModSecurityConfig) | **PUT** /v2/servers/{server_id}/modsec_conf | Set mod security config |
 | [**setServerModSecurityStatus()**](ServersApi.md#setServerModSecurityStatus) | **PUT** /v2/servers/{server_id}/modsec_status | Set mod security status for a server |
@@ -884,7 +889,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     $config
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
-$setting_kind = new \OpenAPI\Client\Model\SettingKind(); // SettingKind | The type of setting being applied
+$setting_kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\SettingKind(); // \OpenAPI\Client\Model\SettingKind | The type of setting being applied
 $setting_key = 'setting_key_example'; // string | A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl
 
 try {
@@ -900,7 +905,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
-| **setting_kind** | [**SettingKind**](../Model/.md)| The type of setting being applied | |
+| **setting_kind** | [**\OpenAPI\Client\Model\SettingKind**](../Model/.md)| The type of setting being applied | |
 | **setting_key** | **string**| A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl | |
 
 ### Return type
@@ -1249,7 +1254,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client()
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
-$mysql_kind = new \OpenAPI\Client\Model\MysqlKind(); // MysqlKind
+$mysql_kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\MysqlKind(); // \OpenAPI\Client\Model\MysqlKind
 
 try {
     $result = $apiInstance->getDatabaseRoleMysqlKind($server_id, $mysql_kind);
@@ -1264,7 +1269,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
-| **mysql_kind** | [**MysqlKind**](../Model/.md)|  | [optional] |
+| **mysql_kind** | [**\OpenAPI\Client\Model\MysqlKind**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -1486,7 +1491,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client()
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
-$role = new \OpenAPI\Client\Model\ServerRole(); // ServerRole | The role of the server.
+$role = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ServerRole(); // \OpenAPI\Client\Model\ServerRole | The role of the server.
 
 try {
     $result = $apiInstance->getHttpdStatus($server_id, $role);
@@ -1501,7 +1506,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
-| **role** | [**ServerRole**](../Model/.md)| The role of the server. | |
+| **role** | [**\OpenAPI\Client\Model\ServerRole**](../Model/.md)| The role of the server. | |
 
 ### Return type
 
@@ -1810,6 +1815,69 @@ This endpoint does not need any parameter.
 ### Return type
 
 **string**
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getRoundcubeSsoEnabled()`
+
+```php
+getRoundcubeSsoEnabled($server_id): bool
+```
+
+Check if Roundcube SSO is enabled on this server
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ServersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$server_id = 'server_id_example'; // string | The UUID of the server
+
+try {
+    $result = $apiInstance->getRoundcubeSsoEnabled($server_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ServersApi->getRoundcubeSsoEnabled: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **server_id** | **string**| The UUID of the server | |
+
+### Return type
+
+**bool**
 
 ### Authorization
 
@@ -2621,7 +2689,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     $config
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
-$role = new \OpenAPI\Client\Model\ServerRole(); // ServerRole | The role of the server.
+$role = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ServerRole(); // \OpenAPI\Client\Model\ServerRole | The role of the server.
 
 try {
     $result = $apiInstance->getServerRole($server_id, $role);
@@ -2636,7 +2704,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
-| **role** | [**ServerRole**](../Model/.md)| The role of the server. | |
+| **role** | [**\OpenAPI\Client\Model\ServerRole**](../Model/.md)| The role of the server. | |
 
 ### Return type
 
@@ -2720,6 +2788,71 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getServerSpecs()`
+
+```php
+getServerSpecs($server_id): \OpenAPI\Client\Model\ServerSpecs
+```
+
+Get server specs
+
+Returns the spec of a given server ID.  Endpoint accessible to master organisation and to an end user or reseller who has a dedicated subscription to this server.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ServersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$server_id = 'server_id_example'; // string | The UUID of the server
+
+try {
+    $result = $apiInstance->getServerSpecs($server_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ServersApi->getServerSpecs: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **server_id** | **string**| The UUID of the server | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\ServerSpecs**](../Model/ServerSpecs.md)
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getServerStats()`
 
 ```php
@@ -2744,8 +2877,8 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client()
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
-$start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Start datetime UTC.
-$end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | End datetime UTC.
+$start = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start datetime UTC.
+$end = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End datetime UTC.
 
 try {
     $result = $apiInstance->getServerStats($server_id, $start, $end);
@@ -3014,7 +3147,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     $config
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
-$setting_kind = new \OpenAPI\Client\Model\SettingKind(); // SettingKind | The type of setting being applied
+$setting_kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\SettingKind(); // \OpenAPI\Client\Model\SettingKind | The type of setting being applied
 
 try {
     $result = $apiInstance->getServiceSetting($server_id, $setting_kind);
@@ -3029,7 +3162,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
-| **setting_kind** | [**SettingKind**](../Model/.md)| The type of setting being applied | |
+| **setting_kind** | [**\OpenAPI\Client\Model\SettingKind**](../Model/.md)| The type of setting being applied | |
 
 ### Return type
 
@@ -3207,7 +3340,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     $config
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
-$system_package_name = new \OpenAPI\Client\Model\SystemPackageName(); // SystemPackageName
+$system_package_name = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\SystemPackageName(); // \OpenAPI\Client\Model\SystemPackageName
 
 try {
     $result = $apiInstance->getSystemPackageUpdateInfo($server_id, $system_package_name);
@@ -3222,7 +3355,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
-| **system_package_name** | [**SystemPackageName**](../Model/.md)|  | [optional] |
+| **system_package_name** | [**\OpenAPI\Client\Model\SystemPackageName**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -3449,7 +3582,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     new GuzzleHttp\Client()
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
-$mysql_kind = new \OpenAPI\Client\Model\MysqlKind(); // MysqlKind
+$mysql_kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\MysqlKind(); // \OpenAPI\Client\Model\MysqlKind
 
 try {
     $apiInstance->installDatabaseRole($server_id, $mysql_kind);
@@ -3463,7 +3596,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
-| **mysql_kind** | [**MysqlKind**](../Model/.md)|  | [optional] |
+| **mysql_kind** | [**\OpenAPI\Client\Model\MysqlKind**](../Model/.md)|  | [optional] |
 
 ### Return type
 
@@ -3515,7 +3648,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     $config
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
-$role = new \OpenAPI\Client\Model\ServerRole(); // ServerRole | The role of the server.
+$role = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ServerRole(); // \OpenAPI\Client\Model\ServerRole | The role of the server.
 $new_backup_role = new \OpenAPI\Client\Model\NewBackupRole(); // \OpenAPI\Client\Model\NewBackupRole | Information for the backup role.
 
 try {
@@ -3530,7 +3663,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
-| **role** | [**ServerRole**](../Model/.md)| The role of the server. | |
+| **role** | [**\OpenAPI\Client\Model\ServerRole**](../Model/.md)| The role of the server. | |
 | **new_backup_role** | [**\OpenAPI\Client\Model\NewBackupRole**](../Model/NewBackupRole.md)| Information for the backup role. | [optional] |
 
 ### Return type
@@ -3980,6 +4113,70 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `setRoundcubeSsoEnabled()`
+
+```php
+setRoundcubeSsoEnabled($server_id, $body)
+```
+
+Set Roundcube SSO enabled state
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ServersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$server_id = 'server_id_example'; // string | The UUID of the server
+$body = True; // bool
+
+try {
+    $apiInstance->setRoundcubeSsoEnabled($server_id, $body);
+} catch (Exception $e) {
+    echo 'Exception when calling ServersApi->setRoundcubeSsoEnabled: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **server_id** | **string**| The UUID of the server | |
+| **body** | **bool**|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `setServerDecommissioned()`
 
 ```php
@@ -4275,7 +4472,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     $config
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
-$setting_kind = new \OpenAPI\Client\Model\SettingKind(); // SettingKind | The type of setting being applied
+$setting_kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\SettingKind(); // \OpenAPI\Client\Model\SettingKind | The type of setting being applied
 $setting_key = 'setting_key_example'; // string | A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl
 $service_setting_value = new \OpenAPI\Client\Model\ServiceSettingValue(); // \OpenAPI\Client\Model\ServiceSettingValue
 
@@ -4292,7 +4489,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
-| **setting_kind** | [**SettingKind**](../Model/.md)| The type of setting being applied | |
+| **setting_kind** | [**\OpenAPI\Client\Model\SettingKind**](../Model/.md)| The type of setting being applied | |
 | **setting_key** | **string**| A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl | |
 | **service_setting_value** | [**\OpenAPI\Client\Model\ServiceSettingValue**](../Model/ServiceSettingValue.md)|  | |
 
@@ -4540,7 +4737,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     $config
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
-$role = new \OpenAPI\Client\Model\ServerRole(); // ServerRole | The role of the server.
+$role = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ServerRole(); // \OpenAPI\Client\Model\ServerRole | The role of the server.
 
 try {
     $apiInstance->uninstallServerRole($server_id, $role);
@@ -4554,7 +4751,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
-| **role** | [**ServerRole**](../Model/.md)| The role of the server. | |
+| **role** | [**\OpenAPI\Client\Model\ServerRole**](../Model/.md)| The role of the server. | |
 
 ### Return type
 
@@ -4912,7 +5109,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
     $config
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
-$role = new \OpenAPI\Client\Model\ServerRole(); // ServerRole | The role of the server.
+$role = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ServerRole(); // \OpenAPI\Client\Model\ServerRole | The role of the server.
 $update_server_role_request = new \OpenAPI\Client\Model\UpdateServerRoleRequest(); // \OpenAPI\Client\Model\UpdateServerRoleRequest | Info for updating the server role.
 
 try {
@@ -4927,7 +5124,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
-| **role** | [**ServerRole**](../Model/.md)| The role of the server. | |
+| **role** | [**\OpenAPI\Client\Model\ServerRole**](../Model/.md)| The role of the server. | |
 | **update_server_role_request** | [**\OpenAPI\Client\Model\UpdateServerRoleRequest**](../Model/UpdateServerRoleRequest.md)| Info for updating the server role. | |
 
 ### Return type
@@ -4981,7 +5178,7 @@ $apiInstance = new OpenAPI\Client\Api\ServersApi(
 );
 $server_id = 'server_id_example'; // string | The UUID of the server
 $system_package = new \OpenAPI\Client\Model\SystemPackage(); // \OpenAPI\Client\Model\SystemPackage | Package to be updated.
-$system_package_name = new \OpenAPI\Client\Model\SystemPackageName(); // SystemPackageName
+$system_package_name = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\SystemPackageName(); // \OpenAPI\Client\Model\SystemPackageName
 
 try {
     $apiInstance->updateSystemPackage($server_id, $system_package, $system_package_name);
@@ -4996,7 +5193,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**| The UUID of the server | |
 | **system_package** | [**\OpenAPI\Client\Model\SystemPackage**](../Model/SystemPackage.md)| Package to be updated. | |
-| **system_package_name** | [**SystemPackageName**](../Model/.md)|  | [optional] |
+| **system_package_name** | [**\OpenAPI\Client\Model\SystemPackageName**](../Model/.md)|  | [optional] |
 
 ### Return type
 

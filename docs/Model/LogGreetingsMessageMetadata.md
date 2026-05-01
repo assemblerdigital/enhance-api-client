@@ -1,4 +1,4 @@
-# # LogGreetingsMessageMetadata
+# LogGreetingsMessageMetadata
 
 ## Properties
 

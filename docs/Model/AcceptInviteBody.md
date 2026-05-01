@@ -1,4 +1,4 @@
-# # AcceptInviteBody
+# AcceptInviteBody
 
 ## Properties
 

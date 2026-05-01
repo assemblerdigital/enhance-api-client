@@ -1,4 +1,4 @@
-# # ImporterAnalyzedDataMysqlDatabasesInner
+# ImporterAnalyzedDataMysqlDatabasesInner
 
 ## Properties
 

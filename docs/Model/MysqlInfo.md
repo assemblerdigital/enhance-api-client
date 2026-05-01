@@ -1,4 +1,4 @@
-# # MysqlInfo
+# MysqlInfo
 
 ## Properties
 

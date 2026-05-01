@@ -1,4 +1,4 @@
-# # RolesSummary
+# RolesSummary
 
 ## Properties
 

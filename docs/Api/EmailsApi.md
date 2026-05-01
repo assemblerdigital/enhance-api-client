@@ -1,26 +1,29 @@
 # OpenAPI\Client\EmailsApi
 
+Email related endpoints
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createWebsiteEmail()**](EmailsApi.md#createWebsiteEmail) | **POST** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/emails | Create an email under website&#39;s domain |
-| [**createWebsiteEmailAutoresponder()**](EmailsApi.md#createWebsiteEmailAutoresponder) | **POST** /orgs/{org_id}/websites/{website_id}/emails/{email_id}/autoresponder | Create new website email autoresponder |
-| [**deleteWebsiteEmail()**](EmailsApi.md#deleteWebsiteEmail) | **DELETE** /orgs/{org_id}/websites/{website_id}/emails/{email_id} | Delete website email |
-| [**deleteWebsiteEmailAutoresponder()**](EmailsApi.md#deleteWebsiteEmailAutoresponder) | **DELETE** /orgs/{org_id}/websites/{website_id}/emails/{email_id}/autoresponder | Delete website email autoresponder |
-| [**getDomainEmailAuth()**](EmailsApi.md#getDomainEmailAuth) | **GET** /orgs/{org_id}/domains/{domain_id}/email-auth | Get email authentication preferences |
+| [**createWebsiteEmailAutoresponder()**](EmailsApi.md#createWebsiteEmailAutoresponder) | **POST** /orgs/{org_id}/websites/{website_id}/emails/{email_address}/autoresponder | Create new website email autoresponder |
+| [**deleteWebsiteEmail()**](EmailsApi.md#deleteWebsiteEmail) | **DELETE** /orgs/{org_id}/websites/{website_id}/emails/{email_address} | Delete website email |
+| [**deleteWebsiteEmailAutoresponder()**](EmailsApi.md#deleteWebsiteEmailAutoresponder) | **DELETE** /orgs/{org_id}/websites/{website_id}/emails/{email_address}/autoresponder | Delete website email autoresponder |
+| [**getDomainEmailAuth()**](EmailsApi.md#getDomainEmailAuth) | **GET** /websites/{website_id}/domains/{domain_name}/email-auth | Get email authentication preferences |
 | [**getDomainLocalRemote()**](EmailsApi.md#getDomainLocalRemote) | **GET** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/local_remote | Get the current local/remote status |
-| [**getEmailSpamThresholds()**](EmailsApi.md#getEmailSpamThresholds) | **GET** /emails/{email_id}/spam_thresholds | Get spam thresholds for an email address |
+| [**getEmailSpamThresholds()**](EmailsApi.md#getEmailSpamThresholds) | **GET** /websites/{website_id}/emails/{email_address}/spam_thresholds | Get spam thresholds for an email address |
 | [**getEmails()**](EmailsApi.md#getEmails) | **GET** /orgs/{org_id}/emails | Get org emails |
-| [**getWebsiteEmail()**](EmailsApi.md#getWebsiteEmail) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_id} | Get website email |
-| [**getWebsiteEmailAutoresponder()**](EmailsApi.md#getWebsiteEmailAutoresponder) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_id}/autoresponder | Get website email autoresponder |
-| [**getWebsiteEmailClientConf()**](EmailsApi.md#getWebsiteEmailClientConf) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_id}/client-conf | Get website email client configuration |
+| [**getWebsiteEmail()**](EmailsApi.md#getWebsiteEmail) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_address} | Get website email |
+| [**getWebsiteEmailAutoresponder()**](EmailsApi.md#getWebsiteEmailAutoresponder) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_address}/autoresponder | Get website email autoresponder |
+| [**getWebsiteEmailClientConf()**](EmailsApi.md#getWebsiteEmailClientConf) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_address}/client-conf | Get website email client configuration |
 | [**getWebsiteEmails()**](EmailsApi.md#getWebsiteEmails) | **GET** /orgs/{org_id}/websites/{website_id}/emails | Get website emails |
 | [**setDomainLocalRemote()**](EmailsApi.md#setDomainLocalRemote) | **PUT** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/local_remote | Update email local/remote status |
-| [**setEmailSpamThresholds()**](EmailsApi.md#setEmailSpamThresholds) | **PUT** /emails/{email_id}/spam_thresholds | Set spam thresholds for an email address |
-| [**updateDomainEmailAuth()**](EmailsApi.md#updateDomainEmailAuth) | **PUT** /orgs/{org_id}/domains/{domain_id}/email-auth | Update email authentication preferences |
-| [**updateWebsiteEmail()**](EmailsApi.md#updateWebsiteEmail) | **PATCH** /orgs/{org_id}/websites/{website_id}/emails/{email_id} | Update website email |
-| [**validateDomainEmailAuth()**](EmailsApi.md#validateDomainEmailAuth) | **GET** /orgs/{org_id}/domains/{domain_id}/email-auth/validate | Validate email authentication DNS records |
+| [**setEmailSpamThresholds()**](EmailsApi.md#setEmailSpamThresholds) | **PUT** /websites/{website_id}/emails/{email_address}/spam_thresholds | Set spam thresholds for an email address |
+| [**ssoToRoundcube()**](EmailsApi.md#ssoToRoundcube) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_address}/sso | SSO to Roundcube |
+| [**updateDomainEmailAuth()**](EmailsApi.md#updateDomainEmailAuth) | **PUT** /websites/{website_id}/domains/{domain_name}/email-auth | Update email authentication preferences |
+| [**updateWebsiteEmail()**](EmailsApi.md#updateWebsiteEmail) | **PATCH** /orgs/{org_id}/websites/{website_id}/emails/{email_address} | Update website email |
+| [**validateDomainEmailAuth()**](EmailsApi.md#validateDomainEmailAuth) | **GET** /websites/{website_id}/domains/{domain_name}/email-auth/validate | Validate email authentication DNS records |
 
 
 ## `createWebsiteEmail()`
@@ -88,7 +91,7 @@ No authorization required
 ## `createWebsiteEmailAutoresponder()`
 
 ```php
-createWebsiteEmailAutoresponder($org_id, $website_id, $email_id, $new_autoresponder): \OpenAPI\Client\Model\NewResourceId
+createWebsiteEmailAutoresponder($org_id, $website_id, $email_address, $new_autoresponder): \OpenAPI\Client\Model\NewResourceId
 ```
 
 Create new website email autoresponder
@@ -119,11 +122,11 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$email_id = 'email_id_example'; // string | The id of the email.
+$email_address = 'email_address_example'; // string | The address of the email.
 $new_autoresponder = new \OpenAPI\Client\Model\NewAutoresponder(); // \OpenAPI\Client\Model\NewAutoresponder | Autoresponder details.
 
 try {
-    $result = $apiInstance->createWebsiteEmailAutoresponder($org_id, $website_id, $email_id, $new_autoresponder);
+    $result = $apiInstance->createWebsiteEmailAutoresponder($org_id, $website_id, $email_address, $new_autoresponder);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->createWebsiteEmailAutoresponder: ', $e->getMessage(), PHP_EOL;
@@ -136,7 +139,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **email_id** | **string**| The id of the email. | |
+| **email_address** | **string**| The address of the email. | |
 | **new_autoresponder** | [**\OpenAPI\Client\Model\NewAutoresponder**](../Model/NewAutoresponder.md)| Autoresponder details. | |
 
 ### Return type
@@ -159,7 +162,7 @@ try {
 ## `deleteWebsiteEmail()`
 
 ```php
-deleteWebsiteEmail($org_id, $website_id, $email_id)
+deleteWebsiteEmail($org_id, $website_id, $email_address)
 ```
 
 Delete website email
@@ -190,10 +193,10 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$email_id = 'email_id_example'; // string | The id of the email.
+$email_address = 'email_address_example'; // string | The address of the email.
 
 try {
-    $apiInstance->deleteWebsiteEmail($org_id, $website_id, $email_id);
+    $apiInstance->deleteWebsiteEmail($org_id, $website_id, $email_address);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->deleteWebsiteEmail: ', $e->getMessage(), PHP_EOL;
 }
@@ -205,7 +208,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **email_id** | **string**| The id of the email. | |
+| **email_address** | **string**| The address of the email. | |
 
 ### Return type
 
@@ -227,7 +230,7 @@ void (empty response body)
 ## `deleteWebsiteEmailAutoresponder()`
 
 ```php
-deleteWebsiteEmailAutoresponder($org_id, $website_id, $email_id)
+deleteWebsiteEmailAutoresponder($org_id, $website_id, $email_address)
 ```
 
 Delete website email autoresponder
@@ -258,10 +261,10 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$email_id = 'email_id_example'; // string | The id of the email.
+$email_address = 'email_address_example'; // string | The address of the email.
 
 try {
-    $apiInstance->deleteWebsiteEmailAutoresponder($org_id, $website_id, $email_id);
+    $apiInstance->deleteWebsiteEmailAutoresponder($org_id, $website_id, $email_address);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->deleteWebsiteEmailAutoresponder: ', $e->getMessage(), PHP_EOL;
 }
@@ -273,7 +276,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **email_id** | **string**| The id of the email. | |
+| **email_address** | **string**| The address of the email. | |
 
 ### Return type
 
@@ -295,7 +298,7 @@ void (empty response body)
 ## `getDomainEmailAuth()`
 
 ```php
-getDomainEmailAuth($org_id, $domain_id): \OpenAPI\Client\Model\EmailAuth
+getDomainEmailAuth($website_id, $domain_name): \OpenAPI\Client\Model\EmailAuth
 ```
 
 Get email authentication preferences
@@ -324,11 +327,11 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$org_id = 'org_id_example'; // string | The id of the organization.
-$domain_id = 'domain_id_example'; // string | The id of the domain.
+$website_id = 'website_id_example'; // string | The id of the website.
+$domain_name = 'domain_name_example'; // string | The full domain to query.
 
 try {
-    $result = $apiInstance->getDomainEmailAuth($org_id, $domain_id);
+    $result = $apiInstance->getDomainEmailAuth($website_id, $domain_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->getDomainEmailAuth: ', $e->getMessage(), PHP_EOL;
@@ -339,8 +342,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **org_id** | **string**| The id of the organization. | |
-| **domain_id** | **string**| The id of the domain. | |
+| **website_id** | **string**| The id of the website. | |
+| **domain_name** | **string**| The full domain to query. | |
 
 ### Return type
 
@@ -431,7 +434,7 @@ try {
 ## `getEmailSpamThresholds()`
 
 ```php
-getEmailSpamThresholds($email_id): \OpenAPI\Client\Model\SpamThresholds
+getEmailSpamThresholds($website_id, $email_address): \OpenAPI\Client\Model\SpamThresholds
 ```
 
 Get spam thresholds for an email address
@@ -458,10 +461,11 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$email_id = 'email_id_example'; // string | The id of the email.
+$website_id = 'website_id_example'; // string | The id of the website.
+$email_address = 'email_address_example'; // string | The address of the email.
 
 try {
-    $result = $apiInstance->getEmailSpamThresholds($email_id);
+    $result = $apiInstance->getEmailSpamThresholds($website_id, $email_address);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->getEmailSpamThresholds: ', $e->getMessage(), PHP_EOL;
@@ -472,7 +476,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **email_id** | **string**| The id of the email. | |
+| **website_id** | **string**| The id of the website. | |
+| **email_address** | **string**| The address of the email. | |
 
 ### Return type
 
@@ -531,7 +536,7 @@ $sort_order = 'sort_order_example'; // string | The direction in which to sort. 
 $search = 'search_example'; // string | Limit the result set to the resources whose names, partially and case insensitively, match the specified search term. E.g. for websites, this is their domain or tag, for databases the database name, for emails the email address or mailbox name, etc. A website will also be returned if the search term exactly matches the website's uuid.
 $recursive = True; // bool | If set to true, the endpoint will return resources in some hierarchy recursively, that is, several or all levels of the hierarchy, depending on whether `maxDepth` is set. E.g. for customers this means direct and indirect customers are returned. For websites, this returns websites of all direct and indirect customers.
 $max_depth = 56; // int | If recursive is set to true, this can be specified to limit the recursion depth. By default there is no recursion bound.
-$status = new \OpenAPI\Client\Model\WebsiteStatus(); // WebsiteStatus | Limit the result set to emails with the specified status. Only applicable if `recursive` is set to true.
+$status = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\WebsiteStatus(); // \OpenAPI\Client\Model\WebsiteStatus | Limit the result set to emails with the specified status. Only applicable if `recursive` is set to true.
 $domain_id = 'domain_id_example'; // string | Limit the result set to emails under domain.
 $plan_id = 56; // int | Limit the result set to resources under subscriptions to the plan.
 $subscription_id = 56; // int | Limit the result set to resources under subscription.
@@ -558,7 +563,7 @@ try {
 | **search** | **string**| Limit the result set to the resources whose names, partially and case insensitively, match the specified search term. E.g. for websites, this is their domain or tag, for databases the database name, for emails the email address or mailbox name, etc. A website will also be returned if the search term exactly matches the website&#39;s uuid. | [optional] |
 | **recursive** | **bool**| If set to true, the endpoint will return resources in some hierarchy recursively, that is, several or all levels of the hierarchy, depending on whether &#x60;maxDepth&#x60; is set. E.g. for customers this means direct and indirect customers are returned. For websites, this returns websites of all direct and indirect customers. | [optional] |
 | **max_depth** | **int**| If recursive is set to true, this can be specified to limit the recursion depth. By default there is no recursion bound. | [optional] |
-| **status** | [**WebsiteStatus**](../Model/.md)| Limit the result set to emails with the specified status. Only applicable if &#x60;recursive&#x60; is set to true. | [optional] |
+| **status** | [**\OpenAPI\Client\Model\WebsiteStatus**](../Model/.md)| Limit the result set to emails with the specified status. Only applicable if &#x60;recursive&#x60; is set to true. | [optional] |
 | **domain_id** | **string**| Limit the result set to emails under domain. | [optional] |
 | **plan_id** | **int**| Limit the result set to resources under subscriptions to the plan. | [optional] |
 | **subscription_id** | **int**| Limit the result set to resources under subscription. | [optional] |
@@ -585,7 +590,7 @@ try {
 ## `getWebsiteEmail()`
 
 ```php
-getWebsiteEmail($org_id, $website_id, $email_id): \OpenAPI\Client\Model\EmailDetailed
+getWebsiteEmail($org_id, $website_id, $email_address): \OpenAPI\Client\Model\EmailDetailed
 ```
 
 Get website email
@@ -607,10 +612,10 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$email_id = 'email_id_example'; // string | The id of the email.
+$email_address = 'email_address_example'; // string | The address of the email.
 
 try {
-    $result = $apiInstance->getWebsiteEmail($org_id, $website_id, $email_id);
+    $result = $apiInstance->getWebsiteEmail($org_id, $website_id, $email_address);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->getWebsiteEmail: ', $e->getMessage(), PHP_EOL;
@@ -623,7 +628,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **email_id** | **string**| The id of the email. | |
+| **email_address** | **string**| The address of the email. | |
 
 ### Return type
 
@@ -645,7 +650,7 @@ No authorization required
 ## `getWebsiteEmailAutoresponder()`
 
 ```php
-getWebsiteEmailAutoresponder($org_id, $website_id, $email_id): \OpenAPI\Client\Model\Autoresponder
+getWebsiteEmailAutoresponder($org_id, $website_id, $email_address): \OpenAPI\Client\Model\Autoresponder
 ```
 
 Get website email autoresponder
@@ -676,10 +681,10 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$email_id = 'email_id_example'; // string | The id of the email.
+$email_address = 'email_address_example'; // string | The address of the email.
 
 try {
-    $result = $apiInstance->getWebsiteEmailAutoresponder($org_id, $website_id, $email_id);
+    $result = $apiInstance->getWebsiteEmailAutoresponder($org_id, $website_id, $email_address);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->getWebsiteEmailAutoresponder: ', $e->getMessage(), PHP_EOL;
@@ -692,7 +697,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **email_id** | **string**| The id of the email. | |
+| **email_address** | **string**| The address of the email. | |
 
 ### Return type
 
@@ -714,7 +719,7 @@ try {
 ## `getWebsiteEmailClientConf()`
 
 ```php
-getWebsiteEmailClientConf($org_id, $website_id, $email_id): object
+getWebsiteEmailClientConf($org_id, $website_id, $email_address): object
 ```
 
 Get website email client configuration
@@ -745,10 +750,10 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$email_id = 'email_id_example'; // string | The id of the email.
+$email_address = 'email_address_example'; // string | The address of the email.
 
 try {
-    $result = $apiInstance->getWebsiteEmailClientConf($org_id, $website_id, $email_id);
+    $result = $apiInstance->getWebsiteEmailClientConf($org_id, $website_id, $email_address);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->getWebsiteEmailClientConf: ', $e->getMessage(), PHP_EOL;
@@ -761,7 +766,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **email_id** | **string**| The id of the email. | |
+| **email_address** | **string**| The address of the email. | |
 
 ### Return type
 
@@ -783,7 +788,7 @@ try {
 ## `getWebsiteEmails()`
 
 ```php
-getWebsiteEmails($org_id, $website_id, $offset, $limit, $sort_by, $sort_order, $search, $include_internal): \OpenAPI\Client\Model\EmailsListing
+getWebsiteEmails($org_id, $website_id, $sort_by, $sort_order, $search, $include_internal): \OpenAPI\Client\Model\EmailsListing
 ```
 
 Get website emails
@@ -814,15 +819,13 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$offset = 56; // int | The offset from which to return items.
-$limit = 56; // int | The maximum number of items to return.
 $sort_by = 'sort_by_example'; // string | The field by which to sort.
 $sort_order = 'sort_order_example'; // string | The direction in which to sort. Possible values are 'asc' and 'desc', defaulting to 'asc'.
 $search = 'search_example'; // string | Limit the result set to the resources whose names, partially and case insensitively, match the specified search term. E.g. for websites, this is their domain or tag, for databases the database name, for emails the email address or mailbox name, etc. A website will also be returned if the search term exactly matches the website's uuid.
 $include_internal = false; // bool | Include internal emails in response
 
 try {
-    $result = $apiInstance->getWebsiteEmails($org_id, $website_id, $offset, $limit, $sort_by, $sort_order, $search, $include_internal);
+    $result = $apiInstance->getWebsiteEmails($org_id, $website_id, $sort_by, $sort_order, $search, $include_internal);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->getWebsiteEmails: ', $e->getMessage(), PHP_EOL;
@@ -835,8 +838,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **offset** | **int**| The offset from which to return items. | [optional] |
-| **limit** | **int**| The maximum number of items to return. | [optional] |
 | **sort_by** | **string**| The field by which to sort. | [optional] |
 | **sort_order** | **string**| The direction in which to sort. Possible values are &#39;asc&#39; and &#39;desc&#39;, defaulting to &#39;asc&#39;. | [optional] |
 | **search** | **string**| Limit the result set to the resources whose names, partially and case insensitively, match the specified search term. E.g. for websites, this is their domain or tag, for databases the database name, for emails the email address or mailbox name, etc. A website will also be returned if the search term exactly matches the website&#39;s uuid. | [optional] |
@@ -932,7 +933,7 @@ void (empty response body)
 ## `setEmailSpamThresholds()`
 
 ```php
-setEmailSpamThresholds($email_id, $spam_thresholds)
+setEmailSpamThresholds($website_id, $email_address, $spam_thresholds)
 ```
 
 Set spam thresholds for an email address
@@ -959,11 +960,12 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$email_id = 'email_id_example'; // string | The id of the email.
+$website_id = 'website_id_example'; // string | The id of the website.
+$email_address = 'email_address_example'; // string | The address of the email.
 $spam_thresholds = new \OpenAPI\Client\Model\SpamThresholds(); // \OpenAPI\Client\Model\SpamThresholds | Spam thresholds.
 
 try {
-    $apiInstance->setEmailSpamThresholds($email_id, $spam_thresholds);
+    $apiInstance->setEmailSpamThresholds($website_id, $email_address, $spam_thresholds);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->setEmailSpamThresholds: ', $e->getMessage(), PHP_EOL;
 }
@@ -973,7 +975,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **email_id** | **string**| The id of the email. | |
+| **website_id** | **string**| The id of the website. | |
+| **email_address** | **string**| The address of the email. | |
 | **spam_thresholds** | [**\OpenAPI\Client\Model\SpamThresholds**](../Model/SpamThresholds.md)| Spam thresholds. | |
 
 ### Return type
@@ -993,10 +996,69 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `ssoToRoundcube()`
+
+```php
+ssoToRoundcube($org_id, $website_id, $email_address)
+```
+
+SSO to Roundcube
+
+Generate an SSO token for Roundcube and redirect the user
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\EmailsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$org_id = 'org_id_example'; // string | The id of the organization.
+$website_id = 'website_id_example'; // string | The id of the website.
+$email_address = 'email_address_example'; // string | The address of the email.
+
+try {
+    $apiInstance->ssoToRoundcube($org_id, $website_id, $email_address);
+} catch (Exception $e) {
+    echo 'Exception when calling EmailsApi->ssoToRoundcube: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **org_id** | **string**| The id of the organization. | |
+| **website_id** | **string**| The id of the website. | |
+| **email_address** | **string**| The address of the email. | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `updateDomainEmailAuth()`
 
 ```php
-updateDomainEmailAuth($org_id, $domain_id, $email_auth_update)
+updateDomainEmailAuth($website_id, $domain_name, $email_auth_update)
 ```
 
 Update email authentication preferences
@@ -1025,12 +1087,12 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$org_id = 'org_id_example'; // string | The id of the organization.
-$domain_id = 'domain_id_example'; // string | The id of the domain.
+$website_id = 'website_id_example'; // string | The id of the website.
+$domain_name = 'domain_name_example'; // string | The full domain to query.
 $email_auth_update = new \OpenAPI\Client\Model\EmailAuthUpdate(); // \OpenAPI\Client\Model\EmailAuthUpdate | Email auth details.
 
 try {
-    $apiInstance->updateDomainEmailAuth($org_id, $domain_id, $email_auth_update);
+    $apiInstance->updateDomainEmailAuth($website_id, $domain_name, $email_auth_update);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->updateDomainEmailAuth: ', $e->getMessage(), PHP_EOL;
 }
@@ -1040,8 +1102,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **org_id** | **string**| The id of the organization. | |
-| **domain_id** | **string**| The id of the domain. | |
+| **website_id** | **string**| The id of the website. | |
+| **domain_name** | **string**| The full domain to query. | |
 | **email_auth_update** | [**\OpenAPI\Client\Model\EmailAuthUpdate**](../Model/EmailAuthUpdate.md)| Email auth details. | |
 
 ### Return type
@@ -1064,7 +1126,7 @@ void (empty response body)
 ## `updateWebsiteEmail()`
 
 ```php
-updateWebsiteEmail($org_id, $website_id, $email_id, $update_email)
+updateWebsiteEmail($org_id, $website_id, $email_address, $update_email)
 ```
 
 Update website email
@@ -1086,11 +1148,11 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$email_id = 'email_id_example'; // string | The id of the email.
+$email_address = 'email_address_example'; // string | The address of the email.
 $update_email = new \OpenAPI\Client\Model\UpdateEmail(); // \OpenAPI\Client\Model\UpdateEmail | Email update details.
 
 try {
-    $apiInstance->updateWebsiteEmail($org_id, $website_id, $email_id, $update_email);
+    $apiInstance->updateWebsiteEmail($org_id, $website_id, $email_address, $update_email);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->updateWebsiteEmail: ', $e->getMessage(), PHP_EOL;
 }
@@ -1102,7 +1164,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **email_id** | **string**| The id of the email. | |
+| **email_address** | **string**| The address of the email. | |
 | **update_email** | [**\OpenAPI\Client\Model\UpdateEmail**](../Model/UpdateEmail.md)| Email update details. | |
 
 ### Return type
@@ -1125,7 +1187,7 @@ No authorization required
 ## `validateDomainEmailAuth()`
 
 ```php
-validateDomainEmailAuth($org_id, $domain_id): \OpenAPI\Client\Model\EmailAuthValidation
+validateDomainEmailAuth($website_id, $domain_name): \OpenAPI\Client\Model\EmailAuthValidation
 ```
 
 Validate email authentication DNS records
@@ -1154,11 +1216,11 @@ $apiInstance = new OpenAPI\Client\Api\EmailsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$org_id = 'org_id_example'; // string | The id of the organization.
-$domain_id = 'domain_id_example'; // string | The id of the domain.
+$website_id = 'website_id_example'; // string | The id of the website.
+$domain_name = 'domain_name_example'; // string | The full domain to query.
 
 try {
-    $result = $apiInstance->validateDomainEmailAuth($org_id, $domain_id);
+    $result = $apiInstance->validateDomainEmailAuth($website_id, $domain_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailsApi->validateDomainEmailAuth: ', $e->getMessage(), PHP_EOL;
@@ -1169,8 +1231,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **org_id** | **string**| The id of the organization. | |
-| **domain_id** | **string**| The id of the domain. | |
+| **website_id** | **string**| The id of the website. | |
+| **domain_name** | **string**| The full domain to query. | |
 
 ### Return type
 

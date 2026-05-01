@@ -1,4 +1,4 @@
-# # DomainMappingUpdate
+# DomainMappingUpdate
 
 ## Properties
 

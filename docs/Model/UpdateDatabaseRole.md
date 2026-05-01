@@ -1,4 +1,4 @@
-# # UpdateDatabaseRole
+# UpdateDatabaseRole
 
 ## Properties
 

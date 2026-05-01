@@ -1,4 +1,4 @@
-# # ServerMigrationSettingsAuthType
+# ServerMigrationSettingsAuthType
 
 ## Properties
 

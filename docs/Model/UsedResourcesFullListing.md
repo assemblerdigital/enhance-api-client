@@ -1,4 +1,4 @@
-# # UsedResourcesFullListing
+# UsedResourcesFullListing
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # CloudFlareStatus
+# CloudFlareStatus
 
 ## Properties
 

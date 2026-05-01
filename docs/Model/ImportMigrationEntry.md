@@ -1,4 +1,4 @@
-# # ImportMigrationEntry
+# ImportMigrationEntry
 
 ## Properties
 

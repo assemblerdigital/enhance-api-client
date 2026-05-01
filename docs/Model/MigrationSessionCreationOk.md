@@ -1,4 +1,4 @@
-# # MigrationSessionCreationOk
+# MigrationSessionCreationOk
 
 ## Properties
 

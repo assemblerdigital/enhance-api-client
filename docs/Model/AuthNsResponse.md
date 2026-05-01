@@ -1,4 +1,4 @@
-# # AuthNsResponse
+# AuthNsResponse
 
 ## Properties
 

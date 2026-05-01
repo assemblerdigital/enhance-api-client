@@ -1,4 +1,4 @@
-# # NewCloudFlareToken
+# NewCloudFlareToken
 
 ## Properties
 

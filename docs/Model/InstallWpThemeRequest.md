@@ -1,4 +1,4 @@
-# # InstallWpThemeRequest
+# InstallWpThemeRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ActivityWebsiteEntityDetail
+# ActivityWebsiteEntityDetail
 
 ## Properties
 

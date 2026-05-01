@@ -1,4 +1,4 @@
-# # EmailsListing
+# EmailsListing
 
 ## Properties
 

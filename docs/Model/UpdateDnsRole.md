@@ -1,4 +1,4 @@
-# # UpdateDnsRole
+# UpdateDnsRole
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ServerUptime
+# ServerUptime
 
 ## Properties
 

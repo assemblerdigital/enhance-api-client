@@ -1,4 +1,4 @@
-# # NewDomain
+# NewDomain
 
 ## Properties
 

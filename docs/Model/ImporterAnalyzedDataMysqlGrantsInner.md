@@ -1,4 +1,4 @@
-# # ImporterAnalyzedDataMysqlGrantsInner
+# ImporterAnalyzedDataMysqlGrantsInner
 
 ## Properties
 

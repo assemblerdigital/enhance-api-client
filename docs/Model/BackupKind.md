@@ -1,4 +1,4 @@
-# # BackupKind
+# BackupKind
 
 ## Properties
 

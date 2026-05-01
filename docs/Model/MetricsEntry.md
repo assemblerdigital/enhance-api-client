@@ -1,4 +1,4 @@
-# # MetricsEntry
+# MetricsEntry
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ServiceLogStatus
+# ServiceLogStatus
 
 ## Properties
 

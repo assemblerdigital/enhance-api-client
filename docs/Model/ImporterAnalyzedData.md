@@ -1,4 +1,4 @@
-# # ImporterAnalyzedData
+# ImporterAnalyzedData
 
 ## Properties
 

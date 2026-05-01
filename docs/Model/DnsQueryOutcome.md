@@ -1,4 +1,4 @@
-# # DnsQueryOutcome
+# DnsQueryOutcome
 
 ## Properties
 

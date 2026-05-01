@@ -1,4 +1,4 @@
-# # InstallableWebsiteApp
+# InstallableWebsiteApp
 
 ## Properties
 

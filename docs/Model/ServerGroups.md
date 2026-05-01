@@ -1,4 +1,4 @@
-# # ServerGroups
+# ServerGroups
 
 ## Properties
 

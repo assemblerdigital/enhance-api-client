@@ -1,4 +1,4 @@
-# # CoreServiceInfo
+# CoreServiceInfo
 
 ## Properties
 

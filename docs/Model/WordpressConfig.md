@@ -1,4 +1,4 @@
-# # WordpressConfig
+# WordpressConfig
 
 ## Properties
 

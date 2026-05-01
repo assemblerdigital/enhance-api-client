@@ -1,4 +1,4 @@
-# # InterfaceIp
+# InterfaceIp
 
 ## Properties
 

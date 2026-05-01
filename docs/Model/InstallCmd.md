@@ -1,4 +1,4 @@
-# # InstallCmd
+# InstallCmd
 
 ## Properties
 

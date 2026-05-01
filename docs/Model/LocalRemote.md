@@ -1,4 +1,4 @@
-# # LocalRemote
+# LocalRemote
 
 ## Properties
 

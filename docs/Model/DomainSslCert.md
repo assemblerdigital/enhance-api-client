@@ -1,4 +1,4 @@
-# # DomainSslCert
+# DomainSslCert
 
 ## Properties
 

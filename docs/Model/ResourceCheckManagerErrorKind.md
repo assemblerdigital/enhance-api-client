@@ -1,4 +1,4 @@
-# # ResourceCheckManagerErrorKind
+# ResourceCheckManagerErrorKind
 
 ## Properties
 

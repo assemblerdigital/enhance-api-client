@@ -1,4 +1,4 @@
-# # DomainsListing
+# DomainsListing
 
 ## Properties
 

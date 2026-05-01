@@ -1,4 +1,4 @@
-# # WebsiteAndDomainUuid
+# WebsiteAndDomainUuid
 
 ## Properties
 

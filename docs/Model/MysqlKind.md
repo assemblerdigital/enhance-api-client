@@ -1,4 +1,4 @@
-# # MysqlKind
+# MysqlKind
 
 ## Properties
 

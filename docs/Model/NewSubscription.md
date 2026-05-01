@@ -1,4 +1,4 @@
-# # NewSubscription
+# NewSubscription
 
 ## Properties
 

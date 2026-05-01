@@ -1,4 +1,4 @@
-# # HttpdStatus
+# HttpdStatus
 
 ## Properties
 

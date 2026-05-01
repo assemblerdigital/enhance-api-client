@@ -1,4 +1,4 @@
-# # ResendPin
+# ResendPin
 
 ## Properties
 

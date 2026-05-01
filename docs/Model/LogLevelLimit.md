@@ -1,4 +1,4 @@
-# # LogLevelLimit
+# LogLevelLimit
 
 ## Properties
 

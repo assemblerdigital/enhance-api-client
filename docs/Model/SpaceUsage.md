@@ -1,4 +1,4 @@
-# # SpaceUsage
+# SpaceUsage
 
 ## Properties
 

@@ -1,5 +1,7 @@
 # OpenAPI\Client\MembersApi
 
+Organization member endpoints
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -13,6 +15,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getMember()**](MembersApi.md#getMember) | **GET** /orgs/{org_id}/members/{member_id} | Get organization member |
 | [**getMembers()**](MembersApi.md#getMembers) | **GET** /orgs/{org_id}/members | Get organization members |
 | [**getOrgMemberLogin()**](MembersApi.md#getOrgMemberLogin) | **GET** /orgs/{org_id}/members/{member_id}/sso | Get a One-Time-Password link for the member |
+| [**updateAccessToken()**](MembersApi.md#updateAccessToken) | **PATCH** /orgs/{org_id}/access_tokens/{token_id} | Update access token |
 | [**updateMember()**](MembersApi.md#updateMember) | **PUT** /orgs/{org_id}/members/{member_id} | Overwrite organization member settings |
 | [**updateOwner()**](MembersApi.md#updateOwner) | **PUT** /orgs/{org_id}/owner | Update organization owner |
 
@@ -516,7 +519,7 @@ $offset = 56; // int | The offset from which to return items.
 $limit = 56; // int | The maximum number of items to return.
 $sort_by = 'sort_by_example'; // string | The field by which to sort.
 $sort_order = 'sort_order_example'; // string | The direction in which to sort. Possible values are 'asc' and 'desc', defaulting to 'asc'.
-$role = new \OpenAPI\Client\Model\Role(); // Role | Return only members with this role.
+$role = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Role(); // \OpenAPI\Client\Model\Role | Return only members with this role.
 $site_access = 'site_access_example'; // string | Return only collaborator members that have access to this website. Note that super admins and owners are not returned because they implicitly have access.
 
 try {
@@ -536,7 +539,7 @@ try {
 | **limit** | **int**| The maximum number of items to return. | [optional] |
 | **sort_by** | **string**| The field by which to sort. | [optional] |
 | **sort_order** | **string**| The direction in which to sort. Possible values are &#39;asc&#39; and &#39;desc&#39;, defaulting to &#39;asc&#39;. | [optional] |
-| **role** | [**Role**](../Model/.md)| Return only members with this role. | [optional] |
+| **role** | [**\OpenAPI\Client\Model\Role**](../Model/.md)| Return only members with this role. | [optional] |
 | **site_access** | **string**| Return only collaborator members that have access to this website. Note that super admins and owners are not returned because they implicitly have access. | [optional] |
 
 ### Return type
@@ -618,6 +621,74 @@ try {
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateAccessToken()`
+
+```php
+updateAccessToken($org_id, $token_id, $update_access_token)
+```
+
+Update access token
+
+Update an access token
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\MembersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$org_id = 'org_id_example'; // string | The id of the organization.
+$token_id = 'token_id_example'; // string | The id of an org access token.
+$update_access_token = new \OpenAPI\Client\Model\UpdateAccessToken(); // \OpenAPI\Client\Model\UpdateAccessToken | Access token details
+
+try {
+    $apiInstance->updateAccessToken($org_id, $token_id, $update_access_token);
+} catch (Exception $e) {
+    echo 'Exception when calling MembersApi->updateAccessToken: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **org_id** | **string**| The id of the organization. | |
+| **token_id** | **string**| The id of an org access token. | |
+| **update_access_token** | [**\OpenAPI\Client\Model\UpdateAccessToken**](../Model/UpdateAccessToken.md)| Access token details | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

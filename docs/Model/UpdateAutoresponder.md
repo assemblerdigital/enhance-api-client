@@ -1,4 +1,4 @@
-# # UpdateAutoresponder
+# UpdateAutoresponder
 
 ## Properties
 

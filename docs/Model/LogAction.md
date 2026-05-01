@@ -1,4 +1,4 @@
-# # LogAction
+# LogAction
 
 ## Properties
 

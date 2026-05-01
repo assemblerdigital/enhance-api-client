@@ -1,4 +1,4 @@
-# # Disk
+# Disk
 
 ## Properties
 

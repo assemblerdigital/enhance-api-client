@@ -1,4 +1,4 @@
-# # ServerRoleState
+# ServerRoleState
 
 ## Properties
 

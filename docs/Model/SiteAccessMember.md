@@ -1,4 +1,4 @@
-# # SiteAccessMember
+# SiteAccessMember
 
 ## Properties
 

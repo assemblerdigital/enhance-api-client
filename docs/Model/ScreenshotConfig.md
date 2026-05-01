@@ -1,4 +1,4 @@
-# # ScreenshotConfig
+# ScreenshotConfig
 
 ## Properties
 

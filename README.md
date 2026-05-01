@@ -7,8 +7,7 @@ orchd API docs
 
 ### Requirements
 
-PHP 7.4 and later.
-Should also work with PHP 8.0.
+PHP 8.1 and later.
 
 ### Composer
 
@@ -49,11 +48,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new OpenAPI\Client\Api\AppsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
@@ -75,15 +83,31 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AppsApi* | [**createWebsiteApp**](docs/Api/AppsApi.md#createwebsiteapp) | **POST** /orgs/{org_id}/websites/{website_id}/apps | Create website applications
+*AppsApi* | [**createWebsitePersistentApp**](docs/Api/AppsApi.md#createwebsitepersistentapp) | **POST** /websites/{website_id}/apps/persistent | Create a persistent application
 *AppsApi* | [**deleteWebsiteApp**](docs/Api/AppsApi.md#deletewebsiteapp) | **DELETE** /orgs/{org_id}/websites/{website_id}/apps/{app_id} | Delete website app
+*AppsApi* | [**deleteWebsitePersistentApp**](docs/Api/AppsApi.md#deletewebsitepersistentapp) | **DELETE** /websites/{website_id}/apps/persistent/{app_id} | Delete a persistent app
 *AppsApi* | [**getGlobalInstallableApps**](docs/Api/AppsApi.md#getglobalinstallableapps) | **GET** /utils/installable-apps | Get all installable applications
 *AppsApi* | [**getInstallableApps**](docs/Api/AppsApi.md#getinstallableapps) | **GET** /orgs/{org_id}/subscriptions/{subscription_id}/installable-apps | Get installable website applications
+*AppsApi* | [**getPossibleNodeVersions**](docs/Api/AppsApi.md#getpossiblenodeversions) | **GET** /websites/{website_id}/apps/node/possible_versions | Get possible versions of node to install from nvm
 *AppsApi* | [**getWebsiteApps**](docs/Api/AppsApi.md#getwebsiteapps) | **GET** /orgs/{org_id}/websites/{website_id}/apps | Get website applications
+*AppsApi* | [**getWebsitePersistentAppLog**](docs/Api/AppsApi.md#getwebsitepersistentapplog) | **GET** /websites/{website_id}/apps/persistent/{app_id} | Get the log for a persistent app
+*AppsApi* | [**getWebsitePersistentApps**](docs/Api/AppsApi.md#getwebsitepersistentapps) | **GET** /websites/{website_id}/apps/persistent | Get website persistent applications
+*AppsApi* | [**installNodeVersion**](docs/Api/AppsApi.md#installnodeversion) | **POST** /websites/{website_id}/apps/node/versions | Install a specific version of Node with NVM
+*AppsApi* | [**installNvm**](docs/Api/AppsApi.md#installnvm) | **POST** /websites/{website_id}/apps/node | Install nvm and default stable node to this website
+*AppsApi* | [**listInstalledNodeVersions**](docs/Api/AppsApi.md#listinstallednodeversions) | **GET** /websites/{website_id}/apps/node/versions | List installed Node versions with NVM
+*AppsApi* | [**setDefaultNodeVersion**](docs/Api/AppsApi.md#setdefaultnodeversion) | **PUT** /websites/{website_id}/apps/node/versions/default | Set default node version
+*AppsApi* | [**updateWebsitePersistentApp**](docs/Api/AppsApi.md#updatewebsitepersistentapp) | **PATCH** /websites/{website_id}/apps/persistent/{app_id} | Update a persistent application
 *BackupsApi* | [**backupWebsite**](docs/Api/BackupsApi.md#backupwebsite) | **POST** /orgs/{org_id}/websites/{website_id}/backups | Create a website backup
+*BackupsApi* | [**deleteAllWebsiteBackups**](docs/Api/BackupsApi.md#deleteallwebsitebackups) | **DELETE** /backups/{server_id}/{website_id} | Delete all backups for a website
 *BackupsApi* | [**deleteWebsiteBackup**](docs/Api/BackupsApi.md#deletewebsitebackup) | **DELETE** /orgs/{org_id}/websites/{website_id}/backups/{backup_id} | Delete a backup
+*BackupsApi* | [**downloadWebsiteBackup**](docs/Api/BackupsApi.md#downloadwebsitebackup) | **GET** /websites/{website_id}/backup/download | Download website backup
 *BackupsApi* | [**getWebsiteBackup**](docs/Api/BackupsApi.md#getwebsitebackup) | **GET** /orgs/{org_id}/websites/{website_id}/backups/{backup_id} | Get detailed metadata of the website backup
+*BackupsApi* | [**getWebsiteBackupDirectoryTree**](docs/Api/BackupsApi.md#getwebsitebackupdirectorytree) | **GET** /orgs/{org_id}/websites/{website_id}/backups/{backup_id}/directory_tree | Get the directory tree for the home dir
 *BackupsApi* | [**getWebsiteBackups**](docs/Api/BackupsApi.md#getwebsitebackups) | **GET** /orgs/{org_id}/websites/{website_id}/backups | Get all website backups metadata
+*BackupsApi* | [**getWebsiteRestoreLog**](docs/Api/BackupsApi.md#getwebsiterestorelog) | **GET** /backups/{website_id}/restore/log | Get the log for an ongoing restore, will return 404 if the restore is already complete
 *BackupsApi* | [**getWebsiteRestoreStatus**](docs/Api/BackupsApi.md#getwebsiterestorestatus) | **GET** /orgs/{org_id}/websites/{website_id}/backups/{backup_id}/restore_status | Get the last detailed metadata of the restored website backup.
+*BackupsApi* | [**listGlobalBackups**](docs/Api/BackupsApi.md#listglobalbackups) | **GET** /backups | List global website backups across all backup servers, by backup server ID
+*BackupsApi* | [**restoreHardDeletedBackup**](docs/Api/BackupsApi.md#restoreharddeletedbackup) | **PUT** /backups/{server_id}/{website_id} | Restore a backup of a hard deleted website
 *BackupsApi* | [**restoreWebsite**](docs/Api/BackupsApi.md#restorewebsite) | **PUT** /orgs/{org_id}/websites/{website_id}/backups/{backup_id} | Restore website from a backup
 *BrandingApi* | [**createBrandingSettings**](docs/Api/BrandingApi.md#createbrandingsettings) | **POST** /orgs/{org_id}/branding/settings | Create branding settings
 *BrandingApi* | [**createNameServerDomain**](docs/Api/BrandingApi.md#createnameserverdomain) | **POST** /orgs/{org_id}/name-servers | Create reseller name server domain
@@ -110,6 +134,7 @@ Class | Method | HTTP request | Description
 *CustomersApi* | [**createCustomerSubscription**](docs/Api/CustomersApi.md#createcustomersubscription) | **POST** /orgs/{org_id}/customers/{customer_org_id}/subscriptions | Create a subscriptions for a customer
 *CustomersApi* | [**getCustomerSubscriptions**](docs/Api/CustomersApi.md#getcustomersubscriptions) | **GET** /orgs/{org_id}/customers/{customer_org_id}/subscriptions | Get customer subscriptions
 *CustomersApi* | [**getOrgCustomers**](docs/Api/CustomersApi.md#getorgcustomers) | **GET** /orgs/{org_id}/customers | Get organization customers
+*DefaultApi* | [**uploadWebsiteBackup**](docs/Api/DefaultApi.md#uploadwebsitebackup) | **POST** /websites/{website_id}/backup/upload | Upload and restore a .tar.gz archive
 *DnsApi* | [**createDefaultDnsRecord**](docs/Api/DnsApi.md#createdefaultdnsrecord) | **POST** /v2/settings/dns/default-records | Create a default DNS record
 *DnsApi* | [**createDnsThirdPartyProvider**](docs/Api/DnsApi.md#creatednsthirdpartyprovider) | **POST** /dns/third-party-providers | Create new third party provider.
 *DnsApi* | [**createWebsiteDomainDnsZoneRecord**](docs/Api/DnsApi.md#createwebsitedomaindnszonerecord) | **POST** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/dns-zone/records | Create a new dns record for website domain
@@ -157,22 +182,23 @@ Class | Method | HTTP request | Description
 *EmailClientApi* | [**updateEmailForwarders**](docs/Api/EmailClientApi.md#updateemailforwarders) | **PUT** /email-client/forwarders | Updates email account&#39;s forwarders
 *EmailClientApi* | [**updateEmailPassword**](docs/Api/EmailClientApi.md#updateemailpassword) | **PUT** /email-client/password | Updates email account&#39;s password
 *EmailsApi* | [**createWebsiteEmail**](docs/Api/EmailsApi.md#createwebsiteemail) | **POST** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/emails | Create an email under website&#39;s domain
-*EmailsApi* | [**createWebsiteEmailAutoresponder**](docs/Api/EmailsApi.md#createwebsiteemailautoresponder) | **POST** /orgs/{org_id}/websites/{website_id}/emails/{email_id}/autoresponder | Create new website email autoresponder
-*EmailsApi* | [**deleteWebsiteEmail**](docs/Api/EmailsApi.md#deletewebsiteemail) | **DELETE** /orgs/{org_id}/websites/{website_id}/emails/{email_id} | Delete website email
-*EmailsApi* | [**deleteWebsiteEmailAutoresponder**](docs/Api/EmailsApi.md#deletewebsiteemailautoresponder) | **DELETE** /orgs/{org_id}/websites/{website_id}/emails/{email_id}/autoresponder | Delete website email autoresponder
-*EmailsApi* | [**getDomainEmailAuth**](docs/Api/EmailsApi.md#getdomainemailauth) | **GET** /orgs/{org_id}/domains/{domain_id}/email-auth | Get email authentication preferences
+*EmailsApi* | [**createWebsiteEmailAutoresponder**](docs/Api/EmailsApi.md#createwebsiteemailautoresponder) | **POST** /orgs/{org_id}/websites/{website_id}/emails/{email_address}/autoresponder | Create new website email autoresponder
+*EmailsApi* | [**deleteWebsiteEmail**](docs/Api/EmailsApi.md#deletewebsiteemail) | **DELETE** /orgs/{org_id}/websites/{website_id}/emails/{email_address} | Delete website email
+*EmailsApi* | [**deleteWebsiteEmailAutoresponder**](docs/Api/EmailsApi.md#deletewebsiteemailautoresponder) | **DELETE** /orgs/{org_id}/websites/{website_id}/emails/{email_address}/autoresponder | Delete website email autoresponder
+*EmailsApi* | [**getDomainEmailAuth**](docs/Api/EmailsApi.md#getdomainemailauth) | **GET** /websites/{website_id}/domains/{domain_name}/email-auth | Get email authentication preferences
 *EmailsApi* | [**getDomainLocalRemote**](docs/Api/EmailsApi.md#getdomainlocalremote) | **GET** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/local_remote | Get the current local/remote status
-*EmailsApi* | [**getEmailSpamThresholds**](docs/Api/EmailsApi.md#getemailspamthresholds) | **GET** /emails/{email_id}/spam_thresholds | Get spam thresholds for an email address
+*EmailsApi* | [**getEmailSpamThresholds**](docs/Api/EmailsApi.md#getemailspamthresholds) | **GET** /websites/{website_id}/emails/{email_address}/spam_thresholds | Get spam thresholds for an email address
 *EmailsApi* | [**getEmails**](docs/Api/EmailsApi.md#getemails) | **GET** /orgs/{org_id}/emails | Get org emails
-*EmailsApi* | [**getWebsiteEmail**](docs/Api/EmailsApi.md#getwebsiteemail) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_id} | Get website email
-*EmailsApi* | [**getWebsiteEmailAutoresponder**](docs/Api/EmailsApi.md#getwebsiteemailautoresponder) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_id}/autoresponder | Get website email autoresponder
-*EmailsApi* | [**getWebsiteEmailClientConf**](docs/Api/EmailsApi.md#getwebsiteemailclientconf) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_id}/client-conf | Get website email client configuration
+*EmailsApi* | [**getWebsiteEmail**](docs/Api/EmailsApi.md#getwebsiteemail) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_address} | Get website email
+*EmailsApi* | [**getWebsiteEmailAutoresponder**](docs/Api/EmailsApi.md#getwebsiteemailautoresponder) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_address}/autoresponder | Get website email autoresponder
+*EmailsApi* | [**getWebsiteEmailClientConf**](docs/Api/EmailsApi.md#getwebsiteemailclientconf) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_address}/client-conf | Get website email client configuration
 *EmailsApi* | [**getWebsiteEmails**](docs/Api/EmailsApi.md#getwebsiteemails) | **GET** /orgs/{org_id}/websites/{website_id}/emails | Get website emails
 *EmailsApi* | [**setDomainLocalRemote**](docs/Api/EmailsApi.md#setdomainlocalremote) | **PUT** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/local_remote | Update email local/remote status
-*EmailsApi* | [**setEmailSpamThresholds**](docs/Api/EmailsApi.md#setemailspamthresholds) | **PUT** /emails/{email_id}/spam_thresholds | Set spam thresholds for an email address
-*EmailsApi* | [**updateDomainEmailAuth**](docs/Api/EmailsApi.md#updatedomainemailauth) | **PUT** /orgs/{org_id}/domains/{domain_id}/email-auth | Update email authentication preferences
-*EmailsApi* | [**updateWebsiteEmail**](docs/Api/EmailsApi.md#updatewebsiteemail) | **PATCH** /orgs/{org_id}/websites/{website_id}/emails/{email_id} | Update website email
-*EmailsApi* | [**validateDomainEmailAuth**](docs/Api/EmailsApi.md#validatedomainemailauth) | **GET** /orgs/{org_id}/domains/{domain_id}/email-auth/validate | Validate email authentication DNS records
+*EmailsApi* | [**setEmailSpamThresholds**](docs/Api/EmailsApi.md#setemailspamthresholds) | **PUT** /websites/{website_id}/emails/{email_address}/spam_thresholds | Set spam thresholds for an email address
+*EmailsApi* | [**ssoToRoundcube**](docs/Api/EmailsApi.md#ssotoroundcube) | **GET** /orgs/{org_id}/websites/{website_id}/emails/{email_address}/sso | SSO to Roundcube
+*EmailsApi* | [**updateDomainEmailAuth**](docs/Api/EmailsApi.md#updatedomainemailauth) | **PUT** /websites/{website_id}/domains/{domain_name}/email-auth | Update email authentication preferences
+*EmailsApi* | [**updateWebsiteEmail**](docs/Api/EmailsApi.md#updatewebsiteemail) | **PATCH** /orgs/{org_id}/websites/{website_id}/emails/{email_address} | Update website email
+*EmailsApi* | [**validateDomainEmailAuth**](docs/Api/EmailsApi.md#validatedomainemailauth) | **GET** /websites/{website_id}/domains/{domain_name}/email-auth/validate | Validate email authentication DNS records
 *FtpApi* | [**createFtpUser**](docs/Api/FtpApi.md#createftpuser) | **POST** /orgs/{org_id}/websites/{website_id}/ftp/users | Creates a new FTP user for a given website
 *FtpApi* | [**deleteFtpUser**](docs/Api/FtpApi.md#deleteftpuser) | **DELETE** /orgs/{org_id}/websites/{website_id}/ftp/users/{username} | Deletes given FTP user
 *FtpApi* | [**getFtpUsers**](docs/Api/FtpApi.md#getftpusers) | **GET** /orgs/{org_id}/websites/{website_id}/ftp/users | Returns all ftp users data for a given website
@@ -201,6 +227,13 @@ Class | Method | HTTP request | Description
 *InvitesApi* | [**acceptInvite**](docs/Api/InvitesApi.md#acceptinvite) | **POST** /invites/{invite_id} | Accept invite
 *InvitesApi* | [**createInvite**](docs/Api/InvitesApi.md#createinvite) | **POST** /orgs/{org_id}/invites | Create invite
 *InvitesApi* | [**validateInvite**](docs/Api/InvitesApi.md#validateinvite) | **POST** /invites/{invite_id}/validate | Validate invite
+*JoomlaApi* | [**createJoomlaUser**](docs/Api/JoomlaApi.md#createjoomlauser) | **POST** /orgs/{org_id}/websites/{website_id}/apps/{app_id}/joomla/users | Create website Joomla user
+*JoomlaApi* | [**deleteJoomlaUser**](docs/Api/JoomlaApi.md#deletejoomlauser) | **DELETE** /orgs/{org_id}/websites/{website_id}/apps/{app_id}/joomla/users/{username} | Delete a joomla user
+*JoomlaApi* | [**getJoomlaInfo**](docs/Api/JoomlaApi.md#getjoomlainfo) | **GET** /orgs/{org_id}/websites/{website_id}/apps/{app_id}/joomla/info | 
+*JoomlaApi* | [**getJoomlaUsers**](docs/Api/JoomlaApi.md#getjoomlausers) | **GET** /orgs/{org_id}/websites/{website_id}/apps/{app_id}/joomla/users | 
+*JoomlaApi* | [**resetJoomlaUserPassword**](docs/Api/JoomlaApi.md#resetjoomlauserpassword) | **PUT** /orgs/{org_id}/websites/{website_id}/apps/{app_id}/joomla/users/{username}/password | Set the password for a given username
+*JoomlaApi* | [**updateJoomlaEmailAddress**](docs/Api/JoomlaApi.md#updatejoomlaemailaddress) | **PUT** /orgs/{org_id}/websites/{website_id}/apps/{app_id}/joomla/users/{username}/email | Update the email address for a given username
+*JoomlaApi* | [**updateJoomlaUsername**](docs/Api/JoomlaApi.md#updatejoomlausername) | **PUT** /orgs/{org_id}/websites/{website_id}/apps/{app_id}/joomla/users/{username}/username | Update the username for a given username
 *LetsencryptApi* | [**createWebsiteDomainLetsencryptCerts**](docs/Api/LetsencryptApi.md#createwebsitedomainletsencryptcerts) | **POST** /v2/domains/{domain_id}/letsencrypt | Generate and setup letsencrypt ssl certificates for website&#39;s domain
 *LetsencryptApi* | [**createWebsiteMailDomainLetsencryptCerts**](docs/Api/LetsencryptApi.md#createwebsitemaildomainletsencryptcerts) | **POST** /v2/domains/{domain_id}/letsencrypt_mail | Generate and setup letsencrypt ssl certificates for website&#39;s domain with mail. prefix.
 *LetsencryptApi* | [**performLetsEncryptPreflightCheck**](docs/Api/LetsencryptApi.md#performletsencryptpreflightcheck) | **POST** /v2/domains/{domain_id}/letsencrypt_preflight | Perform the LetsEncrypt preflight check
@@ -239,6 +272,7 @@ Class | Method | HTTP request | Description
 *MembersApi* | [**getMember**](docs/Api/MembersApi.md#getmember) | **GET** /orgs/{org_id}/members/{member_id} | Get organization member
 *MembersApi* | [**getMembers**](docs/Api/MembersApi.md#getmembers) | **GET** /orgs/{org_id}/members | Get organization members
 *MembersApi* | [**getOrgMemberLogin**](docs/Api/MembersApi.md#getorgmemberlogin) | **GET** /orgs/{org_id}/members/{member_id}/sso | Get a One-Time-Password link for the member
+*MembersApi* | [**updateAccessToken**](docs/Api/MembersApi.md#updateaccesstoken) | **PATCH** /orgs/{org_id}/access_tokens/{token_id} | Update access token
 *MembersApi* | [**updateMember**](docs/Api/MembersApi.md#updatemember) | **PUT** /orgs/{org_id}/members/{member_id} | Overwrite organization member settings
 *MembersApi* | [**updateOwner**](docs/Api/MembersApi.md#updateowner) | **PUT** /orgs/{org_id}/owner | Update organization owner
 *MetricsApi* | [**getWebsiteMetrics**](docs/Api/MetricsApi.md#getwebsitemetrics) | **GET** /orgs/{org_id}/websites/{website_id}/metrics | Get website metrics
@@ -349,6 +383,7 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**getOutboundSpamScanningSettings**](docs/Api/ServersApi.md#getoutboundspamscanningsettings) | **GET** /servers/{server_id}/email/spam/outbound_scanning | Get the status of outbound spam scanning
 *ServersApi* | [**getOwaspRulesVersion**](docs/Api/ServersApi.md#getowasprulesversion) | **GET** /v2/servers/{server_id}/owasp | Get the current and available version of the OWASP rules
 *ServersApi* | [**getRegistrationKey**](docs/Api/ServersApi.md#getregistrationkey) | **GET** /servers/registration-key | Get slave registration key
+*ServersApi* | [**getRoundcubeSsoEnabled**](docs/Api/ServersApi.md#getroundcubessoenabled) | **GET** /servers/{server_id}/roundcube_sso_enabled | Check if Roundcube SSO is enabled on this server
 *ServersApi* | [**getServerDiskUsage**](docs/Api/ServersApi.md#getserverdiskusage) | **GET** /servers/{server_id}/disk-usage | Get server disk usage
 *ServersApi* | [**getServerFpmSettings**](docs/Api/ServersApi.md#getserverfpmsettings) | **GET** /servers/{server_id}/php/fpm | Get php-fpm config for all the websites on a server
 *ServersApi* | [**getServerGroups**](docs/Api/ServersApi.md#getservergroups) | **GET** /servers/groups | Returns all server groups
@@ -363,6 +398,7 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**getServerNetworkStats**](docs/Api/ServersApi.md#getservernetworkstats) | **GET** /servers/{server_id}/network-stats | Get server network stats
 *ServersApi* | [**getServerRole**](docs/Api/ServersApi.md#getserverrole) | **GET** /servers/{server_id}/roles/{role} | Get server role info
 *ServersApi* | [**getServerRoles**](docs/Api/ServersApi.md#getserverroles) | **GET** /servers/{server_id}/roles | Get server roles info
+*ServersApi* | [**getServerSpecs**](docs/Api/ServersApi.md#getserverspecs) | **GET** /servers/{server_id}/specs | Get server specs
 *ServersApi* | [**getServerStats**](docs/Api/ServersApi.md#getserverstats) | **GET** /servers/{server_id}/historic-stats | Get Server stats
 *ServersApi* | [**getServerStatus**](docs/Api/ServersApi.md#getserverstatus) | **GET** /servers/{server_id}/status | Get server status
 *ServersApi* | [**getServerUptime**](docs/Api/ServersApi.md#getserveruptime) | **GET** /servers/{server_id}/uptime | Get server uptime in seconds
@@ -383,6 +419,7 @@ Class | Method | HTTP request | Description
 *ServersApi* | [**setEmailServerHostnameOverride**](docs/Api/ServersApi.md#setemailserverhostnameoverride) | **PUT** /servers/{server_id}/email/hostname_override | Set the hostname override for the email server (postfix)
 *ServersApi* | [**setLiteSpeedAdminPassword**](docs/Api/ServersApi.md#setlitespeedadminpassword) | **POST** /servers/{server_id}/webserver/litespeed/password | Set a new LiteSpeed admin password.
 *ServersApi* | [**setOutboundSpamScanningSettings**](docs/Api/ServersApi.md#setoutboundspamscanningsettings) | **PUT** /servers/{server_id}/email/spam/outbound_scanning | Set the settings for outbound spam scanning
+*ServersApi* | [**setRoundcubeSsoEnabled**](docs/Api/ServersApi.md#setroundcubessoenabled) | **PUT** /servers/{server_id}/roundcube_sso_enabled | Set Roundcube SSO enabled state
 *ServersApi* | [**setServerDecommissioned**](docs/Api/ServersApi.md#setserverdecommissioned) | **PUT** /servers/{server_id}/decommissioned | Set server to decommissioned
 *ServersApi* | [**setServerModSecurityConfig**](docs/Api/ServersApi.md#setservermodsecurityconfig) | **PUT** /v2/servers/{server_id}/modsec_conf | Set mod security config
 *ServersApi* | [**setServerModSecurityStatus**](docs/Api/ServersApi.md#setservermodsecuritystatus) | **PUT** /v2/servers/{server_id}/modsec_status | Set mod security status for a server
@@ -414,6 +451,8 @@ Class | Method | HTTP request | Description
 *SettingsApi* | [**deleteOrchdLoginPolicyIpBlacklist**](docs/Api/SettingsApi.md#deleteorchdloginpolicyipblacklist) | **DELETE** /settings/orchd/login-policy/ip-blacklist | Delete an orchd login policy ip blacklist
 *SettingsApi* | [**deleteOrchdLoginPolicyIpWhitelist**](docs/Api/SettingsApi.md#deleteorchdloginpolicyipwhitelist) | **DELETE** /settings/orchd/login-policy/ip-whitelist | Delete an orchd login policy ip whitelist
 *SettingsApi* | [**deleteSetting**](docs/Api/SettingsApi.md#deletesetting) | **DELETE** /settings/{name} | Remove the specified setting
+*SettingsApi* | [**getAdminLockdownList**](docs/Api/SettingsApi.md#getadminlockdownlist) | **GET** /settings/orchd/admin-lockdown/list | Get the list of allowed IPs for master organisation login, line separated
+*SettingsApi* | [**getAdminLockdownStatus**](docs/Api/SettingsApi.md#getadminlockdownstatus) | **GET** /settings/orchd/admin-lockdown/status | Check if master organisation IP lockdown is enabled
 *SettingsApi* | [**getBackupRemoteStorageS3**](docs/Api/SettingsApi.md#getbackupremotestorages3) | **GET** /v2/settings/backup/remote_storage/s3 | Get S3 object storage settings at platform level.
 *SettingsApi* | [**getDemoMode**](docs/Api/SettingsApi.md#getdemomode) | **GET** /v2/settings/demo_mode | Get the demo mode status of the orchd service
 *SettingsApi* | [**getGlobalServiceSetting**](docs/Api/SettingsApi.md#getglobalservicesetting) | **GET** /settings/service/{setting_kind} | Get the value for a particular global service setting
@@ -426,6 +465,8 @@ Class | Method | HTTP request | Description
 *SettingsApi* | [**getProhibitedDomains**](docs/Api/SettingsApi.md#getprohibiteddomains) | **GET** /settings/orchd/prohibited_domains | Get the platform level prohibited domains as a newline separated list
 *SettingsApi* | [**getSetting**](docs/Api/SettingsApi.md#getsetting) | **GET** /settings/{name} | Get the specified setting
 *SettingsApi* | [**getSettings**](docs/Api/SettingsApi.md#getsettings) | **GET** /settings | Get all current settings
+*SettingsApi* | [**setAdminLockdownList**](docs/Api/SettingsApi.md#setadminlockdownlist) | **PUT** /settings/orchd/admin-lockdown/list | Set admin lockdown list as a whole
+*SettingsApi* | [**setAdminLockdownStatus**](docs/Api/SettingsApi.md#setadminlockdownstatus) | **PUT** /settings/orchd/admin-lockdown/status | Set admin lockdown status
 *SettingsApi* | [**setGlobalServiceSetting**](docs/Api/SettingsApi.md#setglobalservicesetting) | **PUT** /settings/service/{setting_kind}/{setting_key} | Set a single global service setting
 *SettingsApi* | [**setOrchdLogSettings**](docs/Api/SettingsApi.md#setorchdlogsettings) | **PUT** /settings/orchd/logs | Set the orchd log settings
 *SettingsApi* | [**setProhibitedDomains**](docs/Api/SettingsApi.md#setprohibiteddomains) | **PUT** /settings/orchd/prohibited_domains | Set the platform level prohibited domains
@@ -469,6 +510,7 @@ Class | Method | HTTP request | Description
 *WebsitesApi* | [**deleteWebsites**](docs/Api/WebsitesApi.md#deletewebsites) | **DELETE** /orgs/{org_id}/websites | Delete websites
 *WebsitesApi* | [**disableWebsitePhpExtension**](docs/Api/WebsitesApi.md#disablewebsitephpextension) | **DELETE** /websites/{website_id}/php_extensions | Disable a PHP extension
 *WebsitesApi* | [**enableWebsitePhpExtension**](docs/Api/WebsitesApi.md#enablewebsitephpextension) | **POST** /websites/{website_id}/php_extensions | Enable a PHP extension
+*WebsitesApi* | [**getBuiltInPhpExtensions**](docs/Api/WebsitesApi.md#getbuiltinphpextensions) | **GET** /websites/{website_id}/built_in_php_extensions | Get a list of the PHP extensions compiled in to the currently selected version of PHP for this website
 *WebsitesApi* | [**getDomainNginxFastCgi**](docs/Api/WebsitesApi.md#getdomainnginxfastcgi) | **GET** /v2/domains/{domain_id}/nginx_fastcgi | Get status of Nginx FastCGI enablement
 *WebsitesApi* | [**getDomainNginxFastCgiExcludedPaths**](docs/Api/WebsitesApi.md#getdomainnginxfastcgiexcludedpaths) | **GET** /v2/domains/{domain_id}/nginx_fastcgi_excluded_paths | Get Nginx FastCGI excluded paths
 *WebsitesApi* | [**getDomainWebserverRewrites**](docs/Api/WebsitesApi.md#getdomainwebserverrewrites) | **GET** /v2/domains/{domain_id}/webserver_rewrites | Get web server rewrites for specified domain
@@ -479,6 +521,7 @@ Class | Method | HTTP request | Description
 *WebsitesApi* | [**getWebsite**](docs/Api/WebsitesApi.md#getwebsite) | **GET** /orgs/{org_id}/websites/{website_id} | Get website
 *WebsitesApi* | [**getWebsiteAvailablePhpExtensions**](docs/Api/WebsitesApi.md#getwebsiteavailablephpextensions) | **GET** /websites/{website_id}/available_php_extensions | Get available PHP extensions for a website
 *WebsitesApi* | [**getWebsiteBackupStatus**](docs/Api/WebsitesApi.md#getwebsitebackupstatus) | **GET** /orgs/{org_id}/websites/{website_id}/status/backup | Get the status of an ongoing website backup operation
+*WebsitesApi* | [**getWebsiteBackupsDisabledStatus**](docs/Api/WebsitesApi.md#getwebsitebackupsdisabledstatus) | **GET** /websites/{website_id}/backups_disabled | Get backups disabled status on a website
 *WebsitesApi* | [**getWebsiteCgroupLimits**](docs/Api/WebsitesApi.md#getwebsitecgrouplimits) | **GET** /orgs/{org_id}/websites/{website_id}/cgroup_limits | Get the active cgroup limits for a website
 *WebsitesApi* | [**getWebsiteClone**](docs/Api/WebsitesApi.md#getwebsiteclone) | **GET** /orgs/{org_id}/websites/clone/{clone_id} | Get&#39;s detail about a single push live
 *WebsitesApi* | [**getWebsiteCloneLog**](docs/Api/WebsitesApi.md#getwebsiteclonelog) | **GET** /orgs/{org_id}/websites/clone/{clone_id}/log | Get the log for a given clone id..
@@ -495,9 +538,11 @@ Class | Method | HTTP request | Description
 *WebsitesApi* | [**getWebsiteHtaccessIpsRule**](docs/Api/WebsitesApi.md#getwebsitehtaccessipsrule) | **GET** /orgs/{org_id}/websites/{website_id}/htaccess/ips | Returns current rules of blocked/whitelisted IPs
 *WebsitesApi* | [**getWebsiteHtaccessRewrites**](docs/Api/WebsitesApi.md#getwebsitehtaccessrewrites) | **GET** /orgs/{org_id}/websites/{website_id}/htaccess | Reads chains of rewrite rules
 *WebsitesApi* | [**getWebsiteIoncubeStatus**](docs/Api/WebsitesApi.md#getwebsiteioncubestatus) | **GET** /v2/websites/{website_id}/ioncube | Get ioncube status for an existing website
+*WebsitesApi* | [**getWebsiteLsphpSettings**](docs/Api/WebsitesApi.md#getwebsitelsphpsettings) | **GET** /websites/{website_id}/lsphp_settings | Get the LSPHP settings for this website
 *WebsitesApi* | [**getWebsiteMailDomainSslCert**](docs/Api/WebsitesApi.md#getwebsitemaildomainsslcert) | **GET** /v2/domains/{domain_id}/mail_ssl | Returns the SSL for this website domain with the mail.prefix
 *WebsitesApi* | [**getWebsiteMetrics**](docs/Api/WebsitesApi.md#getwebsitemetrics) | **GET** /orgs/{org_id}/websites/{website_id}/metrics | Get website metrics
 *WebsitesApi* | [**getWebsiteMySQLDBs**](docs/Api/WebsitesApi.md#getwebsitemysqldbs) | **GET** /orgs/{org_id}/websites/{website_id}/mysql-dbs | Get website MySQL databases
+*WebsitesApi* | [**getWebsitePhpErrorLog**](docs/Api/WebsitesApi.md#getwebsitephperrorlog) | **GET** /websites/{website_id}/php_error_log | Get last 256KB of PHP error log
 *WebsitesApi* | [**getWebsiteRedisState**](docs/Api/WebsitesApi.md#getwebsiteredisstate) | **GET** /v2/websites/{website_id}/redis | Get redis state for a website
 *WebsitesApi* | [**getWebsiteServerDomains**](docs/Api/WebsitesApi.md#getwebsiteserverdomains) | **GET** /orgs/{org_id}/websites/{website_id}/server_domains | Fetch website server domains
 *WebsitesApi* | [**getWebsiteSetting**](docs/Api/WebsitesApi.md#getwebsitesetting) | **GET** /orgs/{org_id}/websites/{website_id}/settings/{setting_kind} | Get the value for a particular setting
@@ -509,12 +554,14 @@ Class | Method | HTTP request | Description
 *WebsitesApi* | [**restartWebsitePhp**](docs/Api/WebsitesApi.md#restartwebsitephp) | **POST** /v2/websites/{website_id}/restart_php | Restart PHP container for a website
 *WebsitesApi* | [**setDomainNginxFastCgi**](docs/Api/WebsitesApi.md#setdomainnginxfastcgi) | **PUT** /v2/domains/{domain_id}/nginx_fastcgi | Set Nginx FastCGI enablement
 *WebsitesApi* | [**setDomainWebserverRewrite**](docs/Api/WebsitesApi.md#setdomainwebserverrewrite) | **PUT** /v2/domains/{domain_id}/webserver_rewrites | Set web server rewrite to file
+*WebsitesApi* | [**setWebsiteBackupsDisabledStatus**](docs/Api/WebsitesApi.md#setwebsitebackupsdisabledstatus) | **PUT** /websites/{website_id}/backups_disabled | Set backups disabled status on a website
 *WebsitesApi* | [**setWebsiteCgroupLimits**](docs/Api/WebsitesApi.md#setwebsitecgrouplimits) | **PUT** /orgs/{org_id}/websites/{website_id}/cgroup_limits | Set the active cgroup limits for a website (Master org only)
 *WebsitesApi* | [**setWebsiteDomainForceSsl**](docs/Api/WebsitesApi.md#setwebsitedomainforcessl) | **PUT** /v2/domains/{domain_id}/ssl/force_ssl | Set \&quot;force ssl\&quot; status for domain mapping
 *WebsitesApi* | [**setWebsiteDomainModSecStatus**](docs/Api/WebsitesApi.md#setwebsitedomainmodsecstatus) | **PUT** /v2/domains/{domain_id}/modsec_status | Set mod security status on a single domain
 *WebsitesApi* | [**setWebsiteDomainVhost**](docs/Api/WebsitesApi.md#setwebsitedomainvhost) | **PUT** /v2/domains/{domain_id}/vhost | Set a custom vhost file
 *WebsitesApi* | [**setWebsiteFsQuotaLimits**](docs/Api/WebsitesApi.md#setwebsitefsquotalimits) | **PUT** /orgs/{org_id}/websites/{website_id}/fs_quota_limits | Set the active FS quota limits for a website (Master org only)
 *WebsitesApi* | [**setWebsiteIoncubeStatus**](docs/Api/WebsitesApi.md#setwebsiteioncubestatus) | **PUT** /v2/websites/{website_id}/ioncube | Set ioncube status for an existing website
+*WebsitesApi* | [**setWebsiteLsphpSettings**](docs/Api/WebsitesApi.md#setwebsitelsphpsettings) | **PUT** /websites/{website_id}/lsphp_settings | Set the LSPHP settings for this website
 *WebsitesApi* | [**setWebsiteRedisState**](docs/Api/WebsitesApi.md#setwebsiteredisstate) | **PUT** /v2/websites/{website_id}/redis | Set Redis state for an existing website
 *WebsitesApi* | [**setWebsiteSetting**](docs/Api/WebsitesApi.md#setwebsitesetting) | **PUT** /orgs/{org_id}/websites/{website_id}/settings/{setting_kind}/{setting_key} | Set a single override setting
 *WebsitesApi* | [**takeScreenshot**](docs/Api/WebsitesApi.md#takescreenshot) | **POST** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/screenshot/take | Take website screenshot immediately
@@ -540,6 +587,7 @@ Class | Method | HTTP request | Description
 *WordpressApi* | [**getWordPressSiteurl**](docs/Api/WordpressApi.md#getwordpresssiteurl) | **GET** /v2/apps/{app_id}/wordpress/url | Fetches the site URL for a WordPress installation
 *WordpressApi* | [**getWordpressAppVersion**](docs/Api/WordpressApi.md#getwordpressappversion) | **GET** /orgs/{org_id}/websites/{website_id}/apps/{app_id}/wordpress/version | Get WordPress version
 *WordpressApi* | [**getWordpressConfig**](docs/Api/WordpressApi.md#getwordpressconfig) | **GET** /orgs/{org_id}/websites/{website_id}/apps/{app_id}/wordpress/wp-config/{wp_option} | Get the WP config value for a given option
+*WordpressApi* | [**getWordpressInfo**](docs/Api/WordpressApi.md#getwordpressinfo) | **GET** /orgs/{org_id}/websites/{website_id}/apps/{app_id}/wordpress/info | 
 *WordpressApi* | [**getWordpressInstallations**](docs/Api/WordpressApi.md#getwordpressinstallations) | **GET** /orgs/{org_id}/websites/{website_id}/apps/wordpress | Trigger discovery of WP installations
 *WordpressApi* | [**getWordpressLatestVersion**](docs/Api/WordpressApi.md#getwordpresslatestversion) | **GET** /utils/wordpress/latest | Get WordPress latest available version
 *WordpressApi* | [**getWordpressPlugins**](docs/Api/WordpressApi.md#getwordpressplugins) | **GET** /orgs/{org_id}/websites/{website_id}/apps/{app_id}/wordpress/plugins | Get website WordPress plugins
@@ -595,6 +643,7 @@ Class | Method | HTTP request | Description
 - [ActivityWebsiteEntityContent](docs/Model/ActivityWebsiteEntityContent.md)
 - [ActivityWebsiteEntityContentDetail](docs/Model/ActivityWebsiteEntityContentDetail.md)
 - [ActivityWebsiteEntityDetail](docs/Model/ActivityWebsiteEntityDetail.md)
+- [AdminCredentials](docs/Model/AdminCredentials.md)
 - [Allowance](docs/Model/Allowance.md)
 - [ApplicationRoleInfo](docs/Model/ApplicationRoleInfo.md)
 - [AuthNs](docs/Model/AuthNs.md)
@@ -604,6 +653,7 @@ Class | Method | HTTP request | Description
 - [Backup](docs/Model/Backup.md)
 - [BackupAction](docs/Model/BackupAction.md)
 - [BackupDetailed](docs/Model/BackupDetailed.md)
+- [BackupDownloadKind](docs/Model/BackupDownloadKind.md)
 - [BackupKind](docs/Model/BackupKind.md)
 - [BackupOptions](docs/Model/BackupOptions.md)
 - [BackupRemoteStorageS3](docs/Model/BackupRemoteStorageS3.md)
@@ -633,6 +683,7 @@ Class | Method | HTTP request | Description
 - [CrontabValueCmdCronCmd](docs/Model/CrontabValueCmdCronCmd.md)
 - [CrontabValueVariable](docs/Model/CrontabValueVariable.md)
 - [CrontabValueVariableVariable](docs/Model/CrontabValueVariableVariable.md)
+- [Customer](docs/Model/Customer.md)
 - [CustomersListing](docs/Model/CustomersListing.md)
 - [DaemonKind](docs/Model/DaemonKind.md)
 - [DatabaseRoleInfo](docs/Model/DatabaseRoleInfo.md)
@@ -641,6 +692,7 @@ Class | Method | HTTP request | Description
 - [DeleteWebsiteDomainVhostRequest](docs/Model/DeleteWebsiteDomainVhostRequest.md)
 - [DemoMode](docs/Model/DemoMode.md)
 - [DeviceKind](docs/Model/DeviceKind.md)
+- [DirectoryTreeNode](docs/Model/DirectoryTreeNode.md)
 - [Disk](docs/Model/Disk.md)
 - [DnsQueryOutcome](docs/Model/DnsQueryOutcome.md)
 - [DnsRecord](docs/Model/DnsRecord.md)
@@ -684,6 +736,7 @@ Class | Method | HTTP request | Description
 - [FtpUsersFullListing](docs/Model/FtpUsersFullListing.md)
 - [GetServerRole200Response](docs/Model/GetServerRole200Response.md)
 - [GetWordpressAppVersion200Response](docs/Model/GetWordpressAppVersion200Response.md)
+- [GlobalWebsiteBackup](docs/Model/GlobalWebsiteBackup.md)
 - [HttpError](docs/Model/HttpError.md)
 - [HttpdStatus](docs/Model/HttpdStatus.md)
 - [ImportKind](docs/Model/ImportKind.md)
@@ -713,10 +766,14 @@ Class | Method | HTTP request | Description
 - [InstallableWebsiteAppsFullListing](docs/Model/InstallableWebsiteAppsFullListing.md)
 - [InterfaceIp](docs/Model/InterfaceIp.md)
 - [InviteValidation](docs/Model/InviteValidation.md)
+- [JoomlaInfo](docs/Model/JoomlaInfo.md)
+- [JoomlaUser](docs/Model/JoomlaUser.md)
+- [JoomlaUsersFullListing](docs/Model/JoomlaUsersFullListing.md)
 - [LetsEncryptPreflightResult](docs/Model/LetsEncryptPreflightResult.md)
 - [LicenceInfo](docs/Model/LicenceInfo.md)
 - [LicenceKey](docs/Model/LicenceKey.md)
 - [LicenceStatus](docs/Model/LicenceStatus.md)
+- [ListedPersistentApp](docs/Model/ListedPersistentApp.md)
 - [LocalRemote](docs/Model/LocalRemote.md)
 - [LocalRemoteBody](docs/Model/LocalRemoteBody.md)
 - [LogAction](docs/Model/LogAction.md)
@@ -734,6 +791,7 @@ Class | Method | HTTP request | Description
 - [LoginMembership](docs/Model/LoginMembership.md)
 - [LoginMemberships](docs/Model/LoginMemberships.md)
 - [LoginsListing](docs/Model/LoginsListing.md)
+- [LsphpSettings](docs/Model/LsphpSettings.md)
 - [MaintenanceMode](docs/Model/MaintenanceMode.md)
 - [MaintenanceModeStatus](docs/Model/MaintenanceModeStatus.md)
 - [Member](docs/Model/Member.md)
@@ -777,6 +835,7 @@ Class | Method | HTTP request | Description
 - [NewFtpUser](docs/Model/NewFtpUser.md)
 - [NewImportServerSettings](docs/Model/NewImportServerSettings.md)
 - [NewInvite](docs/Model/NewInvite.md)
+- [NewJoomlaUser](docs/Model/NewJoomlaUser.md)
 - [NewMappedDomain](docs/Model/NewMappedDomain.md)
 - [NewMember](docs/Model/NewMember.md)
 - [NewMigrationDetails](docs/Model/NewMigrationDetails.md)
@@ -798,6 +857,7 @@ Class | Method | HTTP request | Description
 - [NewWebsite](docs/Model/NewWebsite.md)
 - [NewWebsiteApp](docs/Model/NewWebsiteApp.md)
 - [NewWpUser](docs/Model/NewWpUser.md)
+- [NodeVersion](docs/Model/NodeVersion.md)
 - [OperationStatus](docs/Model/OperationStatus.md)
 - [OrchdLogSettings](docs/Model/OrchdLogSettings.md)
 - [OrchdLoginPolicyEmailList](docs/Model/OrchdLoginPolicyEmailList.md)
@@ -811,6 +871,9 @@ Class | Method | HTTP request | Description
 - [OutboundSpamScanningSettings](docs/Model/OutboundSpamScanningSettings.md)
 - [Outcome](docs/Model/Outcome.md)
 - [OwaspVersion](docs/Model/OwaspVersion.md)
+- [PersistentApp](docs/Model/PersistentApp.md)
+- [PersistentAppProxyDetails](docs/Model/PersistentAppProxyDetails.md)
+- [PersistentAppStartMode](docs/Model/PersistentAppStartMode.md)
 - [PhpIni](docs/Model/PhpIni.md)
 - [PhpVersion](docs/Model/PhpVersion.md)
 - [Plan](docs/Model/Plan.md)
@@ -832,6 +895,7 @@ Class | Method | HTTP request | Description
 - [ResourceCountByInterval](docs/Model/ResourceCountByInterval.md)
 - [ResourceName](docs/Model/ResourceName.md)
 - [RestoreDetailed](docs/Model/RestoreDetailed.md)
+- [RestoreUploadedBackupRequest](docs/Model/RestoreUploadedBackupRequest.md)
 - [RewriteChain](docs/Model/RewriteChain.md)
 - [RewriteChainCondsInner](docs/Model/RewriteChainCondsInner.md)
 - [RewriteChainFullListing](docs/Model/RewriteChainFullListing.md)
@@ -865,6 +929,7 @@ Class | Method | HTTP request | Description
 - [ServerRoleState](docs/Model/ServerRoleState.md)
 - [ServerSniMapping](docs/Model/ServerSniMapping.md)
 - [ServerSniMappingBody](docs/Model/ServerSniMappingBody.md)
+- [ServerSpecs](docs/Model/ServerSpecs.md)
 - [ServerStatEntry](docs/Model/ServerStatEntry.md)
 - [ServerStatsFullListing](docs/Model/ServerStatsFullListing.md)
 - [ServerStatus](docs/Model/ServerStatus.md)
@@ -919,6 +984,7 @@ Class | Method | HTTP request | Description
 - [UiPreferences](docs/Model/UiPreferences.md)
 - [UiPreferencesViewKind](docs/Model/UiPreferencesViewKind.md)
 - [UnixTimestamp](docs/Model/UnixTimestamp.md)
+- [UpdateAccessToken](docs/Model/UpdateAccessToken.md)
 - [UpdateApplicationRole](docs/Model/UpdateApplicationRole.md)
 - [UpdateAutoresponder](docs/Model/UpdateAutoresponder.md)
 - [UpdateBackupRemoteStorageS3](docs/Model/UpdateBackupRemoteStorageS3.md)
@@ -941,8 +1007,12 @@ Class | Method | HTTP request | Description
 - [UpdateLogin](docs/Model/UpdateLogin.md)
 - [UpdateLoginResult](docs/Model/UpdateLoginResult.md)
 - [UpdateMember](docs/Model/UpdateMember.md)
+- [UpdatePersistentApp](docs/Model/UpdatePersistentApp.md)
+- [UpdatePersistentAppNodeVersion](docs/Model/UpdatePersistentAppNodeVersion.md)
+- [UpdatePersistentAppProxyDetails](docs/Model/UpdatePersistentAppProxyDetails.md)
 - [UpdatePlan](docs/Model/UpdatePlan.md)
 - [UpdatePlanDefaultServerGroupId](docs/Model/UpdatePlanDefaultServerGroupId.md)
+- [UpdatePlanPreinstallWordpressTheme](docs/Model/UpdatePlanPreinstallWordpressTheme.md)
 - [UpdateRewriteChain](docs/Model/UpdateRewriteChain.md)
 - [UpdateRewriteChainFullListing](docs/Model/UpdateRewriteChainFullListing.md)
 - [UpdateServerRoleRequest](docs/Model/UpdateServerRoleRequest.md)
@@ -994,6 +1064,7 @@ Class | Method | HTTP request | Description
 - [WebsiteServerDomains](docs/Model/WebsiteServerDomains.md)
 - [WebsiteStatus](docs/Model/WebsiteStatus.md)
 - [WebsitesListing](docs/Model/WebsitesListing.md)
+- [WordPressInfo](docs/Model/WordPressInfo.md)
 - [WordpressConfig](docs/Model/WordpressConfig.md)
 - [WpDebug](docs/Model/WpDebug.md)
 - [WpDebugDisplay](docs/Model/WpDebugDisplay.md)
@@ -1039,6 +1110,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `12.0.0`
-    - Generator version: `7.9.0-SNAPSHOT`
+- API version: `12.21.3`
+    - Generator version: `7.23.0-SNAPSHOT`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

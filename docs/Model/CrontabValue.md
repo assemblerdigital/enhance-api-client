@@ -1,4 +1,4 @@
-# # CrontabValue
+# CrontabValue
 
 ## Properties
 

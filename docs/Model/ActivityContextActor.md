@@ -1,4 +1,4 @@
-# # ActivityContextActor
+# ActivityContextActor
 
 ## Properties
 

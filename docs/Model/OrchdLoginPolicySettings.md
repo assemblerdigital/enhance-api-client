@@ -1,4 +1,4 @@
-# # OrchdLoginPolicySettings
+# OrchdLoginPolicySettings
 
 ## Properties
 

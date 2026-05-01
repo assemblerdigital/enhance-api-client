@@ -1,4 +1,4 @@
-# # BackupStatus
+# BackupStatus
 
 ## Properties
 

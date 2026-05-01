@@ -1,4 +1,4 @@
-# # VhostWebserverKind
+# VhostWebserverKind
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # DeviceKind
+# DeviceKind
 
 ## Properties
 

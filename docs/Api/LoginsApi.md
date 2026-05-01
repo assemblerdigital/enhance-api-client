@@ -1,5 +1,7 @@
 # OpenAPI\Client\LoginsApi
 
+Login related endpoints
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -1120,7 +1122,7 @@ $apiInstance = new OpenAPI\Client\Api\LoginsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$avatar = "/path/to/file.txt"; // \SplFileObject
+$avatar = '/path/to/file.txt'; // \SplFileObject
 
 try {
     $apiInstance->setLoginAvatar($avatar);

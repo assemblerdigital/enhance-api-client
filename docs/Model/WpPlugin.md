@@ -1,4 +1,4 @@
-# # WpPlugin
+# WpPlugin
 
 ## Properties
 

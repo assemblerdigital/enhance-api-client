@@ -1,4 +1,4 @@
-# # ServiceLog
+# ServiceLog
 
 ## Properties
 

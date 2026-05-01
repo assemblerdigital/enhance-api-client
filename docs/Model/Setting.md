@@ -1,4 +1,4 @@
-# # Setting
+# Setting
 
 ## Properties
 

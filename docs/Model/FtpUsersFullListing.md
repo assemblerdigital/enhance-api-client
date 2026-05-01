@@ -1,4 +1,4 @@
-# # FtpUsersFullListing
+# FtpUsersFullListing
 
 ## Properties
 

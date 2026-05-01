@@ -1,4 +1,4 @@
-# # SlaveRegistration
+# SlaveRegistration
 
 ## Properties
 

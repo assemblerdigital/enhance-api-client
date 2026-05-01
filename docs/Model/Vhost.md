@@ -1,4 +1,4 @@
-# # Vhost
+# Vhost
 
 ## Properties
 

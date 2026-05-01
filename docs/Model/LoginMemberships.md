@@ -1,4 +1,4 @@
-# # LoginMemberships
+# LoginMemberships
 
 ## Properties
 

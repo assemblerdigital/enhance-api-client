@@ -1,4 +1,4 @@
-# # ImportKind
+# ImportKind
 
 ## Properties
 

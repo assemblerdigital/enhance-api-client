@@ -1,4 +1,4 @@
-# # ServiceStatusAction
+# ServiceStatusAction
 
 ## Properties
 

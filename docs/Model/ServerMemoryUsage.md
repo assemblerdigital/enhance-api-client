@@ -1,4 +1,4 @@
-# # ServerMemoryUsage
+# ServerMemoryUsage
 
 ## Properties
 

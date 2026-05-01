@@ -1,5 +1,7 @@
 # OpenAPI\Client\TagsApi
 
+Endpoints for manipulating tags belonging to an organization
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

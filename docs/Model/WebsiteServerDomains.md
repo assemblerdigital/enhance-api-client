@@ -1,4 +1,4 @@
-# # WebsiteServerDomains
+# WebsiteServerDomains
 
 ## Properties
 

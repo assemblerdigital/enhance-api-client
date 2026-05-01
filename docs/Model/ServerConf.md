@@ -1,4 +1,4 @@
-# # ServerConf
+# ServerConf
 
 ## Properties
 

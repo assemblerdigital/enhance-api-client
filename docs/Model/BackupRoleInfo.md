@@ -1,4 +1,4 @@
-# # BackupRoleInfo
+# BackupRoleInfo
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # WebsitePhpSettings
+# WebsitePhpSettings
 
 ## Properties
 

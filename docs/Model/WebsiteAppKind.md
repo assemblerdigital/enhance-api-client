@@ -1,4 +1,4 @@
-# # WebsiteAppKind
+# WebsiteAppKind
 
 ## Properties
 

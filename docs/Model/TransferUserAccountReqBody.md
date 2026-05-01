@@ -1,4 +1,4 @@
-# # TransferUserAccountReqBody
+# TransferUserAccountReqBody
 
 ## Properties
 

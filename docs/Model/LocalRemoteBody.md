@@ -1,4 +1,4 @@
-# # LocalRemoteBody
+# LocalRemoteBody
 
 ## Properties
 

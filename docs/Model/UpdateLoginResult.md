@@ -1,4 +1,4 @@
-# # UpdateLoginResult
+# UpdateLoginResult
 
 ## Properties
 

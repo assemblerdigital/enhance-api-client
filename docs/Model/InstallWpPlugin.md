@@ -1,4 +1,4 @@
-# # InstallWpPlugin
+# InstallWpPlugin
 
 ## Properties
 

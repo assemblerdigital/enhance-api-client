@@ -1,4 +1,4 @@
-# # ServersListing
+# ServersListing
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # DaemonKind
+# DaemonKind
 
 ## Properties
 

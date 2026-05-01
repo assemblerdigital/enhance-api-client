@@ -1,4 +1,4 @@
-# # RolesInfo
+# RolesInfo
 
 ## Properties
 
@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **application** | [**\OpenAPI\Client\Model\ApplicationRoleInfo**](ApplicationRoleInfo.md) |  | [optional]
 **dns** | [**\OpenAPI\Client\Model\DnsRoleInfo**](DnsRoleInfo.md) |  | [optional]
 **webserver_kind** | [**\OpenAPI\Client\Model\WebserverKind**](WebserverKind.md) |  | [optional]
+**mysql_kind** | [**\OpenAPI\Client\Model\MysqlKind**](MysqlKind.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

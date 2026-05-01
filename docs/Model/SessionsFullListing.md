@@ -1,4 +1,4 @@
-# # SessionsFullListing
+# SessionsFullListing
 
 ## Properties
 

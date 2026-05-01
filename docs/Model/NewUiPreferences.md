@@ -1,4 +1,4 @@
-# # NewUiPreferences
+# NewUiPreferences
 
 ## Properties
 

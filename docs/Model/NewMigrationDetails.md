@@ -1,4 +1,4 @@
-# # NewMigrationDetails
+# NewMigrationDetails
 
 ## Properties
 

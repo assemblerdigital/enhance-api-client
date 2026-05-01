@@ -1,4 +1,4 @@
-# # WebsiteCloneEnumStatus
+# WebsiteCloneEnumStatus
 
 ## Properties
 

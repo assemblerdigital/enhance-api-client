@@ -1,5 +1,7 @@
 # OpenAPI\Client\ImportersApi
 
+Endpoints for importing from other systems
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -1267,7 +1269,7 @@ $apiInstance = new OpenAPI\Client\Api\ImportersApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $import_migration_kind = 'import_migration_kind_example'; // string | The type of migration file being uploaded.
-$backup = "/path/to/file.txt"; // \SplFileObject
+$backup = '/path/to/file.txt'; // \SplFileObject
 
 try {
     $result = $apiInstance->uploadImportMigration($org_id, $import_migration_kind, $backup);

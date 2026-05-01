@@ -1,4 +1,4 @@
-# # OrchdLoginPolicyIpList
+# OrchdLoginPolicyIpList
 
 ## Properties
 

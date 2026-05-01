@@ -1,4 +1,4 @@
-# # MySQLDB
+# MySQLDB
 
 ## Properties
 

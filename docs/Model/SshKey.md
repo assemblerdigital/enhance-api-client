@@ -1,4 +1,4 @@
-# # SshKey
+# SshKey
 
 ## Properties
 

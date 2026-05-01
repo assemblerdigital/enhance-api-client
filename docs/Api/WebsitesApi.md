@@ -1,5 +1,7 @@
 # OpenAPI\Client\WebsitesApi
 
+Website related endpoints
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -27,6 +29,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**deleteWebsites()**](WebsitesApi.md#deleteWebsites) | **DELETE** /orgs/{org_id}/websites | Delete websites |
 | [**disableWebsitePhpExtension()**](WebsitesApi.md#disableWebsitePhpExtension) | **DELETE** /websites/{website_id}/php_extensions | Disable a PHP extension |
 | [**enableWebsitePhpExtension()**](WebsitesApi.md#enableWebsitePhpExtension) | **POST** /websites/{website_id}/php_extensions | Enable a PHP extension |
+| [**getBuiltInPhpExtensions()**](WebsitesApi.md#getBuiltInPhpExtensions) | **GET** /websites/{website_id}/built_in_php_extensions | Get a list of the PHP extensions compiled in to the currently selected version of PHP for this website |
 | [**getDomainNginxFastCgi()**](WebsitesApi.md#getDomainNginxFastCgi) | **GET** /v2/domains/{domain_id}/nginx_fastcgi | Get status of Nginx FastCGI enablement |
 | [**getDomainNginxFastCgiExcludedPaths()**](WebsitesApi.md#getDomainNginxFastCgiExcludedPaths) | **GET** /v2/domains/{domain_id}/nginx_fastcgi_excluded_paths | Get Nginx FastCGI excluded paths |
 | [**getDomainWebserverRewrites()**](WebsitesApi.md#getDomainWebserverRewrites) | **GET** /v2/domains/{domain_id}/webserver_rewrites | Get web server rewrites for specified domain |
@@ -37,6 +40,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getWebsite()**](WebsitesApi.md#getWebsite) | **GET** /orgs/{org_id}/websites/{website_id} | Get website |
 | [**getWebsiteAvailablePhpExtensions()**](WebsitesApi.md#getWebsiteAvailablePhpExtensions) | **GET** /websites/{website_id}/available_php_extensions | Get available PHP extensions for a website |
 | [**getWebsiteBackupStatus()**](WebsitesApi.md#getWebsiteBackupStatus) | **GET** /orgs/{org_id}/websites/{website_id}/status/backup | Get the status of an ongoing website backup operation |
+| [**getWebsiteBackupsDisabledStatus()**](WebsitesApi.md#getWebsiteBackupsDisabledStatus) | **GET** /websites/{website_id}/backups_disabled | Get backups disabled status on a website |
 | [**getWebsiteCgroupLimits()**](WebsitesApi.md#getWebsiteCgroupLimits) | **GET** /orgs/{org_id}/websites/{website_id}/cgroup_limits | Get the active cgroup limits for a website |
 | [**getWebsiteClone()**](WebsitesApi.md#getWebsiteClone) | **GET** /orgs/{org_id}/websites/clone/{clone_id} | Get&#39;s detail about a single push live |
 | [**getWebsiteCloneLog()**](WebsitesApi.md#getWebsiteCloneLog) | **GET** /orgs/{org_id}/websites/clone/{clone_id}/log | Get the log for a given clone id.. |
@@ -53,9 +57,11 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**getWebsiteHtaccessIpsRule()**](WebsitesApi.md#getWebsiteHtaccessIpsRule) | **GET** /orgs/{org_id}/websites/{website_id}/htaccess/ips | Returns current rules of blocked/whitelisted IPs |
 | [**getWebsiteHtaccessRewrites()**](WebsitesApi.md#getWebsiteHtaccessRewrites) | **GET** /orgs/{org_id}/websites/{website_id}/htaccess | Reads chains of rewrite rules |
 | [**getWebsiteIoncubeStatus()**](WebsitesApi.md#getWebsiteIoncubeStatus) | **GET** /v2/websites/{website_id}/ioncube | Get ioncube status for an existing website |
+| [**getWebsiteLsphpSettings()**](WebsitesApi.md#getWebsiteLsphpSettings) | **GET** /websites/{website_id}/lsphp_settings | Get the LSPHP settings for this website |
 | [**getWebsiteMailDomainSslCert()**](WebsitesApi.md#getWebsiteMailDomainSslCert) | **GET** /v2/domains/{domain_id}/mail_ssl | Returns the SSL for this website domain with the mail.prefix |
 | [**getWebsiteMetrics()**](WebsitesApi.md#getWebsiteMetrics) | **GET** /orgs/{org_id}/websites/{website_id}/metrics | Get website metrics |
 | [**getWebsiteMySQLDBs()**](WebsitesApi.md#getWebsiteMySQLDBs) | **GET** /orgs/{org_id}/websites/{website_id}/mysql-dbs | Get website MySQL databases |
+| [**getWebsitePhpErrorLog()**](WebsitesApi.md#getWebsitePhpErrorLog) | **GET** /websites/{website_id}/php_error_log | Get last 256KB of PHP error log |
 | [**getWebsiteRedisState()**](WebsitesApi.md#getWebsiteRedisState) | **GET** /v2/websites/{website_id}/redis | Get redis state for a website |
 | [**getWebsiteServerDomains()**](WebsitesApi.md#getWebsiteServerDomains) | **GET** /orgs/{org_id}/websites/{website_id}/server_domains | Fetch website server domains |
 | [**getWebsiteSetting()**](WebsitesApi.md#getWebsiteSetting) | **GET** /orgs/{org_id}/websites/{website_id}/settings/{setting_kind} | Get the value for a particular setting |
@@ -67,12 +73,14 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**restartWebsitePhp()**](WebsitesApi.md#restartWebsitePhp) | **POST** /v2/websites/{website_id}/restart_php | Restart PHP container for a website |
 | [**setDomainNginxFastCgi()**](WebsitesApi.md#setDomainNginxFastCgi) | **PUT** /v2/domains/{domain_id}/nginx_fastcgi | Set Nginx FastCGI enablement |
 | [**setDomainWebserverRewrite()**](WebsitesApi.md#setDomainWebserverRewrite) | **PUT** /v2/domains/{domain_id}/webserver_rewrites | Set web server rewrite to file |
+| [**setWebsiteBackupsDisabledStatus()**](WebsitesApi.md#setWebsiteBackupsDisabledStatus) | **PUT** /websites/{website_id}/backups_disabled | Set backups disabled status on a website |
 | [**setWebsiteCgroupLimits()**](WebsitesApi.md#setWebsiteCgroupLimits) | **PUT** /orgs/{org_id}/websites/{website_id}/cgroup_limits | Set the active cgroup limits for a website (Master org only) |
 | [**setWebsiteDomainForceSsl()**](WebsitesApi.md#setWebsiteDomainForceSsl) | **PUT** /v2/domains/{domain_id}/ssl/force_ssl | Set \&quot;force ssl\&quot; status for domain mapping |
 | [**setWebsiteDomainModSecStatus()**](WebsitesApi.md#setWebsiteDomainModSecStatus) | **PUT** /v2/domains/{domain_id}/modsec_status | Set mod security status on a single domain |
 | [**setWebsiteDomainVhost()**](WebsitesApi.md#setWebsiteDomainVhost) | **PUT** /v2/domains/{domain_id}/vhost | Set a custom vhost file |
 | [**setWebsiteFsQuotaLimits()**](WebsitesApi.md#setWebsiteFsQuotaLimits) | **PUT** /orgs/{org_id}/websites/{website_id}/fs_quota_limits | Set the active FS quota limits for a website (Master org only) |
 | [**setWebsiteIoncubeStatus()**](WebsitesApi.md#setWebsiteIoncubeStatus) | **PUT** /v2/websites/{website_id}/ioncube | Set ioncube status for an existing website |
+| [**setWebsiteLsphpSettings()**](WebsitesApi.md#setWebsiteLsphpSettings) | **PUT** /websites/{website_id}/lsphp_settings | Set the LSPHP settings for this website |
 | [**setWebsiteRedisState()**](WebsitesApi.md#setWebsiteRedisState) | **PUT** /v2/websites/{website_id}/redis | Set Redis state for an existing website |
 | [**setWebsiteSetting()**](WebsitesApi.md#setWebsiteSetting) | **PUT** /orgs/{org_id}/websites/{website_id}/settings/{setting_kind}/{setting_key} | Set a single override setting |
 | [**takeScreenshot()**](WebsitesApi.md#takeScreenshot) | **POST** /orgs/{org_id}/websites/{website_id}/domains/{domain_id}/screenshot/take | Take website screenshot immediately |
@@ -594,7 +602,7 @@ $apiInstance = new OpenAPI\Client\Api\WebsitesApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $new_website = new \OpenAPI\Client\Model\NewWebsite(); // \OpenAPI\Client\Model\NewWebsite | New website details. If the organization is the MO, they need not have a subscription to create a website. In all other cases organization needs to be subscribed to a plan that allows creating websites.
-$kind = new \OpenAPI\Client\Model\WebsiteKind(); // WebsiteKind | The kind of a *special* website that needs to be created. Whether this website is to be a *control panel* website or a *phpMyAdmin* website. Note: in order to create a new *phpMyAdmin* website the control panel website needs to be created first, since the new phpMyAdmin website will be under the control panel domain.
+$kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\WebsiteKind(); // \OpenAPI\Client\Model\WebsiteKind | The kind of a *special* website that needs to be created. Whether this website is to be a *control panel* website or a *phpMyAdmin* website. Note: in order to create a new *phpMyAdmin* website the control panel website needs to be created first, since the new phpMyAdmin website will be under the control panel domain.
 
 try {
     $result = $apiInstance->createWebsite($org_id, $new_website, $kind);
@@ -610,7 +618,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **new_website** | [**\OpenAPI\Client\Model\NewWebsite**](../Model/NewWebsite.md)| New website details. If the organization is the MO, they need not have a subscription to create a website. In all other cases organization needs to be subscribed to a plan that allows creating websites. | |
-| **kind** | [**WebsiteKind**](../Model/.md)| The kind of a *special* website that needs to be created. Whether this website is to be a *control panel* website or a *phpMyAdmin* website. Note: in order to create a new *phpMyAdmin* website the control panel website needs to be created first, since the new phpMyAdmin website will be under the control panel domain. | [optional] |
+| **kind** | [**\OpenAPI\Client\Model\WebsiteKind**](../Model/.md)| The kind of a *special* website that needs to be created. Whether this website is to be a *control panel* website or a *phpMyAdmin* website. Note: in order to create a new *phpMyAdmin* website the control panel website needs to be created first, since the new phpMyAdmin website will be under the control panel domain. | [optional] |
 
 ### Return type
 
@@ -1356,7 +1364,7 @@ $apiInstance = new OpenAPI\Client\Api\WebsitesApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$setting_kind = new \OpenAPI\Client\Model\SettingKind(); // SettingKind | The type of setting being applied
+$setting_kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\SettingKind(); // \OpenAPI\Client\Model\SettingKind | The type of setting being applied
 $setting_key = 'setting_key_example'; // string | A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl
 
 try {
@@ -1372,7 +1380,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **setting_kind** | [**SettingKind**](../Model/.md)| The type of setting being applied | |
+| **setting_kind** | [**\OpenAPI\Client\Model\SettingKind**](../Model/.md)| The type of setting being applied | |
 | **setting_key** | **string**| A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl | |
 
 ### Return type
@@ -1572,6 +1580,69 @@ void (empty response body)
 
 - **Content-Type**: `application/json`
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getBuiltInPhpExtensions()`
+
+```php
+getBuiltInPhpExtensions($website_id): string[]
+```
+
+Get a list of the PHP extensions compiled in to the currently selected version of PHP for this website
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\WebsitesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$website_id = 'website_id_example'; // string | The id of the website.
+
+try {
+    $result = $apiInstance->getBuiltInPhpExtensions($website_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WebsitesApi->getBuiltInPhpExtensions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **website_id** | **string**| The id of the website. | |
+
+### Return type
+
+**string[]**
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -2233,6 +2304,69 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getWebsiteBackupsDisabledStatus()`
+
+```php
+getWebsiteBackupsDisabledStatus($website_id): bool
+```
+
+Get backups disabled status on a website
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\WebsitesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$website_id = 'website_id_example'; // string | The id of the website.
+
+try {
+    $result = $apiInstance->getWebsiteBackupsDisabledStatus($website_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WebsitesApi->getWebsiteBackupsDisabledStatus: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **website_id** | **string**| The id of the website. | |
+
+### Return type
+
+**bool**
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getWebsiteCgroupLimits()`
 
 ```php
@@ -2440,7 +2574,7 @@ getWebsiteClones($org_id): \OpenAPI\Client\Model\WebsiteCloneFullListing
 
 List website clones for given OrgId
 
-List of all webiste clones for the given OrgId.
+List of all website clones for the given OrgId.
 
 ### Example
 
@@ -3264,6 +3398,71 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getWebsiteLsphpSettings()`
+
+```php
+getWebsiteLsphpSettings($website_id): \OpenAPI\Client\Model\LsphpSettings
+```
+
+Get the LSPHP settings for this website
+
+Only for websites on Litespeed or Openlitespeed
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\WebsitesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$website_id = 'website_id_example'; // string | The id of the website.
+
+try {
+    $result = $apiInstance->getWebsiteLsphpSettings($website_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WebsitesApi->getWebsiteLsphpSettings: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **website_id** | **string**| The id of the website. | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\LsphpSettings**](../Model/LsphpSettings.md)
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getWebsiteMailDomainSslCert()`
 
 ```php
@@ -3345,8 +3544,8 @@ $apiInstance = new OpenAPI\Client\Api\WebsitesApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Start datetime UTC.
-$end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | End datetime UTC.
+$start = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start datetime UTC.
+$end = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End datetime UTC.
 $granularity = 'granularity_example'; // string | Takes one of `hour`, `day`, defaults to `day`
 
 try {
@@ -3432,6 +3631,69 @@ try {
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getWebsitePhpErrorLog()`
+
+```php
+getWebsitePhpErrorLog($website_id): string
+```
+
+Get last 256KB of PHP error log
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\WebsitesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$website_id = 'website_id_example'; // string | The id of the website.
+
+try {
+    $result = $apiInstance->getWebsitePhpErrorLog($website_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WebsitesApi->getWebsitePhpErrorLog: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **website_id** | **string**| The id of the website. | |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -3606,7 +3868,7 @@ $apiInstance = new OpenAPI\Client\Api\WebsitesApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$setting_kind = new \OpenAPI\Client\Model\SettingKind(); // SettingKind | The type of setting being applied
+$setting_kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\SettingKind(); // \OpenAPI\Client\Model\SettingKind | The type of setting being applied
 
 try {
     $result = $apiInstance->getWebsiteSetting($org_id, $website_id, $setting_kind);
@@ -3622,7 +3884,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **setting_kind** | [**SettingKind**](../Model/.md)| The type of setting being applied | |
+| **setting_kind** | [**\OpenAPI\Client\Model\SettingKind**](../Model/.md)| The type of setting being applied | |
 
 ### Return type
 
@@ -3811,14 +4073,14 @@ $limit = 56; // int | The maximum number of items to return.
 $sort_by = 'sort_by_example'; // string | The field by which to sort.
 $sort_order = 'sort_order_example'; // string | The direction in which to sort. Possible values are 'asc' and 'desc', defaulting to 'asc'.
 $search = 'search_example'; // string | Limit the result set to the resources whose names, partially and case insensitively, match the specified search term. E.g. for websites, this is their domain or tag, for databases the database name, for emails the email address or mailbox name, etc. A website will also be returned if the search term exactly matches the website's uuid.
-$recursion = new \OpenAPI\Client\Model\Recursion(); // Recursion | If set to directCustomers then websites belonging to direct customers of the orgId will be returned.  If set to infinite then websites belonging to customers of customers (and so on) will be returned.  If unset then no recursion will be performed.
+$recursion = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\Recursion(); // \OpenAPI\Client\Model\Recursion | If set to directCustomers then websites belonging to direct customers of the orgId will be returned.  If set to infinite then websites belonging to customers of customers (and so on) will be returned.  If unset then no recursion will be performed.
 $plan_id = 56; // int | Limit the result set to resources under subscriptions to the plan.
 $subscription_id = 56; // int | Limit the result set to resources under subscription.
-$status = new \OpenAPI\Client\Model\WebsiteStatus(); // WebsiteStatus | Limit the result set to websites with the specified status. Only applicable if `recursive` is set to true.
+$status = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\WebsiteStatus(); // \OpenAPI\Client\Model\WebsiteStatus | Limit the result set to websites with the specified status. Only applicable if `recursive` is set to true.
 $is_suspended = True; // bool | Limit the result set to websites which are currently suspended or not suspended.
 $roles = array(new \OpenAPI\Client\Model\\OpenAPI\Client\Model\ServerRole()); // \OpenAPI\Client\Model\ServerRole[] | Limit the result set to websites having one of these roles assigned to a server.
 $servers = array('servers_example'); // string[] | Limit the result set to websites having one of the selected roles (or all roles) on one of these servers.
-$kind = new \OpenAPI\Client\Model\WebsiteKind(); // WebsiteKind | Limit the results to websites of the specified type.
+$kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\WebsiteKind(); // \OpenAPI\Client\Model\WebsiteKind | Limit the results to websites of the specified type.
 $show_deleted = True; // bool | Filters out deleted websites, which are otherwise returned in the result. Defaults to `showDeleted=true` if not set. Can only be set by MO, if set by others, a 403 is returned.
 $show_aliases = True; // bool | Includes domain aliases in search results and listings in addition to the website's primary domain.
 
@@ -3840,14 +4102,14 @@ try {
 | **sort_by** | **string**| The field by which to sort. | [optional] |
 | **sort_order** | **string**| The direction in which to sort. Possible values are &#39;asc&#39; and &#39;desc&#39;, defaulting to &#39;asc&#39;. | [optional] |
 | **search** | **string**| Limit the result set to the resources whose names, partially and case insensitively, match the specified search term. E.g. for websites, this is their domain or tag, for databases the database name, for emails the email address or mailbox name, etc. A website will also be returned if the search term exactly matches the website&#39;s uuid. | [optional] |
-| **recursion** | [**Recursion**](../Model/.md)| If set to directCustomers then websites belonging to direct customers of the orgId will be returned.  If set to infinite then websites belonging to customers of customers (and so on) will be returned.  If unset then no recursion will be performed. | [optional] |
+| **recursion** | [**\OpenAPI\Client\Model\Recursion**](../Model/.md)| If set to directCustomers then websites belonging to direct customers of the orgId will be returned.  If set to infinite then websites belonging to customers of customers (and so on) will be returned.  If unset then no recursion will be performed. | [optional] |
 | **plan_id** | **int**| Limit the result set to resources under subscriptions to the plan. | [optional] |
 | **subscription_id** | **int**| Limit the result set to resources under subscription. | [optional] |
-| **status** | [**WebsiteStatus**](../Model/.md)| Limit the result set to websites with the specified status. Only applicable if &#x60;recursive&#x60; is set to true. | [optional] |
+| **status** | [**\OpenAPI\Client\Model\WebsiteStatus**](../Model/.md)| Limit the result set to websites with the specified status. Only applicable if &#x60;recursive&#x60; is set to true. | [optional] |
 | **is_suspended** | **bool**| Limit the result set to websites which are currently suspended or not suspended. | [optional] |
 | **roles** | [**\OpenAPI\Client\Model\ServerRole[]**](../Model/\OpenAPI\Client\Model\ServerRole.md)| Limit the result set to websites having one of these roles assigned to a server. | [optional] |
 | **servers** | [**string[]**](../Model/string.md)| Limit the result set to websites having one of the selected roles (or all roles) on one of these servers. | [optional] |
-| **kind** | [**WebsiteKind**](../Model/.md)| Limit the results to websites of the specified type. | [optional] |
+| **kind** | [**\OpenAPI\Client\Model\WebsiteKind**](../Model/.md)| Limit the results to websites of the specified type. | [optional] |
 | **show_deleted** | **bool**| Filters out deleted websites, which are otherwise returned in the result. Defaults to &#x60;showDeleted&#x3D;true&#x60; if not set. Can only be set by MO, if set by others, a 403 is returned. | [optional] |
 | **show_aliases** | **bool**| Includes domain aliases in search results and listings in addition to the website&#39;s primary domain. | [optional] |
 
@@ -4162,6 +4424,72 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **domain_id** | **string**| The id of the domain. | |
 | **web_server_rewrite** | [**\OpenAPI\Client\Model\WebServerRewrite**](../Model/WebServerRewrite.md)| Rewrite a path to a file | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `setWebsiteBackupsDisabledStatus()`
+
+```php
+setWebsiteBackupsDisabledStatus($website_id, $body)
+```
+
+Set backups disabled status on a website
+
+This will prevent automatic and manual backups from being taken.  This is a master org level setting and overrides any other settings.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\WebsitesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$website_id = 'website_id_example'; // string | The id of the website.
+$body = True; // bool | Backups disabled boolean
+
+try {
+    $apiInstance->setWebsiteBackupsDisabledStatus($website_id, $body);
+} catch (Exception $e) {
+    echo 'Exception when calling WebsitesApi->setWebsiteBackupsDisabledStatus: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **website_id** | **string**| The id of the website. | |
+| **body** | **bool**| Backups disabled boolean | |
 
 ### Return type
 
@@ -4541,6 +4869,72 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `setWebsiteLsphpSettings()`
+
+```php
+setWebsiteLsphpSettings($website_id, $lsphp_settings)
+```
+
+Set the LSPHP settings for this website
+
+Only for websites on Litespeed or Openlitespeed
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: sessionCookie
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('id0', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('id0', 'Bearer');
+
+// Configure Bearer authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\WebsitesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$website_id = 'website_id_example'; // string | The id of the website.
+$lsphp_settings = new \OpenAPI\Client\Model\LsphpSettings(); // \OpenAPI\Client\Model\LsphpSettings | Cgroup limits.
+
+try {
+    $apiInstance->setWebsiteLsphpSettings($website_id, $lsphp_settings);
+} catch (Exception $e) {
+    echo 'Exception when calling WebsitesApi->setWebsiteLsphpSettings: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **website_id** | **string**| The id of the website. | |
+| **lsphp_settings** | [**\OpenAPI\Client\Model\LsphpSettings**](../Model/LsphpSettings.md)| Cgroup limits. | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[sessionCookie](../../README.md#sessionCookie), [bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `setWebsiteRedisState()`
 
 ```php
@@ -4639,7 +5033,7 @@ $apiInstance = new OpenAPI\Client\Api\WebsitesApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$setting_kind = new \OpenAPI\Client\Model\SettingKind(); // SettingKind | The type of setting being applied
+$setting_kind = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\SettingKind(); // \OpenAPI\Client\Model\SettingKind | The type of setting being applied
 $setting_key = 'setting_key_example'; // string | A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl
 $service_setting_value = new \OpenAPI\Client\Model\ServiceSettingValue(); // \OpenAPI\Client\Model\ServiceSettingValue
 
@@ -4656,7 +5050,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **org_id** | **string**| The id of the organization. | |
 | **website_id** | **string**| The id of the website. | |
-| **setting_kind** | [**SettingKind**](../Model/.md)| The type of setting being applied | |
+| **setting_kind** | [**\OpenAPI\Client\Model\SettingKind**](../Model/.md)| The type of setting being applied | |
 | **setting_key** | **string**| A key for updating an existing setting, some known values are - hard_delete_after_secs - letsencrypt_enabled - org_websites_same_server - screenshot_driver_pool_size - screenshot_interval - sged_smtp - smtp_smart_host - website_backup - default_dns_ttl | |
 | **service_setting_value** | [**\OpenAPI\Client\Model\ServiceSettingValue**](../Model/ServiceSettingValue.md)|  | |
 

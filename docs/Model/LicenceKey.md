@@ -1,4 +1,4 @@
-# # LicenceKey
+# LicenceKey
 
 ## Properties
 

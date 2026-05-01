@@ -1,4 +1,4 @@
-# # RewriteChain
+# RewriteChain
 
 ## Properties
 

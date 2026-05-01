@@ -1,4 +1,4 @@
-# # NewAccessTokenResponse
+# NewAccessTokenResponse
 
 ## Properties
 

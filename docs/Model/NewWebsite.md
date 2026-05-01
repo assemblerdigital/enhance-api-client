@@ -1,4 +1,4 @@
-# # NewWebsite
+# NewWebsite
 
 ## Properties
 
@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **email_server_id** | **string** |  | [optional]
 **server_group_id** | **string** |  | [optional]
 **php_version** | [**\OpenAPI\Client\Model\PhpVersion**](PhpVersion.md) |  | [optional]
+**word_press_admin_credentials** | [**\OpenAPI\Client\Model\AdminCredentials**](AdminCredentials.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

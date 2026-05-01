@@ -1,4 +1,4 @@
-# # ServerNetworkStats
+# ServerNetworkStats
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # UpdatePlanDefaultServerGroupId
+# UpdatePlanDefaultServerGroupId
 
 ## Properties
 

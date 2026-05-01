@@ -1,4 +1,4 @@
-# # ServerGroupUpdate
+# ServerGroupUpdate
 
 ## Properties
 

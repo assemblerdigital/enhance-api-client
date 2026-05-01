@@ -1,4 +1,4 @@
-# # DedicatedSubscriptionInfo
+# DedicatedSubscriptionInfo
 
 ## Properties
 

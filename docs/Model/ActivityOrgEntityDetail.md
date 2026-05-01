@@ -1,4 +1,4 @@
-# # ActivityOrgEntityDetail
+# ActivityOrgEntityDetail
 
 ## Properties
 

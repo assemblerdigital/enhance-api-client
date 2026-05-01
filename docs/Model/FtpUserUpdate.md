@@ -1,4 +1,4 @@
-# # FtpUserUpdate
+# FtpUserUpdate
 
 ## Properties
 

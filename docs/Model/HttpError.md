@@ -1,4 +1,4 @@
-# # HttpError
+# HttpError
 
 ## Properties
 

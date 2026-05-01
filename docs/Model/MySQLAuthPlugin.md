@@ -1,4 +1,4 @@
-# # MySQLAuthPlugin
+# MySQLAuthPlugin
 
 ## Properties
 

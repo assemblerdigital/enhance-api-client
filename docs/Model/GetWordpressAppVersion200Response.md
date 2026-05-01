@@ -1,4 +1,4 @@
-# # GetWordpressAppVersion200Response
+# GetWordpressAppVersion200Response
 
 ## Properties
 

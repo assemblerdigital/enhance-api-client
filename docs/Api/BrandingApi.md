@@ -1,5 +1,7 @@
 # OpenAPI\Client\BrandingApi
 
+Reseller specific brandings for default language, contact details, etc
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -883,7 +885,7 @@ $apiInstance = new OpenAPI\Client\Api\BrandingApi(
     $config
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
-$favicon = "/path/to/file.txt"; // \SplFileObject
+$favicon = '/path/to/file.txt'; // \SplFileObject
 
 try {
     $apiInstance->setBrandFavicon($org_id, $favicon);
@@ -949,7 +951,7 @@ $apiInstance = new OpenAPI\Client\Api\BrandingApi(
     $config
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
-$icon = "/path/to/file.txt"; // \SplFileObject
+$icon = '/path/to/file.txt'; // \SplFileObject
 
 try {
     $apiInstance->setBrandInverseIcon($org_id, $icon);
@@ -1015,7 +1017,7 @@ $apiInstance = new OpenAPI\Client\Api\BrandingApi(
     $config
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
-$logo = "/path/to/file.txt"; // \SplFileObject
+$logo = '/path/to/file.txt'; // \SplFileObject
 
 try {
     $apiInstance->setBrandInverseLogo($org_id, $logo);
@@ -1081,7 +1083,7 @@ $apiInstance = new OpenAPI\Client\Api\BrandingApi(
     $config
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
-$login_image = "/path/to/file.txt"; // \SplFileObject
+$login_image = '/path/to/file.txt'; // \SplFileObject
 
 try {
     $apiInstance->setBrandLoginImage($org_id, $login_image);
@@ -1147,7 +1149,7 @@ $apiInstance = new OpenAPI\Client\Api\BrandingApi(
     $config
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
-$logo = "/path/to/file.txt"; // \SplFileObject
+$logo = '/path/to/file.txt'; // \SplFileObject
 
 try {
     $apiInstance->setBrandLogo($org_id, $logo);

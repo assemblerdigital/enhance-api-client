@@ -1,4 +1,4 @@
-# # DatabaseRoleInfo
+# DatabaseRoleInfo
 
 ## Properties
 

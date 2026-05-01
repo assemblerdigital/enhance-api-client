@@ -1,4 +1,4 @@
-# # NewServerGroup
+# NewServerGroup
 
 ## Properties
 

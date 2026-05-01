@@ -1,4 +1,4 @@
-# # OrchdLoginPolicyEmailList
+# OrchdLoginPolicyEmailList
 
 ## Properties
 

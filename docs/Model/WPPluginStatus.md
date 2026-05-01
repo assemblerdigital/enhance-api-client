@@ -1,4 +1,4 @@
-# # WPPluginStatus
+# WPPluginStatus
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # NewBackupRole
+# NewBackupRole
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ActivityObjectEntity
+# ActivityObjectEntity
 
 ## Properties
 

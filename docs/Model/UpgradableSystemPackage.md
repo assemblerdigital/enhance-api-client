@@ -1,4 +1,4 @@
-# # UpgradableSystemPackage
+# UpgradableSystemPackage
 
 ## Properties
 

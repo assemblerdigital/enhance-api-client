@@ -1,4 +1,4 @@
-# # WpSettings
+# WpSettings
 
 ## Properties
 

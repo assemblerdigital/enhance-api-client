@@ -1,4 +1,4 @@
-# # LicenceStatus
+# LicenceStatus
 
 ## Properties
 

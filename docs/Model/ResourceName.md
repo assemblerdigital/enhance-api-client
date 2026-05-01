@@ -1,4 +1,4 @@
-# # ResourceName
+# ResourceName
 
 ## Properties
 

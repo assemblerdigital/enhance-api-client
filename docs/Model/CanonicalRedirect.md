@@ -1,4 +1,4 @@
-# # CanonicalRedirect
+# CanonicalRedirect
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # LicenceInfo
+# LicenceInfo
 
 ## Properties
 

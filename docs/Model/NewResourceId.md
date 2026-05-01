@@ -1,4 +1,4 @@
-# # NewResourceId
+# NewResourceId
 
 ## Properties
 

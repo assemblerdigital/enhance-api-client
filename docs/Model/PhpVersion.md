@@ -1,4 +1,4 @@
-# # PhpVersion
+# PhpVersion
 
 ## Properties
 

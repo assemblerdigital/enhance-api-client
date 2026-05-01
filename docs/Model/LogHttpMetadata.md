@@ -1,4 +1,4 @@
-# # LogHttpMetadata
+# LogHttpMetadata
 
 ## Properties
 

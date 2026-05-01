@@ -1,4 +1,4 @@
-# # MigrationSessionDetails
+# MigrationSessionDetails
 
 ## Properties
 

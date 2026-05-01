@@ -1,4 +1,4 @@
-# # ActivitiesListing
+# ActivitiesListing
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ActivityErrorEntityContent
+# ActivityErrorEntityContent
 
 ## Properties
 

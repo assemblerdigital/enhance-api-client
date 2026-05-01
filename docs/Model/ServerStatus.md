@@ -1,4 +1,4 @@
-# # ServerStatus
+# ServerStatus
 
 ## Properties
 

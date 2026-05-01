@@ -1,4 +1,4 @@
-# # ActivityAccessTokenEntity
+# ActivityAccessTokenEntity
 
 ## Properties
 

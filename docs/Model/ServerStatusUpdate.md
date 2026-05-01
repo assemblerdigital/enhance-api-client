@@ -1,4 +1,4 @@
-# # ServerStatusUpdate
+# ServerStatusUpdate
 
 ## Properties
 

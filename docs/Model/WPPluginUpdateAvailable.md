@@ -1,4 +1,4 @@
-# # WPPluginUpdateAvailable
+# WPPluginUpdateAvailable
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # Login2FA
+# Login2FA
 
 ## Properties
 

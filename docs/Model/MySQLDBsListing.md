@@ -1,4 +1,4 @@
-# # MySQLDBsListing
+# MySQLDBsListing
 
 ## Properties
 

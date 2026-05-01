@@ -1,4 +1,4 @@
-# # DomainInUseStatus
+# DomainInUseStatus
 
 ## Properties
 

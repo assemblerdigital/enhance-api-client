@@ -1,4 +1,4 @@
-# # WpInstallation
+# WpInstallation
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # SpamThresholds
+# SpamThresholds
 
 ## Properties
 

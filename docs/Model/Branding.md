@@ -1,4 +1,4 @@
-# # Branding
+# Branding
 
 ## Properties
 

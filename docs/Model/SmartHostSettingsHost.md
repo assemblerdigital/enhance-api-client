@@ -1,4 +1,4 @@
-# # SmartHostSettingsHost
+# SmartHostSettingsHost
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # Blocked
+# Blocked
 
 ## Properties
 

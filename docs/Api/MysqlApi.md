@@ -1,5 +1,7 @@
 # OpenAPI\Client\MysqlApi
 
+MySQL database related endpoints
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -780,7 +782,7 @@ $apiInstance = new OpenAPI\Client\Api\MysqlApi(
 );
 $website_id = 'website_id_example'; // string | The id of the website.
 $db_name = 'db_name_example'; // string | The name of the database.
-$sql = "/path/to/file.txt"; // \SplFileObject | Upload either a raw sql file (must be utf8 valid string) or .zip or .gz file with the sql string.
+$sql = '/path/to/file.txt'; // \SplFileObject | Upload either a raw sql file (must be utf8 valid string) or .zip or .gz file with the sql string.
 $force = false; // bool
 
 try {

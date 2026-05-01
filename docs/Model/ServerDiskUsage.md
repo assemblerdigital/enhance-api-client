@@ -1,4 +1,4 @@
-# # ServerDiskUsage
+# ServerDiskUsage
 
 ## Properties
 

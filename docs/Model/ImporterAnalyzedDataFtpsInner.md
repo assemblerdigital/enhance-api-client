@@ -1,4 +1,4 @@
-# # ImporterAnalyzedDataFtpsInner
+# ImporterAnalyzedDataFtpsInner
 
 ## Properties
 

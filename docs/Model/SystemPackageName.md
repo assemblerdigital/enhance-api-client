@@ -1,4 +1,4 @@
-# # SystemPackageName
+# SystemPackageName
 
 ## Properties
 

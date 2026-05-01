@@ -1,5 +1,7 @@
 # OpenAPI\Client\MetricsApi
 
+
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -32,8 +34,8 @@ $apiInstance = new OpenAPI\Client\Api\MetricsApi(
 );
 $org_id = 'org_id_example'; // string | The id of the organization.
 $website_id = 'website_id_example'; // string | The id of the website.
-$start = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Start datetime UTC.
-$end = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | End datetime UTC.
+$start = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Start datetime UTC.
+$end = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | End datetime UTC.
 $granularity = 'granularity_example'; // string | Takes one of `hour`, `day`, defaults to `day`
 
 try {

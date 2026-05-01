@@ -1,4 +1,4 @@
-# # NewCustomer
+# NewCustomer
 
 ## Properties
 

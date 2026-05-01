@@ -1,4 +1,4 @@
-# # NewSslCert
+# NewSslCert
 
 ## Properties
 
